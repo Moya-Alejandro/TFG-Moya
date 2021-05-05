@@ -1,0 +1,119 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
+
+.header{
+    display: flex;
+}
+
+.campo {
+    display:flex;
+    height: 50%;
+    width: 60%;
+}
+  
+.campo>input[type=text],
+.campo>button {
+    display:block;
+    font:1.2em 'Montserrat Alternates';
+}
+  
+.campo>input[type=text] {
+  flex:1;
+  padding:0.2em;
+  border:0.2em solid rgb(36, 58, 182);
+}
+  
+.campo>button {
+  padding:0.6em 0.8em;
+  background-color:rgb(36, 58, 182);
+  color:white;
+  border:none;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px rgb(21 47 226);
+  padding: 0 10px;
+  height: 100%;
+  box-shadow: 0 0 1em 0 rgb(21 47 226 / 77%);
+}
+
+.logo{
+  height: 100%;
+  width: 100%;
+}
+
+.contenedor-imagen {
+  width: 180px;
+  height: 70%;
+}
+.lista{
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 15px;
+}
+
+.elemento{
+  width: 30px;
+  height: 30px;
+}
+
+.elemento > img{
+  height: 100%;
+  width: 100%;
+} 
+
+.header-usuario a,li{
+  text-decoration: none;
+  list-style: none;
+}
+
+.header-usuario{
+  display: none;
+  background: white;
+  width: 100vw;
+  position: absolute;
+  top: 97px;
+  padding: 1rem;
+  left: 0;
+  grid-gap: 20px;
+}
+
+#usuario{
+  display: none;
+}
+
+.campo{
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  #usuario:checked ~ .header-usuario{
+    display: grid ;
+  }
+  
+}
+
+@media only screen and (min-width: 769px) {
+  .campo{
+    display: flex;
+  }
+
+  .label{
+    display: flex;
+    width: 100px;
+    height: 100px;
+  }
+
+  .usuario:hover .header-usuario,.header-usuario:hover{
+    display: grid;
+  }
+
+  .header-usuario{
+    width: 200px;
+    right: 0;
+    left: auto;
+  }
+  
+}
