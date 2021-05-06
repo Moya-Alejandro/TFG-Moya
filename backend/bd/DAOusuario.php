@@ -1,7 +1,7 @@
 <?php 
 
 	function insertarUsuarios($conexion,$usuario,$password,$nombre,$apellidos,$telefono,$email,$dni){
-		$consulta = "INSERT INTO usuario (`nUsuario`, `password`, `nombre`, `correo`, `dni`, `telefono`, `rol`, `apellidos`) VALUES ('$usuario', '$password', '$nombre', '$email', '$dni', '$telefono', 'usuario', '$apellidos')";
+		$consulta = "INSERT INTO usuario (`nUsuario`, `password`, `nombre`, `apellidos`, `correo`, `dni`, `telefono`, `rol`) VALUES ('$usuario', '$password', '$nombre', '$email', '$dni', '$telefono', 'usuario', '$apellidos')";
 		$resultadoConsulta = mysqli_query($conexion,$consulta);
 		return $resultadoConsulta;
 	}
@@ -35,7 +35,11 @@
 		$_SESSION['dni'] = $f['dni'];
 	}
 
-
+	function mostrarUsuarios($conexion){
+		$consulta = "SELECT * FROM usuario WHERE (rol = 'usuario')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);
+		return $resultadoConsulta;
+	}
 
 
 

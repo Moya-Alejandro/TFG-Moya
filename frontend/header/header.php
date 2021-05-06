@@ -31,14 +31,14 @@
                     if($rol=="usuario"){
                     ?>
                         <li><a href="">Perfil</a></li>  
-                        <li><a href="../../backend/usuario/cerrarsesion.php">Desconectarse</a></li>
+                        <li><a href="../../backend/usuario/cerrarSesion.php">Desconectarse</a></li>
                     <?php
                     }
                     elseif($rol=="admin"){
                     ?>
                         <li><a href="">Perfil</a></li>
-                        <li><a href="">Panel</a></li>
-                        <li><a href="../../backend/usuario/cerrarsesion.php">Desconectarse</a></li>
+                        <li><a href="../panel/panel.php">Panel</a></li>
+                        <li><a href="../../backend/usuario/cerrarSesion.php">Desconectarse</a></li>
                     <?php
                     }
                     else{
