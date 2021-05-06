@@ -1,5 +1,5 @@
 <?php
-    require '../../backend/bd/DAOusuario.php';
+    require '../../backend/bd/DAOarticulo.php';
     session_start();
     $rol = $_SESSION['rol'];
     if($rol != "admin"){
@@ -20,9 +20,12 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Nombre de la Categoría</th>
-                        <th>Valor</th>
-                        <th colspan="3"><a href="../admin/crearCategoria.php">Crear</a></th>
+                        <th><img src="" alt=""></th>
+                        <th>Nombre del artículo</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Detalles</th>
+                        <th colspan="3"><a href="../admin/crearArticulo.php">Crear</a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,9 +35,12 @@
                     while ($fila = mysqli_fetch_assoc($result)) {
                 ?>
                     <tr>
-                        <td><?php echo $fila['']?></td>
-                        <td><?php echo $fila['']?></td>
-                        <td><?php echo $fila['']?></td>
+                        <td><?php echo $fila['id']?></td>
+                        <td><?php echo $fila['nArticulo']?></td>
+                        <td><?php echo $fila['precio']?></td>
+                        <td><?php echo $fila['stock']?></td>
+                        <td><?php echo $fila['foto']?></td>
+                        <td><?php echo $fila['detalles']?></td>
                     </tr>
                 </tbody>
             </table>

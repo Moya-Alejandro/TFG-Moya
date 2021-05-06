@@ -1,0 +1,16 @@
+.nav{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.navBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+
+.navBar a {
+    text-decoration: none;
+}

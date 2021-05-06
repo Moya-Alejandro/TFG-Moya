@@ -16,7 +16,9 @@
 <body>
     <header class="header">
         <div class="contenedor-imagen">
-            <img class="logo" src="../img/LogoB.png">
+            <a href="../index/index.php">
+                <img class="logo" src="../img/LogoB.png">
+            </a>
         </div>
         <div class="campoBusqueda">
             <input type="text" placeholder="Búsqueda..." />
@@ -37,7 +39,8 @@
                     elseif($rol=="admin"){
                     ?>
                         <li><a href="">Perfil</a></li>
-                        <li><a href="../panel/panel.php">Panel</a></li>
+                        <li><a href="../panel/panelArticulo.php">Artículos</a></li>
+                        <li><a href="../panel/panelCategoria.php">Categorías</a></li>
                         <li><a href="../../backend/usuario/cerrarSesion.php">Desconectarse</a></li>
                     <?php
                     }

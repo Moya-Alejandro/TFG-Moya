@@ -1,3 +1,7 @@
-input{
+.subirImagen{
     display: none;
+}
+
+#errorArticulo,#errorPrecio,#errorStock,#errorFoto{
+    visibility: hidden;
 }

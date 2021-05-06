@@ -118,6 +118,7 @@
     width: 200px;
     right: 0;
     left: auto;
+    z-index: 1;
   }
   
 }
