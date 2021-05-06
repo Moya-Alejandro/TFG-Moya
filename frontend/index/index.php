@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body class="index">
-    <?php require_once('header/header.php') ?>
+    <?php require_once('../header/header.php') ?>
     <div></div>   
 </body>
 </html>

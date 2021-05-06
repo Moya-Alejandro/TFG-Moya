@@ -1,3 +1,9 @@
+<?php
+	require '../../backend/bd/conectarBD.php';
+
+	session_start();
+	$rol = $_SESSION['rol'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,49 +11,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melilla Shooting</title>
-    <link rel="stylesheet" href="header/header.css">
+    <link rel="stylesheet" href="../header/header.css">
 </head>
 <body>
     <header class="header">
         <div class="contenedor-imagen">
-            <img class="logo" src="img/LogoB.png">
+            <img class="logo" src="../img/LogoB.png">
         </div>
-        <div class="campo">
+        <div class="campoBusqueda">
             <input type="text" placeholder="Búsqueda..." />
             <button type="button">Buscar</button>
         </div>
         <ul class="lista">
-            <li class="elemento usuario">
-                <label class="label" for="usuario"><img class="elemento" src="img/user.png" alt="usuario"></label>
-                <input type="checkbox" id="usuario" class="checkboxUsuario"/>
+            <li class="elemento user">
+                <label class="label" for="user"><img  class="elemento" src="../img/user.png" alt="Usuario"></label>
+                <input type="checkbox" id="user" class="checkboxUsuario"/>
                 <ul class="header-usuario">
                     <?php
                     if($rol=="usuario"){
                     ?>
                         <li><a href="">Perfil</a></li>  
-                        <li><a href="">Desconectarse</a></li>
+                        <li><a href="../../backend/usuario/cerrarsesion.php">Desconectarse</a></li>
                     <?php
                     }
                     elseif($rol=="admin"){
                     ?>
                         <li><a href="">Perfil</a></li>
                         <li><a href="">Panel</a></li>
-                        <li><a href="">Desconectarse</a></li>
+                        <li><a href="../../backend/usuario/cerrarsesion.php">Desconectarse</a></li>
                     <?php
                     }
                     else{
                     ?>
-                        <li><a href="">Iniciar Sesión</a></li>
-                        <li><a href="">Registrarse</a></li>
+                        <li><a href="../login/login.php">Iniciar Sesión</a></li>
+                        <li><a href="../registrar/registrar.php">Registrarse</a></li>
                     <?php
                     }
                     ?>
                 </ul>
             </li>
             <li class="elemento">
-                <img src="img/shopping-cart.png" alt="carrito">
+                <label class="label" for="carrito"><img class="elemento" src="../img/shopping-cart.png" alt="carrito"></label>
             </li>
         </ul>
-    </header>
+    </header>   
 </body>
 </html>

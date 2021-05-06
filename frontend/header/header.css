@@ -4,25 +4,25 @@
     display: flex;
 }
 
-.campo {
+.campoBusqueda {
     display:flex;
     height: 50%;
     width: 60%;
 }
   
-.campo>input[type=text],
-.campo>button {
+.campoBusqueda>input[type=text],
+.campoBusqueda>button {
     display:block;
     font:1.2em 'Montserrat Alternates';
 }
   
-.campo>input[type=text] {
+.campoBusqueda>input[type=text] {
   flex:1;
   padding:0.2em;
   border:0.2em solid rgb(36, 58, 182);
 }
   
-.campo>button {
+.campoBusqueda>button {
   padding:0.6em 0.8em;
   background-color:rgb(36, 58, 182);
   color:white;
@@ -48,15 +48,25 @@
   width: 180px;
   height: 70%;
 }
+
 .lista{
   display: grid;
   grid-auto-flow: column;
-  grid-gap: 15px;
+  height: 100%;
+}
+
+.label{
+  display: flex;
+  width: 30px;
+  height: 30px;
 }
 
 .elemento{
-  width: 30px;
-  height: 30px;
+  width: 63px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .elemento > img{
@@ -80,33 +90,27 @@
   grid-gap: 20px;
 }
 
-#usuario{
+#user{
   display: none;
 }
 
-.campo{
+.campoBusqueda{
   display: none;
 }
 
 @media only screen and (max-width: 768px) {
-  #usuario:checked ~ .header-usuario{
+  #user:checked ~ .header-usuario{
     display: grid ;
   }
   
 }
 
 @media only screen and (min-width: 769px) {
-  .campo{
+  .campoBusqueda{
     display: flex;
   }
 
-  .label{
-    display: flex;
-    width: 100px;
-    height: 100px;
-  }
-
-  .usuario:hover .header-usuario,.header-usuario:hover{
+  .user:hover .header-usuario,.header-usuario:hover{
     display: grid;
   }
 
