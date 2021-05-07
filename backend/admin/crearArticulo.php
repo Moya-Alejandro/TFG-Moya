@@ -1,5 +1,4 @@
 <?php 
-
     
     if( !isset( $_FILES["imagen"] ) && empty( $_FILES["imagen"]["name"] )){
         $mensaje = "Suba una foto";

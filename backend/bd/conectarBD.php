@@ -21,7 +21,7 @@
 
 		//Si la conexión se realiza mostará un mensaje y devolverá la variable
 		if ($enlace) {
-			return $enlace;
+			return $enlace;		
 		}
 		//Si no se realiza mostará el error y saldrá del programa
 		else{
@@ -32,3 +32,4 @@
 	}
 
 ?>
+

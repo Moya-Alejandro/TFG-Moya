@@ -9,11 +9,23 @@
     </head>
     <body class="index">
         <?php require_once('../header/header.php') ?>
-        <div class="contenedor">
-            <button onclick="crearInputs()">Crear</button>
-            <div id="inputs">
+    <div class="contenedor">
+        <form id="form" action="../../backend/admin/crearCategoria.php" method="POST">
+            <div class="campos">
+                <div class="campo">
+                    <label for="nombre">Nombre de la Categoría </label>
+                    <input id="nombre" type="text" name="nombre">
+                    <p id="errorNombre">Algo ha salido mal</p>
+                </div>
+                <div class="contenedorInputs">
+                    <input type="button" value="Crear" onclick="crearInputs()">
+                    <div id="inputs">
+                    </div>
+                </div>
             </div>
-        </div>
+            <button>Crear</button>
+        </form>
+    </div>
     </body>
 </html>
 <script src="crearCategoria.js"></script>
