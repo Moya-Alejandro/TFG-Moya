@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div>
-                    <p><strong><?php echo $error?></strong></p>
+                    <p><strong><?php// echo $error?></strong></p>
                     <button type="submit">Crear</button>
                 </div>
             </form>

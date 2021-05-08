@@ -7,15 +7,14 @@
 
     $conexion = conectarBD(true);
 
-    $ultimaId =  crearCategoria($conexion,$nombre);
-    
-    $crearValores = crearValores($conexion,$valores,$ultimaId);
 
-    if($crearValores){
-        header("Location: ../../frontend/index/index.php");
+    try{
+        crearCategoria($conexion,$nombre,$valores);
+        header("Location: ../../frontend/panel/panelCategoria.php");
     }
-    else{
-        header("Location: ../../frontend/registrar/registrar.php");
+    catch(Exception $e){
+        $error = $e->getMessage();
+        header("Location: ../../frontend/admin/crearCategoria.php?error=$error");
     }
 
 ?>

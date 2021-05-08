@@ -1,7 +1,7 @@
 <?php 
 
 	function insertarUsuarios($conexion,$usuario,$password,$nombre,$apellidos,$telefono,$email,$dni){
-		$consulta = "INSERT INTO usuario (`nUsuario`, `password`, `nombre`, `apellidos`, `correo`, `dni`, `telefono`, `rol`) VALUES ('$usuario', '$password', '$nombre', '$email', '$dni', '$telefono', 'usuario', '$apellidos')";
+		$consulta = "INSERT INTO usuario (`nUsuario`, `password`, `nombre`, `apellidos`, `correo`, `dni`, `telefono`, `rol`) VALUES ('$usuario', '$password', '$nombre','$apellidos', '$email', '$dni', '$telefono', 'usuario')";
 		$resultadoConsulta = mysqli_query($conexion,$consulta);
 		return $resultadoConsulta;
 	}

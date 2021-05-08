@@ -1,8 +1,10 @@
 <?php
 	require '../../backend/bd/conectarBD.php';
-
-	session_start();
-	$rol = $_SESSION['rol'];
+    $rol = "invitado";
+	if(session_start()&&isset($_SESSION["rol"])){
+        $rol = $_SESSION['rol'];
+    }
+	
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -44,7 +46,7 @@
                         <li><a href="../../backend/usuario/cerrarSesion.php">Desconectarse</a></li>
                     <?php
                     }
-                    else{
+                    elseif($rol=="invitado"){
                     ?>
                         <li><a href="../login/login.php">Iniciar Sesión</a></li>
                         <li><a href="../registrar/registrar.php">Registrarse</a></li>

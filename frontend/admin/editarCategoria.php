@@ -1,8 +1,18 @@
 <?php
+    require_once('../header/header.php');
+    require '../../backend/bd/DAOcategoria.php';
+
+    $idCategoria = $_GET["idCategoria"];
+    $conexion = conectarBd(true);
+    $datos = datosCategoria($conexion,$idCategoria);
+
     $error = "";
     if(isset($_GET["error"])){
         $error = $_GET["error"];
     }
+
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,20 +24,19 @@
         <link rel="stylesheet" href="../index/index.css">
     </head>
     <body class="index">
-        <?php require_once('../header/header.php') ?>
     <div class="contenedor">
         <form id="form" action="../../backend/admin/crearCategoria.php" method="POST">
             <div class="campos">
                 <div class="campo">
                     <label for="nombre">Nombre de la Categoría </label>
-                    <input id="nombre" type="text" name="nombre">
+                    <input id="nombre" value="<?php echo $datos['nombreOpcion']?>" type="text" name="nombre">
                     <p id="errorNombre">Algo ha salido mal</p>
                 </div>
                 <div class="contenedorInputs">
                     <input type="button" value="Crear" onclick="crearInputs()">
                     <div id="inputs">
                         <div id="1">
-                            <input name="valor[]" type="text">
+                            <input value="<?php echo $datos['nombreValor']?>" name="valor[]" type="text">
                         </div>
                     </div>
                 </div>

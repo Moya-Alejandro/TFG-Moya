@@ -1,8 +1,8 @@
-<?php
+<?php 
+    require_once('../header/header.php');
     require '../../backend/bd/DAOusuario.php';
-    session_start();
-    $rol = $_SESSION['rol'];
-    if($rol != "admin"){
+    require '../../backend/bd/DAOcategoria.php';
+    if($_SESSION["rol"] != "admin"){
         header('Location: ../index/index.php');
     }
 ?>
@@ -16,30 +16,29 @@
         <link rel="stylesheet" href="../index/index.css">
     </head>
     <body class="index">
-        <?php require_once('../header/header.php') ?>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre de la Categoría</th>
-                        <th>Valor</th>
-                        <th colspan="3"><a href="../admin/crearCategoria.php">Crear</a></th>
-                    </tr>
-                </thead>
-                <tbody>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id de la Categoría</th>
+                    <th>Nombre de la Categoría</th>
+                    <th colspan="3"><a href="../admin/crearCategoria.php">Crear</a></th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+                $conexion = conectarBd(true);
+                $result = mostrarCategorias($conexion);
+                while ($fila = mysqli_fetch_assoc($result)) {
+            ?>
+                <tr>
+                    <td><?php echo $fila['id']?></td>
+                    <td><?php echo $fila['nombre']?></td>
+                    <td><button><a href="../admin/editarCategoria.php?idCategoria=<?php echo $fila['id']?>">asdasd</a></button></td>
+                </tr>
                 <?php
-                    $conexion = conectarBd(true);
-                    $result = ($conexion);
-                    while ($fila = mysqli_fetch_assoc($result)) {
+                    }
                 ?>
-                    <tr>
-                        <td><?php echo $fila['']?></td>
-                        <td><?php echo $fila['']?></td>
-                        <td><?php echo $fila['']?></td>
-                    </tr>
-                </tbody>
-            </table>
-        <?php
-            }
-        ?>
+            </tbody>
+        </table>
     </body>
 </html>
