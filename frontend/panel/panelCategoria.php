@@ -2,6 +2,11 @@
     require_once('../header/header.php');
     require '../../backend/bd/DAOusuario.php';
     require '../../backend/bd/DAOcategoria.php';
+    $error = "";
+    if(isset($_GET["error"])){
+        $error = $_GET["error"];
+    }
+    
     if($_SESSION["rol"] != "admin"){
         header('Location: ../index/index.php');
     }
@@ -33,12 +38,14 @@
                 <tr>
                     <td><?php echo $fila['id']?></td>
                     <td><?php echo $fila['nombre']?></td>
-                    <td><button><a href="../admin/editarCategoria.php?idCategoria=<?php echo $fila['id']?>">asdasd</a></button></td>
+                    <td><button><a href="../admin/editarCategoria.php?idCategoria=<?php echo $fila['id']?>">editar</a></button></td>
+                    <td><button><a href="../../backend/admin/borrarCategoria.php?idCategoria=<?php echo $fila['id']?>">borrar</a></button></td>
                 </tr>
                 <?php
                     }
                 ?>
             </tbody>
         </table>
+        <p style="color:red;"><strong><?php echo $error?></strong></p>
     </body>
 </html>

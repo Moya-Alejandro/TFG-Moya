@@ -34,15 +34,16 @@
                     <?php
                     if($rol=="usuario"){
                     ?>
-                        <li><a href="">Perfil</a></li>  
+                        <li><a href="../perfil/perfil.php">Perfil</a></li>  
                         <li><a href="../../backend/usuario/cerrarSesion.php">Desconectarse</a></li>
                     <?php
                     }
                     elseif($rol=="admin"){
                     ?>
-                        <li><a href="">Perfil</a></li>
+                        <li><a href="../perfil/perfil.php">Perfil</a></li>
                         <li><a href="../panel/panelArticulo.php">Artículos</a></li>
                         <li><a href="../panel/panelCategoria.php">Categorías</a></li>
+                        <li><a href="../panel/panelUsuario.php">Usuarios</a></li>
                         <li><a href="../../backend/usuario/cerrarSesion.php">Desconectarse</a></li>
                     <?php
                     }

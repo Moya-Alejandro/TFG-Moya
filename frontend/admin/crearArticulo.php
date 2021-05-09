@@ -1,3 +1,14 @@
+<?php
+    require_once('../header/header.php');
+    require '../../backend/bd/DAOcategoria.php';
+    
+    $error = "";
+    if(isset($_GET["error"])){
+        $error = $_GET["error"];
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -8,7 +19,6 @@
         <link rel="stylesheet" href="../index/index.css">
     </head>
     <body class="index">
-        <?php require_once('../header/header.php') ?>
         <div class="carta-body">
             <form action="../../backend/admin/crearArticulo.php" method="post" enctype="multipart/form-data">
                 <h2>Crear Artículo</h2>
@@ -42,9 +52,27 @@
                         <label for="detalles">Detalles: </label>
                         <textarea name="detalles"><?php echo $fila['detalles'];?></textarea><br><br>
                     </div>
+                    <div class="campo" >
+                        <label for="categoria">Categoria: </label>
+                            <?php 
+                                $conexion = conectarBd(true);
+                                $categorias = mostrarCategorias($conexion);
+                                foreach($categorias as $key => $value ){ 
+                            ?>
+                            <label value="<?php echo $value["id"]?>"><?php echo $value["nombre"]?></label> 
+                            <?php $valores = cogerValores($conexion,$value["id"]); ?>          
+                                <select>
+                                <?php foreach($valores as $key => $value ){?>
+                                    <option value="<?php echo $value["id"]?>"><?php echo $value["nombre"]?></option>
+                                <?php }?>
+                                </select>
+                            <?php 
+                                }
+                            ?>
+                    </div>
                 </div>
                 <div>
-                    <p><strong><?php// echo $error?></strong></p>
+                    <p><strong><?php echo $error?></strong></p>
                     <button type="submit">Crear</button>
                 </div>
             </form>

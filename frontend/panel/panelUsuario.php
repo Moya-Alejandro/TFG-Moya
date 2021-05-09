@@ -27,7 +27,7 @@
                     <th>DNI</th>
                     <th>Telefono</th>
                     <th>Rol</th>  
-                    <th colspan="3"><a href="">Crear</a></th>
+                    <th colspan="3"><a href="../registrar/registrar.php">Crear</a></th>
                 </tr>
             </thead>
             <tbody>
@@ -47,11 +47,12 @@
                     <td><?php echo $fila['dni']?></td>
                     <td><?php echo $fila['telefono']?></td>
                     <td><?php echo $fila['rol']?></td>
+                    <td><a href="../../backend/usuario/borrarUsuario.php?id=<?php echo $fila['id']?>">Borrar</a></td>
                 </tr>
+                <?php
+                    }
+                ?>
             </tbody>
         </table>
-        <?php
-            }
-        ?>
     </body>
 </html>
