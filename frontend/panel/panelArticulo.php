@@ -1,6 +1,7 @@
 <?php
     require_once('../header/header.php');
     require '../../backend/bd/DAOarticulo.php';
+
     if($_SESSION["rol"] != "admin"){
         header('Location: ../index/index.php');
     }
@@ -18,7 +19,8 @@
         <table>
             <thead>
                 <tr>
-                    <th><img src="" alt=""></th>
+                    <th>Id</th>
+                    <th>Imagen</th>
                     <th>Nombre del artículo</th>
                     <th>Precio</th>
                     <th>Stock</th>
@@ -28,22 +30,24 @@
             </thead>
             <tbody>
             <?php
-               // $conexion = conectarBd(true);
-               // $result = ($conexion);
-                //while ($fila = mysqli_fetch_assoc($result)) {
+                $conexion = conectarBd(true);
+                $result = mostrarArticulos($conexion);
+                while ($fila = mysqli_fetch_assoc($result)) {
             ?>
                 <tr>
-                    <td><?php //echo $fila['id']?></td>
-                    <td><?php //echo $fila['nArticulo']?></td>
-                    <td><?php// echo $fila['precio']?></td>
-                    <td><?php //echo $fila['stock']?></td>
-                    <td><?php //echo $fila['foto']?></td>
-                    <td><?php// echo $fila['detalles']?></td>
+                    <td><?php echo $fila['id']?></td>
+                    <td><img src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></td>    
+                    <td><?php echo $fila['nArticulo']?></td>
+                    <td><?php echo $fila['precio']?></td>
+                    <td><?php echo $fila['stock']?></td>
+                    <td><?php echo $fila['detalles']?></td>
+                    <td><button><a href="../admin/editarArticulo.php?idArticulo=<?php echo $fila['id']?>">editar</a></button></td>
+                    <td><button><a href="../../backend/admin/borrarArticulo.php?idArticulo=<?php echo $fila['id']?>">borrar</a></button></td>
                 </tr>
+            <?php
+               }
+            ?>
             </tbody>
         </table>
-            <?php
-               // }
-            ?>
     </body>
 </html>

@@ -1,5 +1,5 @@
 <?php 
-    function crearCategoria($conexion,$nombre,$valores){
+    function crearCategoria($conexion,$nombre,$valores,$valoresJs){
         mysqli_begin_transaction($conexion);
 
         try {
@@ -19,6 +19,18 @@
                     throw new Exception(mysqli_error($conexion)); //x
                 }
             }
+            
+            if($valoresJs!=null){
+                foreach($valoresJs as $key => $value){
+                    $stmt = mysqli_prepare($conexion, 'INSERT INTO valor(nombre,idOpcion) VALUES (?,?)');
+                    mysqli_stmt_bind_param($stmt,'si', $value, $ultimaId);
+                    $ejecutar = mysqli_stmt_execute($stmt);
+                    if(!$ejecutar){
+                        throw new Exception(mysqli_error($conexion)); //x
+                    }
+                }
+            }
+
             mysqli_commit($conexion);
 
         } catch (Exception $e) {
@@ -118,4 +130,35 @@
 		return $resultadoConsulta; 
     }
 
+    function crearCategoriaArt($conexion,$idValor,$nArticulo,$precio,$stock,$foto,$detalles){
+        mysqli_begin_transaction($conexion);
+
+        try {
+
+            $consulta = "INSERT INTO articulo ( `nArticulo`, `precio`, `stock`, `foto`, `detalles`) VALUES ('$nArticulo', '$precio', '$stock', '$foto', '$detalles')";
+		    $resultadoConsulta = mysqli_query($conexion,$consulta);
+            if(!$resultadoConsulta){
+                //throw new Exception("Nombre duplicado");
+                throw new Exception(mysqli_error($conexion)); //x
+            }
+            $ultimaId = mysqli_insert_id($conexion);
+
+            foreach($idValor as $key => $value){
+                if($value!="vacio"){
+                    $stmt = mysqli_prepare($conexion, 'INSERT INTO categoria (`idValor`, `idArticulo`) VALUES (?, ?)');
+                    mysqli_stmt_bind_param($stmt,'ii', $value, $ultimaId);
+                    $ejecutar = mysqli_stmt_execute($stmt);
+                    if(!$ejecutar){
+                        throw new Exception(mysqli_error($conexion)); //x
+                    }
+                }
+            }
+
+            mysqli_commit($conexion);
+
+        } catch (Exception $e) {
+            mysqli_rollback($conexion);
+            throw $e;
+        }
+    }
 ?>

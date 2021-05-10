@@ -10,12 +10,16 @@
 
     $nombre = $_POST["nombre"];
     $valores = $_POST["valor"];
+    $valoresJs = null;
+    if(isset($_POST["valorJs"])){
+        $valoresJs= $_POST["valorJs"];
+    }
 
     $conexion = conectarBD(true);
 
 
     try{
-        crearCategoria($conexion,$nombre,$valores);
+        crearCategoria($conexion,$nombre,$valores,$valoresJs);
         header("Location: ../../frontend/panel/panelCategoria.php");
     }
     catch(Exception $e){

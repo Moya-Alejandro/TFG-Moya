@@ -16,11 +16,48 @@
 		return $resultadoConsulta;
 	}
 
-    //Faltan los valores de otras tablas (categoria valor opcion)
-    function insertarArticulo($conexion,$nArticulo,$precio,$stock,$foto,$detalles){
-        $consulta = "INSERT INTO articulo (`nArticulo`, `precio`, `stock`, `foto`, `detalles`) VALUES ('$nArticulo', '$precio', '$stock', '$foto', '$detalles')";
+    function mostrarArticuloId($conexion,$id){
+        $consulta = "SELECT * FROM articulo WHERE(id='$id')";
 		$resultadoConsulta = mysqli_query($conexion,$consulta);
 		return $resultadoConsulta;
+    }
+    
+    function mostrarValoresId($conexion,$id){
+        $consulta = "SELECT * FROM categoria WHERE(idArticulo='$id')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);
+		return $resultadoConsulta;
+    }
+
+    function borrarArticulo($conexion,$id){
+        mysqli_begin_transaction($conexion);
+
+        try {
+            //Necesitamos la url de la imagen para borrarla
+            $articulo = mostrarArticuloId($conexion,$id);
+            $fila = mysqli_fetch_assoc($articulo);
+            $ruta = $fila["foto"];
+            unlink("../../frontend/".$ruta);
+
+            $consulta = "DELETE FROM categoria WHERE (`idArticulo` = '$id')";
+		    $resultadoConsulta = mysqli_query($conexion,$consulta);
+            if(!$resultadoConsulta){
+                //throw new Exception("Nombre duplicado");
+                throw new Exception(mysqli_error($conexion)); //x
+            }
+
+            $consulta = "DELETE FROM articulo WHERE (`id` = '$id')";
+		    $resultadoConsulta = mysqli_query($conexion,$consulta);
+            if(!$resultadoConsulta){
+                //throw new Exception("Nombre duplicado");
+                throw new Exception(mysqli_error($conexion)); //x
+            }
+
+            mysqli_commit($conexion);
+
+        } catch (Exception $e) {
+            mysqli_rollback($conexion);
+            throw $e;
+        }
     }
 
 ?>
