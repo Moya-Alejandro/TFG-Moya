@@ -60,4 +60,48 @@
         }
     }
 
+    function valoresSeleccionados($conexion,$idOpcion){
+        $consulta = "SELECT categoria.idValor FROM categoria inner join valor on valor.id = categoria.idValor inner join opcion on opcion.id = valor.idOpcion WHERE(opcion.id = $idOpcion)";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);
+		return $resultadoConsulta;
+    }
+
+    function editarArticulo($conexion,$idArticulo,$selectValor,$nArticulo,$precio,$foto,$stock,$detalles){
+        mysqli_begin_transaction($conexion);
+
+        try {
+            //Necesitamos borrar la foto antigüa
+            $consulta = "DELETE FROM categoria WHERE (`idArticulo` = '$idArticulo')";
+		    $resultadoConsulta = mysqli_query($conexion,$consulta);
+            if(!$resultadoConsulta){
+                //throw new Exception("Nombre duplicado");
+                throw new Exception(mysqli_error($conexion)); //x
+            }
+
+            $consulta = "UPDATE articulo SET `nArticulo` = '$nArticulo', `precio` = '$precio', `stock` = '$stock', `foto` = '$foto', `detalles` = '$detalles' WHERE (`id` = '$idArticulo')";
+		    $resultadoConsulta = mysqli_query($conexion,$consulta);
+            if(!$resultadoConsulta){
+                //throw new Exception("Nombre duplicado");
+                throw new Exception(mysqli_error($conexion)); //x
+            }
+  
+            foreach($selectValor as $key => $value){
+                if($value!="vacio"){
+                    $stmt = mysqli_prepare($conexion, 'INSERT INTO categoria (`idValor`, `idArticulo`) VALUES (?, ?)');
+                    mysqli_stmt_bind_param($stmt,'ii', $value, $idArticulo);
+                    $ejecutar = mysqli_stmt_execute($stmt);
+                    if(!$ejecutar){
+                        throw new Exception(mysqli_error($conexion)); //x
+                    }
+                }
+            }
+            mysqli_commit($conexion);
+
+        } catch (Exception $e) {
+            mysqli_rollback($conexion);
+            throw $e;
+        }
+    }
+
+
 ?>

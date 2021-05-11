@@ -37,6 +37,7 @@
                     <div class="campo">
                         <label for="nArticulo">Nombre</label>
                         <input id="nArticulo" value="<?php echo $articulo["nArticulo"] ?>" type="text" name="nArticulo" >
+                        <input type ="hidden" name="idArticulo" value="<?php echo $articulo['id']?>">
                         <p id="errorArticulo">Algo ha salido mal</p>
                     </div>
                     <div class="campo">
@@ -57,19 +58,22 @@
                         <label for="categoria">Categoria </label>
                             <?php 
                                 $conexion = conectarBd(true);
-                                //$valoresArticulo = mostrarValoresId($conexion,$idArticulo);
-                                //print_r($valoresArticulo); 
                                 $categorias = mostrarCategorias($conexion);
                                 foreach($categorias as $key => $value ){ 
                             ?>
                             <label value="<?php echo $value["id"]?>"><?php echo $value["nombre"]?></label> 
                             <?php $valores = cogerValores($conexion,$value["id"]);
+                                  $valorSeleccionado = mysqli_fetch_assoc(valoresSeleccionados($conexion,$value["id"]));
                             ?>          
                                 <select id="selectValor" name="selectValor[]">
-                                    <option value = " "></option
-                                    <?php foreach($valores as $key => $value ){?>
+                                    <option value = "vacio"></option>
+                                    <?php foreach($valores as $key => $value ){
+                                        if($valorSeleccionado["idValor"] == $value["id"]){
+                                    ?>
+                                    <option value="<?php echo $value["id"]?>" selected><?php echo $value["nombre"]?></option>
+                                    <?php } else{?>
                                     <option value="<?php echo $value["id"]?>"><?php echo $value["nombre"]?></option>
-                                    <?php }?>
+                                    <?php }}?>
                                 </select>
                             <?php 
                                 }
@@ -78,7 +82,7 @@
                 </div>
                 <div>
                     <p><strong><?php echo $error?></strong></p>
-                    <button type="submit">Crear</button>
+                    <button type="submit">Editar</button>
                 </div>
             </form>
         </div>

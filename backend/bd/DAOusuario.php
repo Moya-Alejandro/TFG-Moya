@@ -7,14 +7,20 @@
 	}
 
 	function consultarUsuarios($conexion, $usuario){
-		$consulta = "SELECT * FROM usuario WHERE nUsuario = '$usuario'";
+		$consulta = "SELECT * FROM usuario WHERE (nUsuario = '$usuario')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);
+		return $resultadoConsulta;
+	}
+
+	function consultaUsuarioId($conexion,$idUsuario){
+		$consulta = "SELECT * FROM usuario WHERE (id = '$idUsuario')";
 		$resultadoConsulta = mysqli_query($conexion,$consulta);
 		return $resultadoConsulta;
 	}
 
 	//Selecciona todos los datos de un usuario y una contraseña si existe
     function consultaLogin($conexion,$usuario,$password){
-		$consulta = "SELECT * FROM usuario WHERE nUsuario='$usuario' AND password='$password'";
+		$consulta = "SELECT * FROM usuario WHERE (nUsuario='$usuario' AND password='$password')";
 		$resultadoConsulta = mysqli_query($conexion,$consulta);
 		return $resultadoConsulta;
 	}

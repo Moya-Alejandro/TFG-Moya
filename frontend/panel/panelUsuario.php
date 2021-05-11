@@ -47,6 +47,7 @@
                     <td><?php echo $fila['dni']?></td>
                     <td><?php echo $fila['telefono']?></td>
                     <td><?php echo $fila['rol']?></td>
+                    <td><a href="../admin/editarUsuario.php?idUsuario=<?php echo $fila['id']?>">Editar</a></td>
                     <td><a href="../../backend/usuario/borrarUsuario.php?id=<?php echo $fila['id']?>">Borrar</a></td>
                 </tr>
                 <?php
