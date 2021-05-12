@@ -28,11 +28,6 @@ thead{
     border-bottom: solid 5px #0F362D;
 }
 
-tr:nth-child(even){
-    background-color: #ddd;
-}
-
-
 img{
     width: 100px;
     height: 100px;
