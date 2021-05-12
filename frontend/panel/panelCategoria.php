@@ -21,31 +21,32 @@
         <link rel="stylesheet" href="../index/index.css">
     </head>
     <body class="index">
-        <table>
-            <thead>
-                <tr>
-                    <th>Id de la Categoría</th>
-                    <th>Nombre de la Categoría</th>
-                    <th colspan="3"><a href="../admin/crearCategoria.php">Crear</a></th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-                $conexion = conectarBd(true);
-                $result = mostrarCategorias($conexion);
-                while ($fila = mysqli_fetch_assoc($result)) {
-            ?>
-                <tr>
-                    <td><?php echo $fila['id']?></td>
-                    <td><?php echo $fila['nombre']?></td>
-                    <td><button><a href="../admin/editarCategoria.php?idCategoria=<?php echo $fila['id']?>">editar</a></button></td>
-                    <td><button><a href="../../backend/admin/borrarCategoria.php?idCategoria=<?php echo $fila['id']?>">borrar</a></button></td>
-                </tr>
+        <div id="contenedorPrincipal">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre de la Categoría</th>
+                        <th colspan="3"><a href="../admin/crearCategoria.php"><i class="fas fa-plus"></i></a></th>
+                    </tr>
+                </thead>
+                <tbody>
                 <?php
-                    }
+                    $conexion = conectarBd(true);
+                    $result = mostrarCategorias($conexion);
+                    while ($fila = mysqli_fetch_assoc($result)) {
                 ?>
-            </tbody>
-        </table>
-        <p style="color:red;"><strong><?php echo $error?></strong></p>
+                    <tr>
+                        <td><?php echo $fila['nombre']?></td>
+                        <td><a href="../admin/editarCategoria.php?idCategoria=<?php echo $fila['id']?>"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="../../backend/admin/borrarCategoria.php?idCategoria=<?php echo $fila['id']?>"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
+            <p style="color:red;"><strong><?php echo $error?></strong></p>
+        </div>
     </body>
 </html>
+<script src="https://kit.fontawesome.com/143eda576b.js" crossorigin="anonymous"></script>

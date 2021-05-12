@@ -1,0 +1,50 @@
+body{
+    font-family: Arial;
+}
+
+#contenedorPrincipal{
+    margin: 150px auto;
+    width: 600px;
+    
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    background-color: white;   
+    -webkit-box-shadow: 2px 30px 50px 7px rgba(54,150,129,1);
+    -moz-box-shadow: 2px 30px 50px 7px rgba(54,150,129,1);
+    box-shadow: 2px 30px 50px 7px rgba(54,150,129,1);
+}
+
+th,td{
+    padding: 20px;
+}
+
+thead{
+    background-color: #246355;
+    color: white;
+    border-bottom: solid 5px #0F362D;
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+}
+
+
+img{
+    width: 100px;
+    height: 100px;
+    background-color: Transparent;
+}
+
+button{
+    border: none;
+    background-color: Transparent;
+}
+
+th a, td a{
+    color: black;
+    text-decoration: none;
+}

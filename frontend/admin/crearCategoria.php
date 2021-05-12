@@ -19,8 +19,7 @@
         <form id="form" action="../../backend/admin/crearCategoria.php" method="POST">
             <div class="campos">
                 <div class="campo">
-                    <label for="nombre">Nombre de la Categoría </label>
-                    <input id="nombre" type="text" name="nombre">
+                    <input id="nombre" placeholder="Nombre de la Categoría" type="text" name="nombre">
                     <p id="errorNombre">Algo ha salido mal</p>
                 </div>
                 <div class="contenedorInputs">

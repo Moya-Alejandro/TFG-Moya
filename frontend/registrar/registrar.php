@@ -1,3 +1,11 @@
+<?php
+
+    $rol = "";
+    if(isset($_SESSION["rol"])){
+        $rol = $_SESSION["rol"];
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -57,8 +65,10 @@
                         </div>
                     </div>
                     <div class="botonRegistrar">
-                        <button class="botonForm">Registrarse</button>
+                        <button class="botonForm">Registrar</button>
+                        <?php if($rol != "admin"){?>
                         <a href="../login/login.php">¿Ya tienes una cuenta?</a>
+                        <?php } ?>
                     </div>
                     <div class="error">
                         <p id="errorForm">Rellene bien los campos.</p>

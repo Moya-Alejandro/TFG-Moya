@@ -15,45 +15,38 @@
         <link rel="stylesheet" href="../index/index.css">
     </head>
     <body class="index">
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Usuario</th>
-                    <th>Contraseña</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Correo</th>
-                    <th>DNI</th>
-                    <th>Telefono</th>
-                    <th>Rol</th>  
-                    <th colspan="3"><a href="../registrar/registrar.php">Crear</a></th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-                $conexion = conectarBd(true);
-                $result = mostrarUsuarios($conexion);
-                while ($fila = mysqli_fetch_assoc($result)) {
-            ?>
-                <tr>
-                    <td><?php echo $fila['id']?></td>
-                    <td><?php echo $fila['nUsuario']?></td>
-                    <td><?php echo $fila['password']?></td>
-                    <td><?php echo $fila['nombre']?></td>
-                    <td><?php echo $fila['apellidos']?></td>
-                    <td><?php echo $fila['telefono']?></td>
-                    <td><?php echo $fila['correo']?></td>
-                    <td><?php echo $fila['dni']?></td>
-                    <td><?php echo $fila['telefono']?></td>
-                    <td><?php echo $fila['rol']?></td>
-                    <td><a href="../admin/editarUsuario.php?idUsuario=<?php echo $fila['id']?>">Editar</a></td>
-                    <td><a href="../../backend/usuario/borrarUsuario.php?id=<?php echo $fila['id']?>">Borrar</a></td>
-                </tr>
+        <div id="contenedorPrincipal">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Correo</th>
+                        <th>DNI</th>
+                        <th>Telefono</th>
+                        <th colspan="3"><a href="../registrar/registrar.php"><i class="fas fa-plus"></i></a></th>
+                    </tr>
+                </thead>
+                <tbody>
                 <?php
-                    }
+                    $conexion = conectarBd(true);
+                    $result = mostrarUsuarios($conexion);
+                    while ($fila = mysqli_fetch_assoc($result)) {
                 ?>
-            </tbody>
-        </table>
+                    <tr>
+                        <td><?php echo $fila['nUsuario']?></td>
+                        <td><?php echo $fila['correo']?></td>
+                        <td><?php echo $fila['dni']?></td>
+                        <td><?php echo $fila['telefono']?></td>
+                        <td><a href="../admin/editarUsuario.php?idUsuario=<?php echo $fila['id']?>"><i class="fas fa-user-edit"></i></a></td>
+                        <td><a href="../../backend/usuario/borrarUsuario.php?id=<?php echo $fila['id']?>"><i class="fas fa-user-minus"></i></a></td>
+                        <td><a href="../../backend/admin/darAdmin.php?idUsuario=<?php echo $fila['id']?>"><i class="fas fa-user-shield"></i></a></td>
+                    </tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>
+<script src="https://kit.fontawesome.com/143eda576b.js" crossorigin="anonymous"></script>

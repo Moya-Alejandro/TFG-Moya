@@ -17,7 +17,7 @@
     <?php require_once('../header/header.php') ?>
     <div class="carta-body">
         <div class="carta">
-            <form id="form" action="../../backend/usuario/iniciarSesion.php" method="POST">
+            <form id="form" action="../../backend/usuario/iniciarsesion.php" method="POST">
                 <h4>Iniciar Sesión</h4>
                 <hr>
                 <div class="campos">

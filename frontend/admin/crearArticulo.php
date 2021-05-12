@@ -29,23 +29,19 @@
                 </div>
                 <div class="campos">
                     <div class="campo">
-                        <label for="nArticulo">Nombre</label>
-                        <input id="nArticulo" type="text" name="nArticulo" >
+                        <input id="nArticulo" placeholder="Nombre" type="text" name="nArticulo" >
                         <p id="errorArticulo">Algo ha salido mal</p>
                     </div>
                     <div class="campo">
-                        <label for="precio">Precio </label>
-                        <input id="precio" type="text" name="precio" >
+                        <input id="precio" placeholder="Precio" type="text" name="precio" >
                         <p id="errorPrecio">Algo ha salido mal</p>
                     </div>
                     <div class="campo">
-                        <label for="stock">Stock </label>
-                        <input id="stock" type="text" name="stock" >
+                        <input id="stock" placeholder="Stock" type="text" name="stock" >
                         <p id="errorStock">Algo ha salido mal</p>
                     </div>
                     <div class="campo" >
-                        <label for="detalles">Detalles: </label>
-                        <textarea name="detalles"></textarea><br><br>
+                        <textarea placeholder="Detalles..." name="detalles"></textarea><br><br>
                     </div>
                     <div class="campo" >
                         <label for="categoria">Categoria </label>

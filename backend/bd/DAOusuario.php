@@ -48,7 +48,7 @@
 	}
 
     function editarPerfil($conexion,$usuario,$password,$nombre,$apellidos,$telefono,$correo,$dni,$id){
-		$consulta = "UPDATE usuario SET `nUsuario` = '$usuario', `password` = '$password', `nombre` = '$nombre', `apellidos` = '$apellidos', `correo` = '$correo', `dni` = '$dni', `telefono` = '$telefono', `rol` = 'usuario' WHERE (`id` = '$id')";
+		$consulta = "UPDATE usuario SET `nUsuario` = '$usuario', `password` = '$password', `nombre` = '$nombre', `apellidos` = '$apellidos', `correo` = '$correo', `dni` = '$dni', `telefono` = '$telefono' WHERE (`id` = '$id')";
 		$resultadoConsulta = mysqli_query($conexion,$consulta);
 		return $resultadoConsulta;
 	}
@@ -59,4 +59,9 @@
 		return $resultadoConsulta;
 	}
 
+	function darAdmin($conexion,$id){
+		$consulta = "UPDATE usuario SET `rol` = 'admin' WHERE (`id` = '$id')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);
+		return $resultadoConsulta;
+	}
 ?>
