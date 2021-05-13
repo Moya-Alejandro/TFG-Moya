@@ -16,36 +16,24 @@
     </head>
     <body class="index">
         <div id="contenedorPrincipal">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Usuario</th>
-                        <th>Correo</th>
-                        <th>DNI</th>
-                        <th>Telefono</th>
-                        <th colspan="3"><a href="../registrar/registrar.php"><i class="fas fa-plus"></i></a></th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                    $conexion = conectarBd(true);
-                    $result = mostrarUsuarios($conexion);
-                    while ($fila = mysqli_fetch_assoc($result)) {
-                ?>
-                    <tr>
-                        <td><?php echo $fila['nUsuario']?></td>
-                        <td><?php echo $fila['correo']?></td>
-                        <td><?php echo $fila['dni']?></td>
-                        <td><?php echo $fila['telefono']?></td>
-                        <td><a href="../admin/editarUsuario.php?idUsuario=<?php echo $fila['id']?>"><i class="fas fa-user-edit"></i></a></td>
-                        <td><a href="../../backend/usuario/borrarUsuario.php?id=<?php echo $fila['id']?>"><i class="fas fa-user-minus"></i></a></td>
-                        <td><a href="../../backend/admin/darAdmin.php?idUsuario=<?php echo $fila['id']?>"><i class="fas fa-user-shield"></i></a></td>
-                    </tr>
-                    <?php
-                        }
-                    ?>
-                </tbody>
-            </table>
+            <a href="../registrar/registrar.php"><i class="fas fa-plus"></i></a>
+            <?php
+                $conexion = conectarBd(true);
+                $result = mostrarUsuarios($conexion);
+                while ($fila = mysqli_fetch_assoc($result)) {
+            ?>
+            <div id="contenedor">
+                <?php echo $fila['nUsuario']?>
+                <?php echo $fila['correo']?>
+                <?php echo $fila['dni']?>
+                <?php echo $fila['telefono']?>
+                <a href="../admin/editarUsuario.php?idUsuario=<?php echo $fila['id']?>"><i class="fas fa-user-edit"></i></a>
+                <a href="../../backend/usuario/borrarUsuario.php?id=<?php echo $fila['id']?>"><i class="fas fa-user-minus"></i></a>
+                <a href="../../backend/admin/darAdmin.php?idUsuario=<?php echo $fila['id']?>"><i class="fas fa-user-shield"></i></a>
+            </div>
+            <?php
+                }
+            ?>
         </div>
     </body>
 </html>

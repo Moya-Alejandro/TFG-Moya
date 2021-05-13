@@ -1,4 +1,5 @@
 <?php 
+    //?
     function crearSesion($f){
         session_id($f['id']);
         session_start();

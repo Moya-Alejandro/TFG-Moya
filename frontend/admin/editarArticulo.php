@@ -54,6 +54,11 @@
                         <label for="detalles">Detalles: </label>
                         <textarea name="detalles"><?php echo $articulo['detalles'];?></textarea><br><br>
                     </div>
+                    <div class="campo">
+                        <label for="tipo">Tipo </label>
+                        Pistola<input type="radio" id="pistola" name="tipo" value="pistola"><br>
+                        Carabina<input type="radio" id="carabina" name="tipo" value="carabina"><br>
+                    </div>
                     <div class="campo" >
                         <label for="categoria">Categoria </label>
                             <?php 

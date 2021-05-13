@@ -10,8 +10,8 @@
     <body class="index">
         <div class="nav">
             <ul class="navBar">
-                <li><a href="">Categorias</a></li>
-                <li><a href="">Calendario</a></li>
+                <li><a href="../categorias/categorias.php">Categorias</a></li>
+                <li><a href="../calendario/calendario.php">Calendario</a></li>
                 <li><a href="">Contacto</a></li>
             </ul>
         </div>
