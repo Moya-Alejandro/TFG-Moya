@@ -9,6 +9,7 @@
         $_SESSION['stock'] = $f['stock'];
         $_SESSION['foto'] = $f['foto'];
         $_SESSION['detalles'] = $f['detalles'];
+        $_SESSION['tipo'] = $f['tipo'];
     }
 
     function mostrarArticulos($conexion){
@@ -67,7 +68,13 @@
 		return $resultadoConsulta;
     }
 
-    function editarArticulo($conexion,$idArticulo,$selectValor,$nArticulo,$precio,$foto,$stock,$detalles){
+    function tipoSeleccionado($conexion,$idArticulo){
+        $consulta = "SELECT tipo FROM articulo WHERE(id = $idArticulo)";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);
+		return $resultadoConsulta;
+    }
+
+    function editarArticulo($conexion,$idArticulo,$selectValor,$nArticulo,$precio,$foto,$stock,$detalles,$tipo){
         mysqli_begin_transaction($conexion);
 
         try {
@@ -79,7 +86,7 @@
                 throw new Exception(mysqli_error($conexion)); //x
             }
 
-            $consulta = "UPDATE articulo SET `nArticulo` = '$nArticulo', `precio` = '$precio', `stock` = '$stock', `foto` = '$foto', `detalles` = '$detalles' WHERE (`id` = '$idArticulo')";
+            $consulta = "UPDATE articulo SET `nArticulo` = '$nArticulo', `precio` = '$precio', `stock` = '$stock', `foto` = '$foto', `detalles` = '$detalles', `tipo` = '$tipo' WHERE (`id` = '$idArticulo')";
 		    $resultadoConsulta = mysqli_query($conexion,$consulta);
             if(!$resultadoConsulta){
                 //throw new Exception("Nombre duplicado");

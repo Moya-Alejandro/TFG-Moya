@@ -43,6 +43,13 @@
                     <div class="campo" >
                         <textarea placeholder="Detalles..." name="detalles"></textarea><br><br>
                     </div>
+                    <div class="campo">
+                        <label for="tipo">Tipo </label>
+                        Pistola<input type="radio" id="pistola" name="tipo" value="pistola"><br>
+                        Carabina<input type="radio" id="carabina" name="tipo" value="carabina"><br>
+                        Municion<input type="radio" id="municion" name="tipo" value="municion"><br>
+                        Accesorios<input type="radio" id="accesorios" name="tipo" value="accesorios"><br>
+                    </div>
                     <div class="campo" >
                         <label for="categoria">Categoria </label>
                             <?php 

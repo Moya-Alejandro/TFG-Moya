@@ -51,16 +51,19 @@
                         <p id="errorStock">Algo ha salido mal</p>
                     </div>
                     <div class="campo" >
-                        <label for="detalles">Detalles: </label>
+                        <label for="detalles">Detalles </label>
                         <textarea name="detalles"><?php echo $articulo['detalles'];?></textarea><br><br>
                     </div>
                     <div class="campo">
                         <label for="tipo">Tipo </label>
-                        Pistola<input type="radio" id="pistola" name="tipo" value="pistola"><br>
-                        Carabina<input type="radio" id="carabina" name="tipo" value="carabina"><br>
+                        <?php $tipoSeleccionado = mysqli_fetch_assoc(tipoSeleccionado($conexion,$idArticulo)); ?>    
+                        Pistola<input type="radio" id="pistola" name="tipo" value="pistola" <?php if ($tipoSeleccionado["tipo"] == "pistola"){?> checked="checked" <?php } ?>><br>
+                        Carabina<input type="radio" id="carabina" name="tipo" value="carabina" <?php if ($tipoSeleccionado["tipo"] == "carabina"){?> checked="checked" <?php } ?>><br>
+                        Munición<input type="radio" id="municion" name="tipo" value="municion" <?php if ($tipoSeleccionado["tipo"] == "municion"){?> checked="checked" <?php } ?>><br>
+                        Accesorios<input type="radio" id="accesorios" name="tipo" value="accesorios" <?php if ($tipoSeleccionado["tipo"] == "accesorios"){?> checked="checked" <?php } ?>><br>  
                     </div>
                     <div class="campo" >
-                        <label for="categoria">Categoria </label>
+                        <label for="categoria">Categoría </label>
                             <?php 
                                 $conexion = conectarBd(true);
                                 $categorias = mostrarCategorias($conexion);

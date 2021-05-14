@@ -9,8 +9,6 @@
 <body class="index">
     <?php require_once('../header/header.php') ?>
     <?php require_once('../nav/nav.php') ?>
-    <div>
-        <embed src="../calendario/calendario.pdf#background-color=white" type="application/pdf" width="80%" height="1000px" />
-    </div>   
+    <div></div>   
 </body>
 </html>

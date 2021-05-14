@@ -7,6 +7,7 @@
     $precio = $_POST["precio"];
     $stock = $_POST["stock"];
     $detalles = $_POST["detalles"];
+    $tipo = $_POST["tipo"];
     $selectValor = $_POST["selectValor"];
 
 
@@ -45,7 +46,7 @@
     $conexion = conectarBD(true);
 
     try{
-        $subirArticulo = crearCategoriaArt($conexion,$selectValor,$nombre,$precio,$stock,$img_destino,$detalles);
+        $subirArticulo = crearCategoriaArt($conexion,$selectValor,$nombre,$precio,$stock,$img_destino,$detalles,$tipo);
         header("Location: ../../frontend/panel/panelArticulo.php");
     }
     catch(Exception $e){

@@ -13,6 +13,7 @@
     $precio = $_POST["precio"];
     $stock = $_POST["stock"];
     $detalles = $_POST["detalles"];
+    $tipo = $_POST["tipo"];
     $selectValor = $_POST["selectValor"];
 
     $conexion = conectarBD(true);
@@ -60,7 +61,7 @@
     
 
     try{
-        $editar = editarArticulo($conexion,$idArticulo,$selectValor,$nArticulo,$precio,$img_destino,$stock,$detalles);
+        $editar = editarArticulo($conexion,$idArticulo,$selectValor,$nArticulo,$precio,$img_destino,$stock,$detalles,$tipo);
         header("Location: ../../frontend/panel/panelArticulo.php");
     }
     catch(Exception $e){

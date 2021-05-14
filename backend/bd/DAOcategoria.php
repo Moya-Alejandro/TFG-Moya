@@ -130,12 +130,12 @@
 		return $resultadoConsulta; 
     }
 
-    function crearCategoriaArt($conexion,$idValor,$nArticulo,$precio,$stock,$foto,$detalles){
+    function crearCategoriaArt($conexion,$idValor,$nArticulo,$precio,$stock,$foto,$detalles,$tipo){
         mysqli_begin_transaction($conexion);
 
         try {
 
-            $consulta = "INSERT INTO articulo ( `nArticulo`, `precio`, `stock`, `foto`, `detalles`) VALUES ('$nArticulo', '$precio', '$stock', '$foto', '$detalles')";
+            $consulta = "INSERT INTO articulo ( `nArticulo`, `precio`, `stock`, `foto`, `detalles`,`tipo`) VALUES ('$nArticulo', '$precio', '$stock', '$foto', '$detalles', '$tipo')";
 		    $resultadoConsulta = mysqli_query($conexion,$consulta);
             if(!$resultadoConsulta){
                 //throw new Exception("Nombre duplicado");
