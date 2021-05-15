@@ -71,7 +71,7 @@
                             ?>
                             <label value="<?php echo $value["id"]?>"><?php echo $value["nombre"]?></label> 
                             <?php $valores = cogerValores($conexion,$value["id"]);
-                                  $valorSeleccionado = mysqli_fetch_assoc(valoresSeleccionados($conexion,$value["id"]));
+                                  $valorSeleccionado = mysqli_fetch_assoc(valoresSeleccionados($conexion,$value["id"],$idArticulo));
                             ?>          
                                 <select id="selectValor" name="selectValor[]">
                                     <option value = "vacio"></option>

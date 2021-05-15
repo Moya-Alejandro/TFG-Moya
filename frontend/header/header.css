@@ -84,7 +84,7 @@
   background: white;
   width: 100vw;
   position: absolute;
-  top: 97px;
+  top: 12vh;
   padding: 1rem;
   left: 0;
   grid-gap: 20px;
@@ -119,6 +119,8 @@
     right: 0;
     left: auto;
     z-index: 1;
+    top: 10vh;
   }
+  
   
 }

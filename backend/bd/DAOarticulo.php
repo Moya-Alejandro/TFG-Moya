@@ -62,9 +62,9 @@
         }
     }
 
-    function valoresSeleccionados($conexion,$idOpcion){
-        $consulta = "SELECT categoria.idValor FROM categoria inner join valor on valor.id = categoria.idValor inner join opcion on opcion.id = valor.idOpcion WHERE(opcion.id = $idOpcion)";
-		$resultadoConsulta = mysqli_query($conexion,$consulta);
+    function valoresSeleccionados($conexion,$idOpcion,$idArticulo){
+        $consulta = "SELECT categoria.idValor FROM categoria inner join valor on valor.id = categoria.idValor inner join opcion on opcion.id = valor.idOpcion WHERE(opcion.id = $idOpcion and categoria.idArticulo = $idArticulo)";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);        
 		return $resultadoConsulta;
     }
 
@@ -111,5 +111,34 @@
         }
     }
 
+    function filtroOpciones($conexion,$tipo){
+        $consulta = "SELECT DISTINCT opcion.id, opcion.nombre FROM opcion inner join valor on valor.idOpcion = opcion.id inner join categoria on categoria.idValor = valor.id inner join articulo on articulo.id = categoria.idArticulo WHERE(articulo.tipo = '$tipo')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);        
+		return $resultadoConsulta;
+    }
+
+    function filtroValores($conexion,$idOpcion,$tipo){
+        $consulta = "SELECT DISTINCT valor.id,valor.nombre FROM valor inner join opcion on opcion.id = valor.idOpcion inner join categoria on categoria.idValor = valor.id inner join articulo on articulo.id = categoria.idArticulo WHERE(idOpcion = '$idOpcion' AND tipo = '$tipo')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);        
+		return $resultadoConsulta;
+    }
+
+    function filtroArticulos($conexion,$tipo){
+        $consulta = "SELECT * FROM articulo WHERE(tipo = '$tipo')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);        
+		return $resultadoConsulta;
+    }
+
+    function filtro($conexion,$idValor,$tipo){
+        $consulta = "SELECT * FROM articulo inner join categoria on categoria.idArticulo = articulo.id inner join valor on categoria.idValor = valor.id WHERE(valor.id = '$idValor' AND articulo.tipo = '$tipo')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);        
+		return $resultadoConsulta;
+    }
+
+    function articuloPorFiltro($conexion,$valores,$tipo){
+        $consulta = "SELECT DISTINCT articulo.id,articulo.nArticulo,articulo.precio,articulo.precio,articulo.stock,articulo.foto,articulo.detalles,articulo.tipo FROM articulo inner join categoria on categoria.idArticulo = articulo.id inner join valor on valor.id = categoria.idValor WHERE valor.nombre IN ('$valores') AND (articulo.tipo = '$tipo')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);        
+		return $resultadoConsulta;
+    }
 
 ?>
