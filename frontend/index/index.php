@@ -1,3 +1,5 @@
+<?php require_once('../header/header.php') ?>
+<?php require_once('../nav/nav.php') ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,8 +9,7 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body class="index">
-    <?php require_once('../header/header.php') ?>
-    <?php require_once('../nav/nav.php') ?>
-    <div></div>   
+    <div></div>
+    <?php require_once('../footer/footer.php') ?>   
 </body>
 </html>

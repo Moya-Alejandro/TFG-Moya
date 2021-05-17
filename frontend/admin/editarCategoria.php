@@ -58,6 +58,7 @@
             <p style="color:red;"><strong><?php echo $error?></strong></p>
         </form>
     </div>
+    <?php require_once('../footer/footer.php') ?>   
     </body>
 </html>
 <script src="crearCategoria.js"></script>

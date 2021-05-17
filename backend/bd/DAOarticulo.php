@@ -136,8 +136,8 @@
     }
 
     function articuloPorFiltro($conexion,$valores,$tipo){
-        $consulta = "SELECT DISTINCT articulo.id,articulo.nArticulo,articulo.precio,articulo.precio,articulo.stock,articulo.foto,articulo.detalles,articulo.tipo FROM articulo inner join categoria on categoria.idArticulo = articulo.id inner join valor on valor.id = categoria.idValor WHERE valor.nombre IN ('$valores') AND (articulo.tipo = '$tipo')";
-		$resultadoConsulta = mysqli_query($conexion,$consulta);        
+        $consulta = "SELECT DISTINCT articulo.id,articulo.nArticulo,articulo.precio,articulo.precio,articulo.stock,articulo.foto,articulo.detalles,articulo.tipo FROM articulo inner join categoria on categoria.idArticulo = articulo.id inner join valor on valor.id = categoria.idValor Where valor.id IN (".implode(',',$valores).") AND tipo = '$tipo'";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);  
 		return $resultadoConsulta;
     }
 

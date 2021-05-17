@@ -38,6 +38,7 @@
             ?>
         </div>
         <p style="color:red;"><strong><?php echo $error?></strong></p>
+        <?php require_once('../footer/footer.php') ?>   
     </body>
 </html>
 <script src="https://kit.fontawesome.com/143eda576b.js" crossorigin="anonymous"></script>

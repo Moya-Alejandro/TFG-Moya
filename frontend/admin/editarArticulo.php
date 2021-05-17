@@ -94,6 +94,7 @@
                 </div>
             </form>
         </div>
+        <?php require_once('../footer/footer.php') ?>   
     </body>
 </html>
 <script src="crearArticulo.js"></script>

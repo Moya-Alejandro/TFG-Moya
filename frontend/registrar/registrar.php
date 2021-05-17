@@ -76,5 +76,6 @@
                 </form>
             </div>
         </div>  
+        <?php require_once('../footer/footer.php') ?>   
     </body>
 </html>
