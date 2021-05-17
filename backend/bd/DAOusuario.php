@@ -64,4 +64,15 @@
 		$resultadoConsulta = mysqli_query($conexion,$consulta);
 		return $resultadoConsulta;
 	}
+
+	function insertarComentario($conexion,$idArticulo,$idUsuario,$comentario){
+		$consulta = "INSERT INTO comentario (`idUsuario`, `idArticulo`, `comentario`) VALUES ('$idUsuario', '$idArticulo', '$comentario')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);
+		return $resultadoConsulta;
+	}
+	function verComentario($conexion,$idArticulo){
+		$consulta = "SELECT * FROM comentario WHERE(idArticulo = '$idArticulo')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);
+		return $resultadoConsulta;
+	}
 ?>

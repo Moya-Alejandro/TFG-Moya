@@ -1,5 +1,6 @@
 <?php
     require_once('../header/header.php');
+    require_once('../nav/nav.php');
     require '../../backend/bd/DAOcategoria.php';
     
     $error = "";
@@ -24,7 +25,7 @@
                 <h2>Crear Artículo</h2>
                 <div>
                     <div class="placeHolder"  onClick="activador()"></div>
-                    <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png" onClick="activador()" id="mostrarProducto">
+                    <img src="../img/avatar.png" onClick="activador()" id="mostrarProducto">
                     <input class ="subirImagen" type="file" name="imagen" onChange="mostrarImagen(this)" id="imagen">
                 </div>
                 <div class="campos">

@@ -1,3 +1,5 @@
+<?php require_once('../header/header.php') ?>
+<?php require_once('../nav/nav.php') ?>
 <?php
 
     $rol = "";
@@ -16,7 +18,6 @@
         <link rel="stylesheet" href="../index/index.css">
     </head>
     <body class="index">
-        <?php require_once('../header/header.php') ?>
         <div class="carta-body">
             <div class="carta">
                 <form id="form" action="../../backend/usuario/registrar.php" method="POST">
@@ -76,6 +77,6 @@
                 </form>
             </div>
         </div>  
-        <?php require_once('../footer/footer.php') ?>   
+        <?php require_once('../footer/footer.php') ?>  
     </body>
 </html>

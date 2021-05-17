@@ -2,6 +2,7 @@
 	//Enlazamos el archivo donde tenemos las funciones
     require '../bd/conectarBD.php';
     require '../bd/DAOusuario.php';
+	require '../bd/DAOcarrito.php';
     $rol = "invitado";
 	
 	//En caso de tener rol de admin (es decir has creado la cuenta desde el panel, usaremos esta variable para redirigirte al panel)
@@ -26,12 +27,14 @@
 
 	// Guardamos en una variable la consulta, en este caso la de crear un usuario en la base de datos
 	$result = insertarUsuarios($conexion,$Usuario,$Password,$Nombre,$Apellidos,$Telefono,$Correo,$Dni);
-
+	$ultimoId = mysqli_insert_id($conexion);
 	// En caso de que se haya creado la cuenta correctamente, te dirije al html con el login
 	if ($result && $rol ="admin") {
+		crearCarrito($conexion,$ultimoId,$ultimoId);
 		header("Location: ../../frontend/panel/panelUsuario.php"); 
 	}
 	elseif($result){
+		crearCarrito($conexion,$ultimoId,$ultimoId);
 		header("Location: ../../frontend/index/index.php"); 
 	}
 	//En caso de que la cuenta ya exista te devolverá a la misma página de registro

@@ -141,4 +141,10 @@
 		return $resultadoConsulta;
     }
 
+    function busquedaArticulo($conexion,$busqueda){
+        $consulta = "SELECT * FROM articulo WHERE nArticulo LIKE '%$busqueda%'";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);  
+		return $resultadoConsulta;
+    }
+
 ?>

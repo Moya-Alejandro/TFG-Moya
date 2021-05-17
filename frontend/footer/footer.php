@@ -40,3 +40,5 @@
     </body>
 </html>
 <script src="https://kit.fontawesome.com/143eda576b.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
+<script src="../footer/footer.js" type="text/javascript"></script>

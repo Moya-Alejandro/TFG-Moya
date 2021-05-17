@@ -7,7 +7,7 @@
 .campoBusqueda {
     display:flex;
     height: 50%;
-    width: 60%;
+    width: 100%;
 }
   
 .campoBusqueda>input[type=text],
@@ -28,6 +28,12 @@
   color:white;
   border:none;
 }
+
+  
+.campoBusqueda>button:hover {
+  background-color:#002b68;
+}
+
 
 .header{
   display: flex;
@@ -98,16 +104,35 @@
   display: none;
 }
 
+.numeroCarrito{
+  height: 20px;
+  padding: 1%;
+  background-color: #d34543;
+  border:solid 1px black; 
+  border-radius:10px; 
+  color:white;
+  text-align:center; 
+  font-size:17px
+}
+
 @media only screen and (max-width: 768px) {
   #user:checked ~ .header-usuario{
     display: grid ;
   }
-  
 }
 
 @media only screen and (min-width: 769px) {
   .campoBusqueda{
     display: flex;
+  }
+  
+  .formHeader{
+    display: flex;
+    width: 60%;
+  }
+
+  .contenedor-imagen{
+    margin-right: 1%;
   }
 
   .user:hover .header-usuario,.header-usuario:hover{

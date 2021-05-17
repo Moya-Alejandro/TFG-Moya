@@ -1,5 +1,6 @@
+<?php require_once('../header/header.php') ?>
+<?php require_once('../nav/nav.php') ?>
 <?php 
-    require_once('../header/header.php');
     require '../../backend/bd/DAOusuario.php';
     if($_SESSION["rol"] != "admin"){
         header('Location: ../index/index.php');
@@ -35,7 +36,7 @@
                 }
             ?>
         </div>
-        <?php require_once('../footer/footer.php') ?>   
+        <?php require_once('../footer/footer.php') ?>  
     </body>
 </html>
 <script src="https://kit.fontawesome.com/143eda576b.js" crossorigin="anonymous"></script>

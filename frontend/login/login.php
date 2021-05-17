@@ -1,3 +1,5 @@
+<?php require_once('../header/header.php') ?>
+<?php require_once('../nav/nav.php') ?>
 <?php
     $error = "";
     if(isset($_GET["error"])){
@@ -14,7 +16,6 @@
         <link rel="stylesheet" href="../index/index.css">
     </head>
     <body class="index">
-        <?php require_once('../header/header.php') ?>
         <div class="carta-body">
             <div class="carta">
                 <form id="form" action="../../backend/usuario/iniciarsesion.php" method="POST">

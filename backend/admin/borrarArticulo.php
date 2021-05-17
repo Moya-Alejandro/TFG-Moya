@@ -16,8 +16,8 @@
         header("Location: ../../frontend/panel/panelArticulo.php");
     }
     catch(Exception $e){
-        $error = "";
-        header("Location: ../../frontend/panel/panelCategoria.php?error=$error");
+        $error = $e;
+        header("Location: ../../frontend/panel/panelArticulo.php?error=$error");
     }
 
 ?>

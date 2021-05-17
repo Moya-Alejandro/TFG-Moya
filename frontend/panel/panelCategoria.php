@@ -1,5 +1,6 @@
+<?php require_once('../header/header.php') ?>
+<?php require_once('../nav/nav.php') ?>
 <?php 
-    require_once('../header/header.php');
     require '../../backend/bd/DAOusuario.php';
     require '../../backend/bd/DAOcategoria.php';
     $error = "";
