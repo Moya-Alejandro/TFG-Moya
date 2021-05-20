@@ -8,7 +8,7 @@
     $idUsuario = $_POST['idUsuario'];
     $comentario = $_POST['comentario'];
    
-    $insertarComentario = insertarComentario($conexion,$idArticulo,$idUsuario,$comentario);
+    $insertarComentario = insertarComentario($conexion,$idUsuario,$idArticulo,$comentario);
 
 
 ?>

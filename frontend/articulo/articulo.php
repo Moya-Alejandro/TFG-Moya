@@ -11,6 +11,11 @@
         $rol = $_SESSION["rol"];
     }
 
+    $error = "";
+    if(isset($_GET["error"])){
+        $error = $_GET["error"];
+    }
+
     $articulos;
 
     if (empty ($_POST['filtroSeleccionado'])) {
@@ -65,7 +70,7 @@
                     <?php echo $fila['stock']?>
                     <?php if($rol == ""){ ?>
                     <?php } else{?>
-                        <button class="enviar" id="insertarCarrito" name="insertarCarrito" data-id="<?php echo $fila['id']?>" data-precio="<?php echo $fila['precio']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar</button>
+                        <button class="enviar" id="insertarCarrito" name="insertarCarrito" data-tipo = "<?php echo $tipo?>"data-id="<?php echo $fila['id']?>" data-precio="<?php echo $fila['precio']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar <span><?php echo $error; ?></span></button>
                     <?php } ?>
                 </div> 
                 <?php } ?>

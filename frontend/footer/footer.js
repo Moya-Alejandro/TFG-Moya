@@ -8,7 +8,8 @@ $(document).ready(function(){
         precio:  $(this).attr('data-precio'),
         cantidad:$(this).attr('data-cantidad'),
         stock: $(this).attr('data-stock'),
-        nombre: $(this).attr('data-name')
+        nombre: $(this).attr('data-name'),
+        tipo:  $(this).attr('data-tipo')
 
         }
 

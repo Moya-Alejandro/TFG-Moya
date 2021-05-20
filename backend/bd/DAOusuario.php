@@ -65,7 +65,7 @@
 		return $resultadoConsulta;
 	}
 
-	function insertarComentario($conexion,$idArticulo,$idUsuario,$comentario){
+	function insertarComentario($conexion,$idUsuario,$idArticulo,$comentario){
 		$consulta = "INSERT INTO comentario (`idUsuario`, `idArticulo`, `comentario`) VALUES ('$idUsuario', '$idArticulo', '$comentario')";
 		$resultadoConsulta = mysqli_query($conexion,$consulta);
 		return $resultadoConsulta;

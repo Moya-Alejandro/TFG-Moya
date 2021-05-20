@@ -147,4 +147,22 @@
 		return $resultadoConsulta;
     }
 
+    function meGustaArticulo($conexion,$idArticulo,$idUsuario,$valoracion){
+        $consulta = "INSERT INTO megustas (idArticulo,idUsuario,gusta) VALUES($idArticulo,$idUsuario,$valoracion) ON DUPLICATE KEY UPDATE gusta = $valoracion";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);  
+		return $resultadoConsulta;
+    }
+
+    function verMeGustaArticulo($conexion,$idArticulo,$idUsuario){
+        $consulta = "SELECT gusta FROM megustas WHERE(idArticulo = '$idArticulo') AND (idUsuario = '$idUsuario')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);  
+		return $resultadoConsulta;
+    }
+
+    function verMeGustaTotal($conexion,$idArticulo){
+        $consulta = "SELECT gusta FROM megustas WHERE(idArticulo = '$idArticulo')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);  
+		return $resultadoConsulta;
+    }
+
 ?>

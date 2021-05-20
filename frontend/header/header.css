@@ -2,6 +2,11 @@
 
 .header{
     display: flex;
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: white;
+    z-index: 10;
+    top:0;
 }
 
 .campoBusqueda {

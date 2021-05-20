@@ -18,11 +18,11 @@
                     </div>
                     <div class="columna2">
                         <h1>Redes sociales</h1>
-                        <div class="fila"><img src="../footer/iconos/facebook.png" alt="Facebook"><label>Facebook</label></div>
-                        <div class="fila"><img src="../footer/iconos/twitter.png" alt="Twitter"><label>Twitter</label></div>
-                        <div class="fila"><img src="../footer/iconos/instagram.png" alt="Instagram"><label>Instagram</label></div>
-                        <div class="fila"><img src="../footer/iconos/linkedin.png" alt="LinkedIn"><label>LinkedIn</label></div>
-                        <div class="fila"><img src="../footer/iconos/map.png" alt="Mapa"><label>Mapa del Sitio</label></div>
+                        <div class="fila"><img src="../footer/iconos/facebook.png" alt="Facebook"><label><a href="https://www.facebook.com/">Facebook</a></label></div>
+                        <div class="fila"><img src="../footer/iconos/twitter.png" alt="Twitter"><label><a href="https://twitter.com/">Twitter</a></label></div>
+                        <div class="fila"><img src="../footer/iconos/instagram.png" alt="Instagram"><label><a href="https://www.instagram.com/">Instagram</a></label></div>
+                        <div class="fila"><img src="../footer/iconos/linkedin.png" alt="LinkedIn"><label><a href="https://www.linkedin.com/">LinkedIn</a></label></div>
+                        <div class="fila"><img src="../footer/iconos/map.png" alt="Mapa"><label><a href="../mapaSitio/mapaSitio.php">Mapa del Sitio</a></label></div>
                     </div>
                     <div class="columna3">
                         <h1>Contáctanos</h1>

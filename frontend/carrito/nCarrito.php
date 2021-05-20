@@ -1,7 +1,8 @@
 <?php 
 
     require '../../backend/bd/conectarBD.php';
-	require '../../backend/bd/DAOcarrito.php';
+    require '../../backend/bd/DAOusuario.php';
+    require '../../backend/bd/DAOcarrito.php';
     session_start();
     $conexion = conectarBD(true);
 
