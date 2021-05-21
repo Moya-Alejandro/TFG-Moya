@@ -165,4 +165,12 @@
 		return $resultadoConsulta;
     }
 
+    
+    function borrarComentario($conexion,$id){
+        $consulta = "DELETE FROM comentario WHERE (id = '$id')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);  
+		return $resultadoConsulta;
+    }
+
+
 ?>
