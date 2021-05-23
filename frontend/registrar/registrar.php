@@ -2,6 +2,11 @@
 <?php require_once('../nav/nav.php') ?>
 <?php
 
+    $error = "";
+    if(isset($_GET["error"])){
+        $error = $_GET["error"];
+    }
+
     $rol = "";
     if(isset($_SESSION["rol"])){
         $rol = $_SESSION["rol"];
@@ -16,11 +21,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="registrar.css">
         <link rel="stylesheet" href="../index/index.css">
+        <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
+        <ul id="migasPan">
+            <li><a href="../index/index.php"> Inicio </a></li>
+            <li><a href=""> Registrar Usuario </a></li>
+        </ul>
         <div class="carta-body">
             <div class="carta">
-                <form id="form" action="../../backend/usuario/registrar.php" method="POST">
+                <form id="formRegistrar" action="../../backend/usuario/registrar.php" method="POST">
                     <h4>Crear Cuenta</h4>
                     <hr>
                     <div class="campos">
@@ -66,7 +76,11 @@
                         </div>
                     </div>
                     <div class="botonRegistrar">
-                        <button class="botonForm">Registrar</button>
+                        <?php if($rol != "admin"){?>
+                        <div class="g-recaptcha" data-sitekey="6LcnV-UaAAAAACfyjVinzl95qNZ5eDPPysN61WnI"></div><br/>
+                        <span class="errorCaptcha"><?php echo $error; ?></span>
+                        <?php } ?>
+                        <button class="botonForm" id="botonRegistrar">Registrar Usuario</button>
                         <?php if($rol != "admin"){?>
                         <a href="../login/login.php">¿Ya tienes una cuenta?</a>
                         <?php } ?>
@@ -80,3 +94,4 @@
         <?php require_once('../footer/footer.php') ?>  
     </body>
 </html>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>

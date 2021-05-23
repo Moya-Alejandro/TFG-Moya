@@ -3,9 +3,9 @@
 	require '../bd/DAOcarrito.php';
 
     $conexion = conectarBD(true);
-    $idCesta = $_GET["idCesta"];
+    $idUsuario = $_GET["idUsuario"];
 
-    $vaciarCarrito = vaciarCarrito($conexion,$idCesta);
+    $vaciarCarrito = vaciarCarrito($conexion,$idUsuario);
 
     header("Location: ../../frontend/carrito/verCarrito.php");
 

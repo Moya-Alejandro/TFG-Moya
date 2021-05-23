@@ -37,8 +37,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../index/index.css">
+        <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
+        <ul id="migasPan">
+            <li><a href="../index/index.php"> Inicio </a></li>
+            <li><a href="../categorias/categorias.php"> Categorías </a></li>
+            <li><a href=""> Artículos </a></li>
+        </ul>
         <div>
             <div>
                 <form action="articulo.php?tipo=<?php echo $tipo?>" method="post">
@@ -70,7 +76,7 @@
                     <?php echo $fila['stock']?>
                     <?php if($rol == ""){ ?>
                     <?php } else{?>
-                        <button class="enviar" id="insertarCarrito" name="insertarCarrito" data-tipo = "<?php echo $tipo?>"data-id="<?php echo $fila['id']?>" data-precio="<?php echo $fila['precio']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar <span><?php echo $error; ?></span></button>
+                        <button class="enviar" id="insertarCarrito" name="insertarCarrito" data-tipo = "<?php echo $tipo?>"data-id="<?php echo $fila['id']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar <span><?php echo $error; ?></span></button>
                     <?php } ?>
                 </div> 
                 <?php } ?>

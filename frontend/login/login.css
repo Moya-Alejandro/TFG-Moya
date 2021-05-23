@@ -1,3 +1,13 @@
 #errorUsuario,#errorPassword,#errorForm{
     visibility: hidden;
 }
+
+.recuperarForm{
+    display: none;
+}
+.botonOlvidado{
+    display: none;
+}
+.botonOlvidado:checked ~ .recuperarForm{
+    display: flex;
+}

@@ -1,0 +1,99 @@
+
+#migasPan {
+    list-style: none;
+    display: inline-block;
+}
+
+#migasPan li {
+    float: left;
+}
+
+#migasPan li a {
+    color: #FFF;
+    display: block;
+    background: #3498db;
+    text-decoration: none;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px 0 5px;
+    text-align: center;
+    margin-right: 23px;
+}
+
+#migasPan li:nth-child(even) a {
+    background-color: #2980b9;
+}
+
+#migasPan li:nth-child(even) a:before {
+    border-color: #2980b9;
+    border-left-color: transparent;
+}
+
+#migasPan li:nth-child(even) a:after {
+    border-left-color: #2980b9;
+}
+
+#migasPan li:first-child a {
+    padding-left: 15px;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    -ms-border-radius: 4px 0 0 4px;
+    -o-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+}
+
+#migasPan li:first-child a:before {
+    border: none;
+}
+
+#migasPan li:last-child a {
+padding-right: 15px;
+-webkit-border-radius: 0 4px 4px 0;
+-moz-border-radius: 0 4px 4px 0;
+-ms-border-radius: 0 4px 4px 0;
+-o-border-radius: 0 4px 4px 0;
+border-radius: 0 4px 4px 0;
+}
+#migasPan li:last-child a:after {
+    border: none;
+}
+#migasPan li a:before, #migasPan li a:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    border: 0 solid #3498db;
+    border-width: 20px 10px;
+    width: 0;
+    height: 0;
+}
+#migasPan li a:before {
+    left: -20px;
+    border-left-color: transparent;
+}
+#migasPan li a:after {
+    left: 100%;
+    border-color: transparent;
+    border-left-color: #3498db;
+}
+#migasPan li a:hover {
+    background-color: #1abc9c;
+}
+#migasPan li a:hover:before {
+    border-color: #1abc9c;
+    border-left-color: transparent;
+}
+#migasPan li a:hover:after {
+    border-left-color: #1abc9c;
+}
+#migasPan li a:active {
+    background-color: #16a085;
+}
+#migasPan li a:active:before {
+    border-color: #16a085;
+    border-left-color: transparent;
+}
+#migasPan li a:active:after {
+    border-left-color: #16a085;
+}
+

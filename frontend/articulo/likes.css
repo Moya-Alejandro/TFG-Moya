@@ -6,3 +6,14 @@
 .likes input{
     display: none;
 }
+
+.valoracion label{
+    font-size: 1.5rem;
+}
+.valoracion .verde{
+    color: green;
+}
+
+.valoracion .rojo{
+    color: red;
+}
