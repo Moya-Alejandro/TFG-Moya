@@ -8,8 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="perfil.css">
         <link rel="stylesheet" href="../index/index.css">
+        <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
+        <ul id="migasPan">
+            <li><a href="../index/index.php"> Inicio </a></li>
+            <li><a href=""> Perfil </a></li>
+        </ul>
         <div class="carta-body">
             <div class="carta">
                 <form id="form" action="../../backend/usuario/editarPerfil.php" method="POST">

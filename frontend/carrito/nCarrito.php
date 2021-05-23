@@ -6,11 +6,11 @@
     session_start();
     $conexion = conectarBD(true);
 
-    $idCesta = $_SESSION['id'];
+    $idUsuario = $_SESSION['id'];
 
-    $numeroArticulos = numeroArticulos($conexion, $idCesta);
+    $numeroArticulos = numeroArticulos($conexion, $idUsuario);
     $totalArticulos = mysqli_fetch_assoc($numeroArticulos);
     
-    echo($totalArticulos['Count(idCesta)']);
+    echo($totalArticulos['Count(idUsuario)']);
 
 ?>

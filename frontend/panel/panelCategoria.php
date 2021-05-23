@@ -20,8 +20,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="panel.css">
         <link rel="stylesheet" href="../index/index.css">
+        <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
+        <ul id="migasPan">
+            <li><a href="../index/index.php"> Inicio </a></li>
+            <li><a href=""> Panel de Categorías </a></li>
+        </ul>
         <div id="contenedorPrincipal">
             <a href="../admin/crearCategoria.php"><i class="fas fa-plus"></i></a>
             <?php

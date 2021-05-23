@@ -1,6 +1,5 @@
 <?php require_once('../header/header.php'); ?>
 <?php require_once('../nav/nav.php'); ?>
-
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -9,8 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="categorias.css">
         <link rel="stylesheet" href="../index/index.css">
+        <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
+        <ul id="migasPan">
+            <li><a href="../index/index.php"> Inicio </a></li>
+            <li><a href=""> Categorías </a></li>
+        </ul>
         <div class="contenedorPrincipal">
             <div class="contenedor efectoContenedor">
                 <a href="../articulo/articulo.php?tipo=pistola">
