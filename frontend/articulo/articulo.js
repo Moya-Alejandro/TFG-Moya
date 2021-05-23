@@ -19,14 +19,14 @@ $(document).ready(function(){
         $.ajax({
             url:'../comentario/verComentario.php',
             type:'GET',
-            data: {idArticulo: $('.botonComentario').attr('data-idArticulo'),
-                   idUsuario: $('.botonComentario').attr('data-idUsuario')},
+            data: {idArticulo: $('.botonComentario').attr('data-idArticulo') },
             success: function numero(response){
                 let comentarios= JSON.parse(response); 
                 let fila='';
                 comentarios.forEach(comentarios => {
                 fila += `
-                <span>${comentarios.comentario+comentarios.iconoBorrar}</span><br>`          
+                <span>${comentarios.comentario}</span><br>   `
+                        
                 });
                 $('#verComentario').html(fila);
                 $('#verComentario2').html(fila);

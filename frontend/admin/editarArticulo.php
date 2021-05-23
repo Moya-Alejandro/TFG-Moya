@@ -24,14 +24,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="crearArticulo.css">
         <link rel="stylesheet" href="../index/index.css">
-        <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <ul id="migasPan">
-            <li><a href="../index/index.php"> Inicio </a></li>
-            <li><a href="../panel/panelArticulo.php"> Panel Artículo </a></li>
-            <li><a href=""> Editar Artículo </a></li>
-        </ul>
         <div class="carta-body">
             <form action="../../backend/admin/editarArticulo.php" method="post" enctype="multipart/form-data">
                 <h2>Editar Artículo</h2>

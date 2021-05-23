@@ -7,13 +7,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../index/index.css">
-        <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <ul id="migasPan">
-            <li><a href="../index/index.php"> Inicio </a></li>
-            <li><a href=""> Calendario </a></li>
-        </ul>
         <div>
             <img src="calendario1.png" alt="calendario1">
         </div>

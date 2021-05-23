@@ -4,10 +4,10 @@
     session_start();
     $conexion = conectarBD(true);
 
-    $idUsuario = $_SESSION["id"];
+    $idCesta = $_SESSION["id"];
     $idArticulo = $_GET["idArticulo"];
 
-    $borrarArticuloCarrito = borrarArticuloCarrito($conexion,$idUsuario,$idArticulo);
+    $borrarArticuloCarrito = borrarArticuloCarrito($conexion,$idCesta,$idArticulo);
 
     header("Location: ../../frontend/carrito/verCarrito.php");
 

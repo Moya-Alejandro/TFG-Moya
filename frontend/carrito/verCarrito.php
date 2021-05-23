@@ -7,11 +7,11 @@
         header("Location: ../index/index.php");
     }
     //Las id de los carritos coinciden con la id del usuario por lo que con el session["id"] sacamos la id del carrito también
-    $idUsuario = $_SESSION["id"];
+    $idCarrito = $_SESSION["id"];
     $conexion = conectarBD(true);
-    $total = "0";
     
-    $articulosCarrito = mostrarCarrito($conexion, $idUsuario);
+    $precioTotal = mysqli_fetch_assoc(precioTotal($conexion,$idCarrito));
+    $articulosCarrito = mostrarCarrito($conexion, $idCarrito);
 
 ?>
 <!DOCTYPE html>
@@ -22,13 +22,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../index/index.css">
         <link rel="stylesheet" href="carrito.css">
-        <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <ul id="migasPan">
-            <li><a href="../index/index.php"> Inicio </a></li>
-            <li><a href=""> Carrito </a></li>
-        </ul>
         <div class="contenedor">
             <div class ="carrito">
                 <h1>Realizar Compra</h1>
@@ -50,7 +45,7 @@
                                 <th><?php echo $fila['nArticulo']?></th>
                                 <th><?php echo $fila['precio']?></th>
                                 <th><?php echo $fila['cantidad']?></th>
-                                <th><?php echo $fila['precio']*$fila['cantidad']; $total += $fila['precio']*$fila['cantidad'];?></th>
+                                <th><?php echo $fila['precio']*$fila['cantidad']?></th>
                                 <th><a href="../../backend/carrito/borrarArticuloCarrito.php?idArticulo=<?php echo $fila['idArticulo']?>"><i class="fas fa-times-circle"></i></a></th>
                             </tr>
                             <?php } ?>
@@ -58,20 +53,19 @@
                         <tr>
                             <th>TOTAL :</th>
                             <th>
-                                <p id="total"><?php echo $total; ?></p>
+                                <p id="total"><?php echo $precioTotal["total"];?></p>
                             </th>
                         </tr>
                     </table>
                     <div class="vaciar-carrito">
-                        <p id="vaciar-carrito"><a href="../../backend/carrito/vaciarCarrito.php?idUsuario=<?php echo $idUsuario?>">Vaciar Carrito</a></p>
+                        <p id="vaciar-carrito"><a href="../../backend/carrito/vaciarCarrito.php?idCesta=<?php echo $idCarrito?>">Vaciar Carrito</a></p>
                     </div>
+
                     <div class="comprar">
-                        <div id="paypal-button-container" data-total = <?php echo $total; ?>></div>
+
                     </div>
             </div>
         </div>
         <?php require_once('../footer/footer.php') ?>   
     </body>
 </html>
-<script src="https://www.paypal.com/sdk/js?client-id=test&currency=EUR"></script>
-<script src="paypal.js"></script>

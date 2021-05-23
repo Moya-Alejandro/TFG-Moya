@@ -20,15 +20,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../index/index.css">
         <link rel="stylesheet" href="likes.css">
-        <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <ul id="migasPan">
-            <li><a href="../index/index.php"> Inicio </a></li>
-            <li><a href="../categorias/categorias.php"> Categorías </a></li>
-            <li><a href="articulo.php?tipo="> Artículos </a></li> <!-- PASARLE EL TIPO DEL ARTICULO ACTUAL -->
-            <li><a href=""> Nombre Articulo </a></li> <!-- CAMBIAR POR NOMBRE DEL ARTICULO ACTUAL -->
-        </ul>
         <div>
             <?php if($rol!="invitado"){ ?>
             <div class="likes">
@@ -38,7 +31,7 @@
                 <input type="radio" class="like noMeGusta" name="like" id="noMeGusta" data-idArticulo="<?php echo $idArticulo;?>" data-valor="-1">
             </div>
             <?php } ?>
-            <textarea name="comentario" id="comentario" minlength="0" maxlength="1000" cols="90" rows="3"></textarea><?php if($rol!="invitado"){ ?><button class="botonComentario" name="comentario" id="comentario" data-idArticulo = "<?php echo $idArticulo;?>" data-rol="<?php echo $_SESSION["rol"]; ?>" data-idUsuario="<?php echo $_SESSION["id"]; ?>">Comentar</button><div id="verComentario"></div><?php } ?>
+            <textarea name="comentario" id="comentario" minlength="0" maxlength="1000" cols="90" rows="3"></textarea><?php if($rol!="invitado"){ ?><button class="botonComentario" name="comentario" id="comentario" data-idArticulo = "<?php echo $idArticulo;?>" data-idUsuario="<?php echo $_SESSION["id"]; ?>">Comentar</button><div id="verComentario"></div><?php } ?>
             <?php if($rol=="invitado"){ ?><button type="hidden" class="botonComentario" name="comentario" id="comentario" data-idArticulo = "<?php echo $idArticulo;?>"></button><div id="verComentario2"></div><?php } ?> <br>
         </div>
         <?php require_once('../footer/footer.php') ?>   

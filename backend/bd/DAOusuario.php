@@ -70,24 +70,6 @@
 		$resultadoConsulta = mysqli_query($conexion,$consulta);
 		return $resultadoConsulta;
 	}
-
-	function generarContraTemporal($longitud = 9) {
-		$caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$longitudCaracteres = strlen($caracteres);
-		$contraGenerada = '';
-		for ($i = 0; $i < $longitud; $i++) {
-			$contraGenerada .= $caracteres[rand(0, $longitudCaracteres - 1)];
-		}
-		return $contraGenerada;
-	}
-
-	function actualizarContra($conexion,$contra,$correo){
-		$consulta = "UPDATE usuario SET `password` = '$contra' WHERE (`correo` = '$correo')";
-		$resultadoConsulta = mysqli_query($conexion,$consulta);
-		return $resultadoConsulta;
-	}
-
-
 	function verComentario($conexion,$idArticulo){
 		$consulta = "SELECT * FROM comentario WHERE(idArticulo = '$idArticulo')";
 		$resultadoConsulta = mysqli_query($conexion,$consulta);

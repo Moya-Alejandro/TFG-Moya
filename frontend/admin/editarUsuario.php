@@ -17,14 +17,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../registrar/registrar.css">
         <link rel="stylesheet" href="../index/index.css">
-        <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <ul id="migasPan">
-            <li><a href="../index/index.php"> Inicio </a></li>
-            <li><a href="../panel/panelUsuario.php"> Panel Usuario </a></li>
-            <li><a href=""> Editar Usuario </a></li>
-        </ul>
         <div class="carta-body">
             <div class="carta">
                 <form id="form" action="../../backend/admin/editarUsuario.php?idUsuario=<?php echo $idUsuario; ?>" method="POST">
