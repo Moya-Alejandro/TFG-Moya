@@ -12,6 +12,7 @@
     z-index: -1;
 }
 
-.navBar a {
+.navBar a, .navBar > li {
     text-decoration: none;
+    list-style: none;
 }

@@ -1,0 +1,21 @@
+.mapaSitio{
+    grid-gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    
+}
+
+.contImg{
+    width: 150px;
+    height: 150px;
+    margin:auto;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.liHijo{
+    padding: 0 0 0 40px;
+}

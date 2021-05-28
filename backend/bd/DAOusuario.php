@@ -93,4 +93,16 @@
 		$resultadoConsulta = mysqli_query($conexion,$consulta);
 		return $resultadoConsulta;
 	}
+
+	function borrarComentario($conexion,$idComentario){
+		$consulta = "DELETE FROM comentario WHERE (`id` = '$idComentario')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);
+		return $resultadoConsulta;
+	}
+
+	function editarComentario($conexion,$idComentario,$comentario){
+		$consulta = "UPDATE comentario SET `comentario` = '$comentario' WHERE (`id` = '$idComentario')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);
+		return $resultadoConsulta;
+	}
 ?>

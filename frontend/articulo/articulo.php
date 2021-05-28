@@ -70,7 +70,7 @@
             <div>
                 <?php while($fila = mysqli_fetch_assoc($articulos)){ ?>
                 <div id="contenedorArticulo">
-                    <a href="mostrarArticulo.php?id=<?php echo $fila['id']?>"><img src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></a>
+                    <a href="mostrarArticulo.php?id=<?php echo $fila['id']?>&tipo=<?php echo $tipo; ?>"><img src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></a>
                     <?php echo $fila['nArticulo']?>
                     <?php echo $fila['precio']?>
                     <?php echo $fila['stock']?>

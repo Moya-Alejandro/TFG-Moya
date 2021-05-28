@@ -7,20 +7,22 @@
     $idUsuario = $_SESSION["id"];
     $rolUsuario = $_SESSION["rol"];
     $idArticulo = $_GET["idArticulo"];
-    $icono = "";
+    
     $result =  verComentario($conexion,$idArticulo);
 
+    
     $json= array();
-
     while($ver= mysqli_fetch_array($result)){
-
-        if($idUsuario == $ver['idUsuario']){
-            $icono = '<a href=""><i class="fas fa-trash"></i></a>';
-        }
+        $idComentario = $ver['id'];
+        $comentario = $ver['comentario'];
+        $icono = "<button class='borrarComentario' data-idComentario ='$idComentario'><i class='fas fa-trash'></i></button>";
+        $iconoEditar = "<button class='editarComentario' data-idComentario ='$idComentario' data-comentario ='$comentario'><i class='far fa-edit'></i></button>";
         $json[]= array(
             'comentario' => $ver['comentario'],
             'idUsuarioComentario' => $ver['idUsuario'],
-            'iconoBorrar' => $icono
+            'id' => $ver['idUsuario'],
+            'iconoBorrar' => $icono,
+            'iconoEditar' =>$iconoEditar
         );
     }
 

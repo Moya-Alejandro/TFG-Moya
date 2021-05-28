@@ -159,6 +159,19 @@
 		return $resultadoConsulta;
     }
 
+    function verLikeDeArticulo($conexion,$idArticulo,$idUsuario){
+        $consulta = "SELECT * FROM megustas WHERE(idArticulo = '$idArticulo') AND (idUsuario = '$idUsuario')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);  
+		return $resultadoConsulta;
+    }
+
+    function editarLike($conexion,$valoracion,$idArticulo,$idUsuario){
+        $consulta = "UPDATE megustas SET `gusta` = '$valoracion' WHERE (`idUsuario` = '$idUsuario') AND (`idArticulo` = '$idArticulo')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);  
+		return $resultadoConsulta;
+    }
+
+
     function verMeGustaTotal($conexion,$idArticulo){
         $consulta = "SELECT gusta FROM megustas WHERE(idArticulo = '$idArticulo')";
 		$resultadoConsulta = mysqli_query($conexion,$consulta);  

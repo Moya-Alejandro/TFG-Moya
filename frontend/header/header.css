@@ -85,7 +85,7 @@
   width: 100%;
 } 
 
-.header-usuario a,li{
+.header-usuario a, .header-usuario > li{
   text-decoration: none;
   list-style: none;
 }

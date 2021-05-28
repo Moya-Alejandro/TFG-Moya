@@ -45,8 +45,22 @@
         return $resultado;
     }
 
+    function cogerStockCesta($conexion,$idUsuario){
+        $consulta = "SELECT idArticulo,cantidad FROM carrito WHERE (idUsuario = '$idUsuario')";
+        $resultado= mysqli_query($conexion,$consulta);
+        return $resultado;
+    }
+    
     function borrarStock($conexion,$stock,$idArticulo){
+        $consulta = "UPDATE articulo SET `stock` = stock-'$stock' WHERE (`id` = '$idArticulo')";
+        $resultado= mysqli_query($conexion,$consulta);
+        return $resultado;
+    }
 
+    function actualizarCantidad($conexion,$idArticulo,$cantidad){
+        $consulta = "UPDATE carrito SET `cantidad` = '$cantidad' WHERE (`idArticulo` = '$idArticulo')";
+        $resultado= mysqli_query($conexion,$consulta);
+        return $resultado;
     }
 
     

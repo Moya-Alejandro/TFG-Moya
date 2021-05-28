@@ -11,7 +11,7 @@
     </head>
     <body class="index">
         <ul id="migasPan">
-            <li><a href=""> Inicio </a></li>
+            <li><a href="" class="activo"> Inicio </a></li>
         </ul>
         <div></div>
         <?php require_once('../footer/footer.php') ?>   

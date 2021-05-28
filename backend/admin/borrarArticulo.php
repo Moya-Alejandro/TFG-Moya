@@ -16,7 +16,7 @@
         header("Location: ../../frontend/panel/panelArticulo.php");
     }
     catch(Exception $e){
-        $error = $e;
+        $error = "Error al borrar el articulo";
         header("Location: ../../frontend/panel/panelArticulo.php?error=$error");
     }
 

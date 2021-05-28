@@ -8,6 +8,14 @@
     $idArticulo = $_POST["idArticulo"];
     $valor = $_POST["valor"];
 
-    $meGusta = meGustaArticulo($conexion,$idArticulo,$idUsuario,$valor);
+    $fila = verLikeDeArticulo($conexion,$idArticulo,$idUsuario);
+
+    if(mysqli_num_rows($fila)){
+        $editarLike = editarLike($conexion,$valor,$idArticulo,$idUsuario);
+    }
+    else{
+        $meGusta = meGustaArticulo($conexion,$idArticulo,$idUsuario,$valor);
+    }
+    
 
 ?>
