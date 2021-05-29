@@ -25,11 +25,11 @@
         <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <ul id="migasPan">
-            <li><a href="../index/index.php"> Inicio </a></li>
-            <li><a href=""> Carrito </a></li>
-        </ul>
         <div class="contenedor">
+            <ul id="migasPan">
+                <li><a href="../index/index.php"> Inicio </a></li>
+                <li><a href=""> Carrito </a></li>
+            </ul>
             <div class ="carrito">
                 <h1>Realizar Compra</h1>
                     <table class="table" id="lista-compra">

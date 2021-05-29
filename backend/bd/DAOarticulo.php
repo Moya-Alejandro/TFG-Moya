@@ -153,11 +153,6 @@
 		return $resultadoConsulta;
     }
 
-    function verMeGustaArticulo($conexion,$idArticulo,$idUsuario){
-        $consulta = "SELECT gusta FROM megustas WHERE(idArticulo = '$idArticulo') AND (idUsuario = '$idUsuario')";
-		$resultadoConsulta = mysqli_query($conexion,$consulta);  
-		return $resultadoConsulta;
-    }
 
     function verLikeDeArticulo($conexion,$idArticulo,$idUsuario){
         $consulta = "SELECT * FROM megustas WHERE(idArticulo = '$idArticulo') AND (idUsuario = '$idUsuario')";
@@ -178,9 +173,29 @@
 		return $resultadoConsulta;
     }
 
+    function deseleccionar($conexion,$idLike){
+        $consulta = "UPDATE megustas SET `gusta` = '0' WHERE (`id` = '$idLike')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);  
+		return $resultadoConsulta;
+    }
+
     
     function borrarComentario($conexion,$id){
         $consulta = "DELETE FROM comentario WHERE (id = '$id')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);  
+		return $resultadoConsulta;
+    }
+
+    function sumaVerLikes($conexion,$idArticulo){
+        $consulta = "SELECT sum(gusta) FROM megustas WHERE (gusta = 1) AND (idArticulo = '$idArticulo')";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);  
+		return $resultadoConsulta;
+    }
+
+
+    
+    function sumarVerDislikes($conexion,$idArticulo){
+        $consulta = "SELECT count(gusta) FROM megustas WHERE (gusta = '-1') AND (idArticulo = '$idArticulo')";
 		$resultadoConsulta = mysqli_query($conexion,$consulta);  
 		return $resultadoConsulta;
     }

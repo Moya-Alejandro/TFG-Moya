@@ -17,30 +17,31 @@
         <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <ul id="migasPan">
-            <li><a href="../index/index.php"> Inicio </a></li>
-            <li><a href="../panel/panelCategoria.php"> Panel Categoría </a></li>
-            <li><a href=""> Crear Categoría </a></li>
-        </ul>
         <div class="contenedor">
-            <form id="form" action="../../backend/admin/crearCategoria.php" method="POST">
-                <div class="campos">
-                    <div class="campo">
-                        <input id="nombre" placeholder="Nombre de la Categoría" type="text" name="nombre">
-                        <p id="errorNombre">Algo ha salido mal</p>
-                    </div>
-                    <div class="contenedorInputs">
-                        <input type="button" value="Crear" onclick="crearInputs()">
-                        <div id="inputs">
-                            <div id="1">
-                                <input name="valor[]" type="text">
+            <ul id="migasPan">
+                <li><a href="../index/index.php"> Inicio </a></li>
+                <li><a href="../panel/panelCategoria.php"> Panel Categoría </a></li>
+                <li><a href=""> Crear Categoría </a></li>
+            </ul>
+            <div class="contenedorForm">
+                <form id="form" action="../../backend/admin/crearCategoria.php" method="POST">
+                    <div class="campos">
+                        <div class="campo">
+                            <input id="nombre" placeholder="Nombre de la Categoría" type="text" name="nombre">
+                        </div>
+                        <div class="contenedorInputs">
+                            <input type="button" value="Crear" onclick="crearInputs()">
+                            <div id="inputs">
+                                <div id="1">
+                                    <input name="valor[]" type="text">
+                                </div>
                             </div>
                         </div>
+                        <button>Crear</button>
                     </div>
-                    <button>Crear</button>
-                </div>
-                <p style="color:red;"><strong><?php echo $error?></strong></p>
-            </form>
+                    <p style="color:red;"><strong><?php echo $error?></strong></p>
+                </form>
+            </div>
         </div>
         <?php require_once('../footer/footer.php') ?>   
     </body>

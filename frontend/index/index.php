@@ -10,10 +10,14 @@
         <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <ul id="migasPan">
-            <li><a href="" class="activo"> Inicio </a></li>
-        </ul>
-        <div></div>
+        <div class="contenedor">
+            <ul id="migasPan">
+                <li><a href="" class="activo"> Inicio </a></li>
+            </ul>
+            <div>
+                
+            </div>
+        </div>
         <?php require_once('../footer/footer.php') ?>   
     </body>
 </html>

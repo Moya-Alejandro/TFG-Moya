@@ -10,28 +10,30 @@
         <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <ul id="migasPan">
-            <li><a href="../index/index.php"> Inicio </a></li>
-            <li><a href=""> Calendario </a></li>
-        </ul>
-        <div>
-            <img src="calendario1.png" alt="calendario1">
-        </div>
+        <div class="contenedor">
+            <ul id="migasPan">
+                <li><a href="../index/index.php"> Inicio </a></li>
+                <li><a href=""> Calendario </a></li>
+            </ul>
+            <div>
+                <img src="calendario1.png" alt="calendario1">
+            </div>
 
-        <div>
-        <img src="calendario2.png" alt="calendario2">
-        </div>  
+            <div>
+            <img src="calendario2.png" alt="calendario2">
+            </div>  
 
-        <div>
-        <img src="calendario3.png" alt="calendario3">
-        </div> 
+            <div>
+            <img src="calendario3.png" alt="calendario3">
+            </div> 
 
-        <div>
-        <img src="calendario4.png" alt="calendario4">
-        </div>  
+            <div>
+            <img src="calendario4.png" alt="calendario4">
+            </div>  
 
-        <div>
-        <img src="calendario5.png" alt="calendario5">
+            <div>
+            <img src="calendario5.png" alt="calendario5">
+            </div>
         </div>  
         <?php require_once('../footer/footer.php') ?>       
     </body>

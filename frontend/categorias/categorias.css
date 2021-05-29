@@ -5,7 +5,7 @@
     justify-content: center;
 }
 
-.contenedor{
+.contenedorCategoria{
     margin: 2rem;
     width: 23rem;
     height: 23rem;
@@ -16,7 +16,7 @@
 
 }
 
-.contenedor img{
+.contenedorCategoria img{
     width: 21rem;
     align-self: center;
 }

@@ -15,8 +15,9 @@
     actualizarContra($conexion,$contra,$correo);
 
     $asunto = "Contraseña Olvidada Melilla Shooting";
-    $mensaje = "La contraseña de la cuenta ".$correo." es: ".$contra."\nCambie la contraseña en su perfil.";
+    $mensaje = "La contraseña de la cuenta ".$correo." es: ".$contra."<br>Cambie la contraseña en su perfil.";
     $headers = 'From: moya.alejandro2001@gmail.com';
+    $nombre = "Melilla Shooting";
 
     $mensaje = utf8_decode($mensaje);
     $asunto = utf8_decode($asunto);
@@ -34,7 +35,7 @@
 
     //Configuración email
     $mail -> isHTML(true);
-    $mail -> setFrom($correo);
+    $mail -> setFrom($correo,$nombre);
     $mail -> addAddress($correo);
     $mail -> Subject = $asunto;
     $mail -> Body = $mensaje;

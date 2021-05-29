@@ -9,7 +9,7 @@
     $valor = $_POST["valor"];
 
     $fila = verLikeDeArticulo($conexion,$idArticulo,$idUsuario);
-
+    
     if(mysqli_num_rows($fila)){
         $editarLike = editarLike($conexion,$valor,$idArticulo,$idUsuario);
     }

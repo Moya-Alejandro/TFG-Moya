@@ -7,7 +7,7 @@
     $idArticulo = $_GET["idArticulo"];
     $conexion = conectarBD(true);
 
-    $valoracion = mysqli_fetch_assoc(verMeGustaArticulo($conexion,$idArticulo,$idUsuario));
+    $valoracion = mysqli_fetch_assoc(verLikeDeArticulo($conexion,$idArticulo,$idUsuario));
     $valor = 0;
 
     if(isset($valoracion)){
