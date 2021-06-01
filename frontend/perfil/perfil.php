@@ -11,67 +11,69 @@
         <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <div class="contenedor">
-            <ul id="migasPan">
-                <li><a href="../index/index.php"> Inicio </a></li>
-                <li><a href=""> Perfil </a></li>
-            </ul>
-            <div class="carta-body">
-                <div class="carta">
-                    <form id="form" action="../../backend/usuario/editarPerfil.php" method="POST">
-                        <h4>Editar Perfil</h4>
-                        <hr>
-                        <div class="campos">
-                            <div class="campo">
-                                <label for="nombre">Nombre</label>
-                                <input id="nombre" value="<?php echo $_SESSION['nombre'];?>" type="text" name="nombre" >
-                                <p id="errorNombre">Algo ha salido mal</p>
+        <div class="cuerpo">
+            <div class="contenedorPerfil">
+                <ul id="migasPan">
+                    <li><a  href="../index/index.php"> Inicio </a></li>
+                    <li><a class="active" href=""> Perfil </a></li>
+                </ul>
+                <div class="carta-body">
+                    <div class="carta">
+                        <form id="form" action="../../backend/usuario/editarPerfil.php" method="POST">
+                            <h4>Perfil</h4>
+                            <hr>
+                            <div class="campos">
+                                <div class="campo">
+                                    <label for="nombre">Nombre</label>
+                                    <input class="inputForm" id="nombre" value="<?php echo $_SESSION['nombre'];?>" type="text" name="nombre" >
+                                    <p id="errorNombre">Algo ha salido mal</p>
+                                </div>
+                                <div class="campo">
+                                    <label for="apellidos">Apellidos</label>
+                                    <input class="inputForm" id="apellidos" value="<?php echo $_SESSION['apellidos'];?>" type="text" name="apellidos" >
+                                    <p id="errorApellidos">Algo ha salido mal</p>
+                                </div>
+                                <div class="campo">
+                                    <label for="telefono">Telefono</label>
+                                    <input class="inputForm" id="telefono" value="<?php echo $_SESSION['telefono'];?>" type="text" name="telefono" >
+                                    <p id="errorTelefono">Algo ha salido mal</p>
+                                </div>
+                                <div class="campo">
+                                    <label for="dni">DNI</label>
+                                    <input class="inputForm" id="dni" value="<?php echo $_SESSION['dni'];?>" type="text" name="dni" >
+                                    <p id="errorDni">Algo ha salido mal</p>
+                                </div>
+                                <div class="campo">
+                                    <label for="usuario">Usuario </label>
+                                    <input class="inputForm" id="usuario" value="<?php echo $_SESSION['nUsuario'];?>" type="text" name="usuario" >
+                                    <p id="errorUsuario">Algo ha salido mal</p>
+                                </div>
+                                <div class="campo">
+                                    <label for="correo">Correo Electrónico</label>
+                                    <input class="inputForm" id="correo" value="<?php echo $_SESSION['correo'];?>" type="text" name="correo" >
+                                    <p id="errorCorreo">Algo ha salido mal</p>
+                                </div>
+                                <div class="campo">
+                                    <label for="password">Contraseña</label>
+                                    <input class="inputForm" id="password" value="<?php echo $_SESSION['password'];?>" type="password" name="password" >
+                                    <p id="errorPassword">Algo ha salido mal</p>
+                                </div>
+                                <div class="campo">
+                                    <label for="password2">Repita la contraseña</label>
+                                    <input class="inputForm" id="password2" value="<?php echo $_SESSION['password'];?>" type="password" name="password2" >
+                                    <p id="errorPassword2">La contraseña no coincide</p>
+                                </div>
                             </div>
-                            <div class="campo">
-                                <label for="apellidos">Apellidos</label>
-                                <input id="apellidos" value="<?php echo $_SESSION['apellidos'];?>" type="text" name="apellidos" >
-                                <p id="errorApellidos">Algo ha salido mal</p>
+                            <div class="botonEditar">
+                                <button class="botonForm">Editar Perfil</button>
                             </div>
-                            <div class="campo">
-                                <label for="telefono">Telefono</label>
-                                <input id="telefono" value="<?php echo $_SESSION['telefono'];?>" type="text" name="telefono" >
-                                <p id="errorTelefono">Algo ha salido mal</p>
+                            <div class="error">
+                                <p id="errorForm">Rellene bien los campos.</p>
                             </div>
-                            <div class="campo">
-                                <label for="dni">DNI</label>
-                                <input id="dni" value="<?php echo $_SESSION['dni'];?>" type="text" name="dni" >
-                                <p id="errorDni">Algo ha salido mal</p>
-                            </div>
-                            <div class="campo">
-                                <label for="usuario">Usuario </label>
-                                <input id="usuario" value="<?php echo $_SESSION['nUsuario'];?>" type="text" name="usuario" >
-                                <p id="errorUsuario">Algo ha salido mal</p>
-                            </div>
-                            <div class="campo">
-                                <label for="correo">Correo Electrónico</label>
-                                <input id="correo" value="<?php echo $_SESSION['correo'];?>" type="text" name="correo" >
-                                <p id="errorCorreo">Algo ha salido mal</p>
-                            </div>
-                            <div class="campo">
-                                <label for="password">Contraseña</label>
-                                <input id="password" value="<?php echo $_SESSION['password'];?>" type="text" name="password" >
-                                <p id="errorPassword">Algo ha salido mal</p>
-                            </div>
-                            <div class="campo">
-                                <label for="password2">Repita la contraseña</label>
-                                <input id="password2" value="<?php echo $_SESSION['password'];?>" type="text" name="password2" >
-                                <p id="errorPassword2">Algo ha salido mal</p>
-                            </div>
-                        </div>
-                        <div class="botonEditar">
-                            <button class="botonForm">Editar Perfil</button>
-                        </div>
-                        <div class="error">
-                            <p id="errorForm">Rellene bien los campos.</p>
-                        </div>
-                    </form>
-                </div>
-            </div> 
+                        </form>
+                    </div>
+                </div> 
+            </div>
         </div>
         <?php require_once('../footer/footer.php') ?>    
         <script src="../registrar/registrar.js"></script>

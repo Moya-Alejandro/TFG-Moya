@@ -20,8 +20,10 @@ body::-webkit-scrollbar-thumb {
 .index {
     width: 100%;
     display: grid;
-    grid-template-rows: 10vh 2vh 88vh auto;
+    grid-template-rows: 10vh auto auto auto;
     min-height: 100vh;
 }
 
-
+.cuerpoIndex{
+    min-height: 90vh;
+}

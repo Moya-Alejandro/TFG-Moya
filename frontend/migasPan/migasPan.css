@@ -1,4 +1,3 @@
-
 #migasPan {
     list-style: none;
     display: inline-block;
@@ -77,22 +76,22 @@ border-radius: 0 4px 4px 0;
     border-left-color: #3498db;
 }
 #migasPan li a:hover {
-    background-color: #1abc9c;
+    background-color: #0c3a58;
 }
 #migasPan li a:hover:before {
-    border-color: #1abc9c;
+    border-color: #0c3a58;
     border-left-color: transparent;
 }
 #migasPan li a:hover:after {
-    border-left-color: #1abc9c;
+    border-left-color: #0c3a58;
 }
 #migasPan li a:active {
-    background-color: #16a085;
+    background-color: #052135;
 }
 #migasPan li a:active:before {
-    border-color: #16a085;
+    border-color: #052135;
     border-left-color: transparent;
 }
 #migasPan li a:active:after {
-    border-left-color: #16a085;
+    border-left-color: #052135;
 }

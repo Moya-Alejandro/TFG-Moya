@@ -39,7 +39,6 @@
   background-color:#002b68;
 }
 
-
 .header{
   display: flex;
   justify-content: space-between;
@@ -47,7 +46,6 @@
   border-bottom: solid 1px rgb(21 47 226);
   padding: 0 10px;
   height: 100%;
-  box-shadow: 0 0 1em 0 rgb(21 47 226 / 77%);
 }
 
 .logo{
@@ -95,7 +93,7 @@
   background: white;
   width: 100vw;
   position: absolute;
-  top: 12vh;
+  top: 10vh;
   padding: 1rem;
   left: 0;
   grid-gap: 20px;
@@ -112,12 +110,16 @@
 .numeroCarrito{
   height: 20px;
   padding: 1%;
-  background-color: #d34543;
+  background-color: rgb(36, 58, 182);
   border:solid 1px black; 
   border-radius:10px; 
   color:white;
   text-align:center; 
   font-size:17px
+}
+
+.hrefnumeroCarrito{
+  text-decoration: none;  
 }
 
 @media only screen and (max-width: 768px) {

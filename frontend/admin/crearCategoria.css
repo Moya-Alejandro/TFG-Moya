@@ -1,0 +1,59 @@
+.contenedorCrearCategoria{
+    padding: 1.5rem 0;
+}
+
+h4{
+    text-align: center;
+    font-size: 30px;
+}
+
+.cuerpo{
+    min-height: 90vh;
+}
+
+.valores{
+    text-align: center;
+}
+
+i{
+    color: #2980b9;
+}
+
+.botonCrearValor, .botonBorrarInput, .borrarValorBoton{
+    display: none;
+}
+
+.contenedorForm{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.carta-body{
+    display: grid;
+    justify-content: center;
+}
+
+.campos{
+    padding: 1rem 0.5rem;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.divValores{
+    display: flex;
+    margin: 0.9rem;
+}
+
+.campo{
+    display: grid;
+}
+
+.labelBasura{
+    margin-left: 1rem;
+}
+
+.nombreCategoria{
+    margin-top: 1rem;
+}

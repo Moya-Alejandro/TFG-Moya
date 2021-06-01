@@ -11,3 +11,10 @@ function mostrarImagen(e){
         reader.readAsDataURL(e.files[0]);
     }
 }
+
+
+//Ocultamos los mensajes de errores
+$("#errorArticulo").css("visibility", "hidden");
+$("#errorPrecio").css("visibility", "hidden");
+$("#errorStock").css("visibility", "hidden");
+$("#errorFoto").css("visibility", "hidden");

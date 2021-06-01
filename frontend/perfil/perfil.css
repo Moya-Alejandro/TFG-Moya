@@ -1,3 +1,69 @@
-#errorNombre,#errorApellidos,#errorTelefono,#errorDni,#errorUsuario,#errorCorreo,#errorPassword,#errorPassword2,#errorForm{
-    visibility: hidden;
+.contenedorPerfil{
+    padding: 1.5rem 2rem;
 }
+
+.cuerpo{
+    min-height: 90vh;
+}
+
+.carta-body{
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+h4{
+    text-align: center;
+    font-size: 30px;
+}
+
+.carta{
+    border: solid 1px black;
+    padding: 1rem;
+}
+
+.inputForm{
+    outline: none;
+    width: 100%;
+    height: 1.5rem;
+}
+
+.campos{
+    padding: 1rem 0.5rem;
+}
+
+.campo{
+    padding: 0.1rem;
+    display: grid;
+    grid-gap: 0.5rem;
+}
+
+
+@media only screen and (min-width: 580px) {
+    .campos{
+        padding: 1rem 0.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: auto;
+        width: fit-content;
+        grid-gap: 0 5rem;
+    }
+  }
+
+  
+@media only screen and (min-width: 700px) {
+    .campos{
+        padding: 1rem 0.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: auto;
+        width: fit-content;
+        grid-gap: 0 5rem;
+    }
+    .carta{
+        width: 584px;
+        height: 456px;
+    }
+  }

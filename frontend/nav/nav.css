@@ -3,16 +3,29 @@
     position: sticky;
     top: 10vh;
     z-index: 9;
+    background-color: #253ab7;
+    box-shadow: 0 0 1em 0 rgb(21 47 226 / 77%);
+    height: fit-content;
 }
 
 .navBar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
     z-index: -1;
+    font-size: 25px;
+    grid-auto-flow: column;
+    width: fit-content;
+    margin: auto;
+    grid-gap: 1rem;
+    padding: 0.5rem;
 }
 
 .navBar a, .navBar > li {
     text-decoration: none;
     list-style: none;
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.navBar a:hover, .navBar > li:hover{
+    transform: scale(1.1);
 }

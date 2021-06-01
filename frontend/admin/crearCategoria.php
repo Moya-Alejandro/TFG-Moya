@@ -17,30 +17,37 @@
         <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <div class="contenedor">
-            <ul id="migasPan">
-                <li><a href="../index/index.php"> Inicio </a></li>
-                <li><a href="../panel/panelCategoria.php"> Panel Categoría </a></li>
-                <li><a href=""> Crear Categoría </a></li>
-            </ul>
-            <div class="contenedorForm">
-                <form id="form" action="../../backend/admin/crearCategoria.php" method="POST">
-                    <div class="campos">
-                        <div class="campo">
-                            <input id="nombre" placeholder="Nombre de la Categoría" type="text" name="nombre">
-                        </div>
-                        <div class="contenedorInputs">
-                            <input type="button" value="Crear" onclick="crearInputs()">
-                            <div id="inputs">
-                                <div id="1">
-                                    <input name="valor[]" type="text">
+        <div class="cuerpo">
+            <div class="contenedorCrearCategoria">
+                <ul id="migasPan">
+                    <li><a href="../index/index.php"> Inicio </a></li>
+                    <li><a href="../panel/panelCategoria.php"> Panel Categoría </a></li>
+                    <li><a href=""> Crear Categoría </a></li>
+                </ul>
+                <div class="contenedorForm">
+                    <h4>Crear Categoría</h4>
+                    <div class="carta-body">
+                        <form id="form" action="../../backend/admin/crearCategoria.php" method="POST">
+                            <div class="campos">
+                                <div class="campo">
+                                    <label for="nombre">Nombre de la Categoría</label><br>
+                                    <input id="nombre" placeholder="Nombre de la Categoría" type="text" name="nombre">
                                 </div>
+                                <div class="contenedorInputs">
+                                    <p class="valores">Valores<label for="crearValor"> <i class="fas fa-plus-square"></i></label></p>
+                                    <input id="crearValor" class="botonCrearValor" type="button" value="Crear" onclick="crearInputs()">
+                                    <div id="inputs">
+                                        <div class="divValores" id="1">
+                                            <input name="valor[]" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button>Crear</button>
                             </div>
-                        </div>
-                        <button>Crear</button>
+                            <p style="color:red;"><strong><?php echo $error?></strong></p>
+                        </form>
                     </div>
-                    <p style="color:red;"><strong><?php echo $error?></strong></p>
-                </form>
+                </div>
             </div>
         </div>
         <?php require_once('../footer/footer.php') ?>   

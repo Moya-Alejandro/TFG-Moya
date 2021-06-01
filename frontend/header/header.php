@@ -60,7 +60,7 @@
                 </li>
                 <?php if($rol!="invitado"){ ?>
                 <li class="elemento">
-                    <a href="../carrito/verCarrito.php"><label class="label" for="carrito"><img class="elemento" src="../img/shopping-cart.png" alt="carrito"><span id="numeroCarrito" class="numeroCarrito"></span></label></a>
+                    <a class="hrefnumeroCarrito" href="../carrito/verCarrito.php"><label class="label" for="carrito"><img class="elemento" src="../img/shopping-cart.png" alt="carrito"><span id="numeroCarrito" class="numeroCarrito"></span></label></a>
                 </li>
                 <?php } ?>
             </ul>
