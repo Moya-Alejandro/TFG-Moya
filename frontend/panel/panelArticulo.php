@@ -18,29 +18,31 @@
         <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <div class="contenedor">
-            <ul id="migasPan">
-                <li><a href="../index/index.php"> Inicio </a></li>
-                <li><a href=""> Panel de Artículos </a></li>
-            </ul>
-            <div id="contenedorPrincipal">
-                <a href="../admin/crearArticulo.php"><i class="fas fa-plus"></i></a>
-                <?php
-                    $conexion = conectarBd(true);
-                    $result = mostrarArticulos($conexion);
-                    while ($fila = mysqli_fetch_assoc($result)) {
-                ?>
-                <div id="contenedor">
-                    <img src="../<?php echo $fila['foto']?>" alt="imagenArticulo">
-                    <?php echo $fila['nArticulo']?>
-                    <?php echo $fila['precio']?>
-                    <?php echo $fila['stock']?>
-                    <a href="../admin/editarArticulo.php?idArticulo=<?php echo $fila['id']?>"><i class="fas fa-edit"></i></a>
-                    <a href="../../backend/admin/borrarArticulo.php?idArticulo=<?php echo $fila['id']?>"><i class="fas fa-trash-alt"></i></a>
+        <div class="cuerpo">
+            <div class="contenedor">
+                <ul id="migasPan">
+                    <li><a href="../index/index.php"> Inicio </a></li>
+                    <li><a href=""> Panel de Artículos </a></li>
+                </ul>
+                <div id="contenedorPrincipal">
+                    <a href="../admin/crearArticulo.php"><i class="fas fa-plus"></i></a>
+                    <?php
+                        $conexion = conectarBd(true);
+                        $result = mostrarArticulos($conexion);
+                        while ($fila = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div id="contenedor">
+                        <img src="../<?php echo $fila['foto']?>" alt="imagenArticulo">
+                        <?php echo $fila['nArticulo']?>
+                        <?php echo $fila['precio']?>
+                        <?php echo $fila['stock']?>
+                        <a href="../admin/editarArticulo.php?idArticulo=<?php echo $fila['id']?>"><i class="fas fa-edit"></i></a>
+                        <a href="../../backend/admin/borrarArticulo.php?idArticulo=<?php echo $fila['id']?>"><i class="fas fa-trash-alt"></i></a>
+                    </div>
+                    <?php
+                        }
+                    ?>
                 </div>
-                <?php
-                    }
-                ?>
             </div>
         </div>
         <?php require_once('../footer/footer.php') ?>   

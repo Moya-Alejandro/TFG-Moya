@@ -1,8 +1,15 @@
 .mapaSitio{
     grid-gap: 2rem;
     display: grid;
-    grid-template-columns: 1fr;
-    
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+h1{
+    text-align: center;
+}
+
+.contenedorMapa{
+    padding: 1.5rem 2rem;
 }
 
 .contImg{
@@ -18,4 +25,25 @@ img{
 
 .liHijo{
     padding: 0 0 0 40px;
+}
+
+.cuerpo{
+    min-height: 90vh;
+}
+
+.listaMapa ul a,.listaMapa li a{
+    text-decoration: none;
+    color: black;
+    transition-duration: 0.3s;  
+    
+}
+
+.listaMapa ul{
+    list-style: none;
+}
+
+
+
+.listaMapa li:hover{
+    transform: scale(1.1);
 }

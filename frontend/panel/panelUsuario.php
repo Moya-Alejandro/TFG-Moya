@@ -17,30 +17,52 @@
         <link rel="stylesheet" href="../migasPan/migasPan.css">
     </head>
     <body class="index">
-        <div class="contenedor">
-            <ul id="migasPan">
-                <li><a href="../index/index.php"> Inicio </a></li>
-                <li><a href=""> Panel de Usuarios </a></li>
-            </ul>
-            <div id="contenedorPrincipal">
-                <a href="../registrar/registrar.php"><i class="fas fa-plus"></i></a>
-                <?php
-                    $conexion = conectarBd(true);
-                    $result = mostrarUsuarios($conexion);
-                    while ($fila = mysqli_fetch_assoc($result)) {
-                ?>
-                <div id="contenedor">
-                    <?php echo $fila['nUsuario']?>
-                    <?php echo $fila['correo']?>
-                    <?php echo $fila['dni']?>
-                    <?php echo $fila['telefono']?>
-                    <a href="../admin/editarUsuario.php?idUsuario=<?php echo $fila['id']?>"><i class="fas fa-user-edit"></i></a>
-                    <a href="../../backend/usuario/borrarUsuario.php?id=<?php echo $fila['id']?>"><i class="fas fa-user-minus"></i></a>
-                    <a href="../../backend/admin/darAdmin.php?idUsuario=<?php echo $fila['id']?>"><i class="fas fa-user-shield"></i></a>
+        <div class="cuerpo">
+            <div class="contenedorPanel">
+                <ul id="migasPan">
+                    <li><a href="../index/index.php"> Inicio </a></li>
+                    <li><a href=""> Panel de Usuarios </a></li>
+                </ul>
+                <div id="contenedorPrincipal">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Usuario</th>
+                                <th>Contraseña</th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Telefono</th>
+                                <th>Correo</th>
+                                <th>DNI</th>
+                                <th class="botonIconoCrear" colspan="3"><a href="../registrar/registrar.php">Crear <i class="fas fa-plus"></i></a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                            $conexion = conectarBd(true);
+                            $result = mostrarUsuarios($conexion);
+                            while ($fila = mysqli_fetch_assoc($result)) {
+                        ?>
+                            <tr>
+                                <td><?php echo $fila['id']?></td>
+                                <td><?php echo $fila['nUsuario']?></td>
+                                <td><?php echo $fila['password']?></td>
+                                <td><?php echo $fila['nombre']?></td>
+                                <td><?php echo $fila['apellidos']?></td>
+                                <td><?php echo $fila['telefono']?></td>
+                                <td><?php echo $fila['correo']?></td>
+                                <td><?php echo $fila['dni']?></td>
+                                <td class="botonIconoEditar"><a href="../admin/editarUsuario.php?idUsuario=<?php echo $fila['id']?>">Editar <i class="fas fa-user-edit"></i></a></td>
+                                <td class="botonIconoAdmin"><a href="../../backend/admin/darAdmin.php?idUsuario=<?php echo $fila['id']?>">Admin <i class="fas fa-user-shield"></i></a></td>
+                                <td class="botonIconoBorrar"><a href="../../backend/usuario/borrarUsuario.php?id=<?php echo $fila['id']?>">Borrar <i class="fas fa-user-times"></i></a></td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
-                <?php
-                    }
-                ?>
             </div>
         </div>
         <?php require_once('../footer/footer.php') ?>  

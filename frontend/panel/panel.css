@@ -3,9 +3,12 @@ body{
 }
 
 #contenedorPrincipal{
-    margin: 150px auto;
-    width: 600px;
-    
+    margin: 3.5rem auto;
+    width: 80%;
+}
+
+.contenedorPanel{
+    margin: 1rem 1rem;
 }
 
 table {
@@ -13,19 +16,24 @@ table {
     text-align: left;
     border-collapse: collapse;
     background-color: white;   
-    -webkit-box-shadow: 2px 30px 50px 7px rgba(54,150,129,1);
-    -moz-box-shadow: 2px 30px 50px 7px rgba(54,150,129,1);
-    box-shadow: 2px 30px 50px 7px rgba(54,150,129,1);
+    -webkit-box-shadow: 2px 30px 50px 7px rgba(105,162,240,255);
+    -moz-box-shadow: 2px 30px 50px 7px rgba(105,162,240,255);
+    box-shadow: 2px 30px 50px 7px rgba(105,162,240,255);
 }
 
 th,td{
     padding: 20px;
+    text-align: center;
 }
 
 thead{
-    background-color: #246355;
+    background-color: #4a79b6;
     color: white;
-    border-bottom: solid 5px #0F362D;
+    border-bottom: solid 5px #243bb7;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #e0e4ff;
 }
 
 img{
@@ -42,4 +50,20 @@ button{
 th a, td a{
     color: black;
     text-decoration: none;
+}
+
+.botonIconoEditar, .botonIconoBorrar, .botonIconoCrear, .botonIconoAdmin{
+    transition-duration: 0.3s;
+}
+
+.botonIconoEditar:hover, .botonIconoBorrar:hover, .botonIconoCrear:hover, .botonIconoAdmin:hover{
+    transform: scale(1.1);
+}
+
+.botonIconoEditar:hover a, .botonIconoBorrar:hover a, .botonIconoCrear:hover a, .botonIconoAdmin:hover a{
+    color: rgb(73, 202, 245);
+}
+
+.cuerpo{
+    min-height: 90vh;
 }
