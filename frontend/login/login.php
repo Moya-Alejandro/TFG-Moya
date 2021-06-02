@@ -53,7 +53,7 @@
                                 <a href="../registrar/registrar.php">Registrarse</a>
                             </div>
                             <div class="error">
-                                <?php
+                                <?php //A la hora de recuperar contraseña, nos saldrá una alerta según la variable recibida por el backend, nos saldrá un error o un mensaje de que ha sido enviado
                                     if(isset($_GET['error']) && $_GET['error'] == "$error"){ 
                                     echo "<script>swal('Melilla Shooting', '$error', 'error');</script>";
                                     }
@@ -66,6 +66,7 @@
                                 <p id="errorForm">Rellene bien los campos.</p>
                             </div>
                         </form>
+                        <!--Mostramos una alerta para poder introducir el correo-->
                         <label for="recuperarPass" onclick="mostrarRecuperarContra()">¿Contraseña Olvidada?</label><input type="checkbox" id="recuperarPass" class="botonOlvidado"/>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 <?php require_once('../header/header.php') ?>
 <?php require_once('../nav/nav.php') ?>
 <?php 
+    //Iniciamos la variable rol vacía y en caso de que exista cambiaremos su valor
     $rol = "";
     if(isset($_SESSION["rol"])){
         $rol = $_SESSION["rol"];

@@ -1,13 +1,18 @@
 <?php require_once('../header/header.php') ?>
 <?php require_once('../nav/nav.php') ?>
 <?php 
+
+    //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../../backend/bd/DAOusuario.php';
     require '../../backend/bd/DAOcategoria.php';
+
+    //Iniciamos la variable error en vacía y en caso de que exista cambiaremos su valor
     $error = "";
     if(isset($_GET["error"])){
         $error = $_GET["error"];
     }
     
+    //En caso de que el rol del usuario no sea admin, te redirijirá a inicio
     if($_SESSION["rol"] != "admin"){
         header('Location: ../index/index.php');
     }
@@ -32,6 +37,7 @@
                 <div id="contenedorPrincipal">
                     <a href="../admin/crearCategoria.php"><i class="fas fa-plus"></i></a>
                     <?php
+                        //Conectamos a la base de datos y mostramos por un while los valores de las categorías
                         $conexion = conectarBd(true);
                         $result = mostrarCategorias($conexion);
                         while ($fila = mysqli_fetch_assoc($result)) {

@@ -1,6 +1,7 @@
 <?php require_once('../header/header.php') ?>
 <?php require_once('../nav/nav.php') ?>
 <?php
+    //Iniciamos la variable error vacia y en caso de que exista cambiaremos su valor
     $error = "";
     if(isset($_GET["error"])){
         $error = $_GET["error"];
@@ -35,6 +36,7 @@
                                 </div>
                                 <div class="contenedorInputs">
                                     <p class="valores">Valores<label for="crearValor"> <i class="fas fa-plus-square"></i></label></p>
+                                    <!--La funcion crear input nos creará un campo input para generar nuevos valores-->
                                     <input id="crearValor" class="botonCrearValor" type="button" value="Crear" onclick="crearInputs()">
                                     <div id="inputs">
                                         <div class="divValores" id="1">

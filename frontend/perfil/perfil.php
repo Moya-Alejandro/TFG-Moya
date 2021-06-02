@@ -22,6 +22,7 @@
                         <form id="form" action="../../backend/usuario/editarPerfil.php" method="POST">
                             <h4>Perfil</h4>
                             <hr>
+                            <!--Mostramos los valores del usuario por variables locales de $_SESSION-->
                             <div class="campos">
                                 <div class="campo">
                                     <label for="nombre">Nombre</label>

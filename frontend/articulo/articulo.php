@@ -1,16 +1,23 @@
 <?php 
     require_once('../header/header.php');
     require_once('../nav/nav.php');
+
+    //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../../backend/bd/DAOarticulo.php';
     
+    //Guardamos en una variable la idArticulo que recibimos desde Panel articulo
     $tipo = $_GET["tipo"];
+
+    //Realizamos la conexión a la base de datos
     $conexion = conectarBd(true);
 
+    //Iniciamos la variable rol vacia y en caso de que exista cambiaremos su valor
     $rol = "";
     if(isset($_SESSION["rol"])){
         $rol = $_SESSION["rol"];
     }
 
+    //Inicializamos la variable articulos y en caso de que no haya ningún filtro seleccionado nos mostrará todos los articulos, si hay un filtro seleccionado, nos mostrará solo esos articulos
     $articulos;
 
     if (empty ($_POST['filtroSeleccionado'])) {
@@ -45,6 +52,7 @@
                 <div>
                     <form action="articulo.php?tipo=<?php echo $tipo?>" method="post">
                         <?php 
+                            //Mostraremos los campos que hay en los filtros
                             $result = filtroOpciones($conexion,$tipo);
                             while($filtroOpciones = mysqli_fetch_assoc($result)){
                         ?>
@@ -64,7 +72,8 @@
                     </form>
                 </div>      
                 <div>
-                    <?php while($fila = mysqli_fetch_assoc($articulos)){ ?>
+                    <?php //Mostraremos los articulos
+                     while($fila = mysqli_fetch_assoc($articulos)){ ?>
                     <div id="contenedorArticulo">
                         <a href="mostrarArticulo.php?id=<?php echo $fila['id']?>&tipo=<?php echo $tipo; ?>"><img src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></a>
                         <?php echo $fila['nArticulo']?>

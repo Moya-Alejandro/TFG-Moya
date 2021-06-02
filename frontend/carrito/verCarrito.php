@@ -1,16 +1,21 @@
 <?php require_once('../header/header.php') ?>
 <?php require_once('../nav/nav.php') ?>
 <?php 
+    //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../../backend/bd/DAOcarrito.php';
 
+    //En caso de que no exista un rol, nos redirijirá al inicio
     if(!isset($_SESSION["rol"])){
         header("Location: ../index/index.php");
     }
     //Las id de los carritos coinciden con la id del usuario por lo que con el session["id"] sacamos la id del carrito también
     $idUsuario = $_SESSION["id"];
-    $conexion = conectarBD(true);
-    $total = "0";
     
+    //Inicializamos la variable total en 0
+    $total = "0";
+
+    //Realizamos la conexión a la base de datos y guardamos en variables la consulta de la base de datos
+    $conexion = conectarBD(true);
     $articulosCarrito = mostrarCarrito($conexion, $idUsuario);
 
 ?>
@@ -46,6 +51,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!--Mostramos en una tabla los datos del articulo en la cesta-->
                             <?php while ($fila = mysqli_fetch_assoc($articulosCarrito)) { ?>
                             <tr>
                                 <th class="tablaImg"><div class="contenedorImgCarrito"><img class="imgCarrito" src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></div></th>
@@ -58,11 +64,13 @@
                             <?php } ?>
                         </tbody>
                         <tr>
+                            <!--Botón paypal-->
                             <td colspan="2">
                                 <div class="comprar">
                                     <div id="paypal-button-container" data-total = <?php echo $total; ?>></div>
                                 </div>
                             </td>
+                            <!--Mostraremos el total de la suma de los precio-->
                             <td>
                                 <p>TOTAL:</p>
                             </td>
@@ -72,6 +80,7 @@
                                 </div>
                             </td>
                             <td>
+                            <!--Botón para poder vaciar el carrito-->
                                 <div class="vaciar-carrito">
                                 <p id="vaciar-carrito"><a href="../../backend/carrito/vaciarCarrito.php?idUsuario=<?php echo $idUsuario?>">Vaciar<i class="material-icons">remove_shopping_cart</i></a></p>
                                 </div>

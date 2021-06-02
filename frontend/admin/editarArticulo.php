@@ -1,14 +1,19 @@
 <?php require_once('../header/header.php') ?>
 <?php require_once('../nav/nav.php') ?>
 <?php
+    //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../../backend/bd/DAOarticulo.php';
     require '../../backend/bd/DAOcategoria.php';
 
+    //Guardamos en una variable la idArticulo que recibimos desde Panel articulo
     $idArticulo = $_GET["idArticulo"];
+
+    //Realizamos la conexión a la base de datos y guardamos en variables la consulta de la base de datos
     $conexion = conectarBd(true);
     $funcionArticulo = mostrarArticuloId($conexion,$idArticulo);
     $articulo = mysqli_fetch_assoc($funcionArticulo);
     
+    //Iniciamos la variable error vacia y en caso de que exista cambiaremos su valor
     $error = "";
     if(isset($_GET["error"])){
         $error = $_GET["error"];
@@ -40,6 +45,7 @@
                             <h2>Editar Artículo</h2>
                             <div class="imgCampos">
                                 <div class="contenedorImg">
+                                <!--Mostramos los valores del articulo seleccionado para editar-->
                                     <div class="placeHolder"  onClick="activador()"></div>
                                     <img src="../<?php echo $articulo["foto"]?>" onClick="activador()" id="mostrarProducto">
                                     <input class ="subirImagen" type="file" name="imagen" onChange="mostrarImagen(this)" id="imagen">
@@ -67,6 +73,7 @@
                                             <label for="tipo">Tipo </label>
                                         </div>
                                         <div>
+                                            <!--Marcamos el input con el tipo del articulo seleccionado para editar-->
                                             <?php $tipoSeleccionado = mysqli_fetch_assoc(tipoSeleccionado($conexion,$idArticulo)); ?>    
                                             Pistola<input required type="radio" id="pistola" name="tipo" value="pistola" <?php if ($tipoSeleccionado["tipo"] == "pistola"){?> checked="checked" <?php } ?>><br>
                                             Carabina<input required type="radio" id="carabina" name="tipo" value="carabina" <?php if ($tipoSeleccionado["tipo"] == "carabina"){?> checked="checked" <?php } ?>><br>
@@ -80,12 +87,14 @@
                                         </div>
                                         <div class="categoriaSelect">
                                             <?php 
+                                                //Guardamos en una variable la consulta de las categorías para mostrarlas y editarlas
                                                 $conexion = conectarBd(true);
                                                 $categorias = mostrarCategorias($conexion);
                                                 foreach($categorias as $key => $value ){ 
                                             ?>
                                             <label class="labelCategoria" value="<?php echo $value["id"]?>"><?php echo $value["nombre"]?></label> 
                                             <?php $valores = cogerValores($conexion,$value["id"]);
+                                                //Guardamos en una variable los valores que ya existen para mostrarlos y poder editarlos
                                                 $valorSeleccionado = mysqli_fetch_assoc(valoresSeleccionados($conexion,$value["id"],$idArticulo));
                                             ?>          
                                                 <select id="selectValor" name="selectValor[]">

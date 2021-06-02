@@ -1,8 +1,11 @@
 <?php require_once('../header/header.php') ?>
 <?php require_once('../nav/nav.php') ?>
 <?php
+
+    //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../../backend/bd/DAOarticulo.php';
 
+    //En caso de que el rol del usuario no sea admin, te redirijirá a inicio
     if($_SESSION["rol"] != "admin"){
         header('Location: ../index/index.php');
     }
@@ -27,6 +30,7 @@
                 <div id="contenedorPrincipal">
                     <a href="../admin/crearArticulo.php"><i class="fas fa-plus"></i></a>
                     <?php
+                        //Conectamos a la base de datos y mostramos por un while los valores de los articulos
                         $conexion = conectarBd(true);
                         $result = mostrarArticulos($conexion);
                         while ($fila = mysqli_fetch_assoc($result)) {

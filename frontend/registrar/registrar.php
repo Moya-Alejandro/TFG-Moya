@@ -2,11 +2,13 @@
 <?php require_once('../nav/nav.php') ?>
 <?php
 
+    //Inicializamos la variable error vacía y en caso de que exista cambiamos su valor
     $error = "";
     if(isset($_GET["error"])){
         $error = $_GET["error"];
     }
 
+    //Inicializamos la variable rol vacía y en caso de que exista cambiamos su valor
     $rol = "";
     if(isset($_SESSION["rol"])){
         $rol = $_SESSION["rol"];

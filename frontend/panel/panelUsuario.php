@@ -1,7 +1,11 @@
 <?php require_once('../header/header.php') ?>
 <?php require_once('../nav/nav.php') ?>
 <?php 
+
+    //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../../backend/bd/DAOusuario.php';
+
+    //En caso de que el rol del usuario no sea admin, te redirijirá a inicio
     if($_SESSION["rol"] != "admin"){
         header('Location: ../index/index.php');
     }
@@ -40,6 +44,7 @@
                         </thead>
                         <tbody>
                         <?php
+                            //Conectamos a la base de datos y mostramos por un while los valores de los usuarios en una tabla
                             $conexion = conectarBd(true);
                             $result = mostrarUsuarios($conexion);
                             while ($fila = mysqli_fetch_assoc($result)) {

@@ -1,5 +1,4 @@
 <?php
-    //Llamaremos al header y al nav, más abajo también al footer ya que son archivos que contienen código php que llenan la página
     require_once('../header/header.php');
     require_once('../nav/nav.php');
 
@@ -39,6 +38,7 @@
                             <div class="imgCampos">
                                 <div class="contenedorImg">
                                     <div class="placeHolder"  onClick="activador()"></div>
+                                    <!--La clase activador nos abrirá una ventana para poder buscar una imagen en nuestro ordenador-->
                                     <img src="../img/avatar.png" onClick="activador()" id="mostrarProducto">
                                     <input class ="subirImagen" type="file" name="imagen" onChange="mostrarImagen(this)" id="imagen">
                                 </div>
@@ -76,11 +76,13 @@
                                     </div>
                                     <div class="categoriaSelect">
                                         <?php 
+                                            //Realizamos la conexion a la base de datos y guardamos en una variable las categorías que existen
                                             $conexion = conectarBd(true);
                                             $categorias = mostrarCategorias($conexion);
                                             foreach($categorias as $key => $value ){ 
                                         ?>
                                         <label class="labelCategoria" value="<?php echo $value["id"]?>"><?php echo $value["nombre"]?></label> 
+                                        <!--Imprimimos los valores de los valores que tiene esa categoría en concreto-->
                                         <?php $valores = cogerValores($conexion,$value["id"]); ?>          
                                             <select id="selectValor" name="selectValor[]">
                                                 <option value="vacio"></option>

@@ -1,14 +1,19 @@
 <?php require_once('../header/header.php') ?>
 <?php require_once('../nav/nav.php') ?>
 <?php
+    //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../../backend/bd/DAOcategoria.php';
 
+    //Guardamos en una variable la idArticulo que recibimos desde Panel articulo
     $idCategoria = $_GET["idCategoria"];
+
+    //Realizamos la conexión a la base de datos y guardamos en variables la consulta de la base de datos
     $conexion = conectarBd(true);
     $funcionOpcion = cogerOpcion($conexion,$idCategoria);
     $opcion = mysqli_fetch_assoc($funcionOpcion);
     $valores = cogerValores($conexion,$idCategoria);
     
+    //Iniciamos la variable error vacia y en caso de que exista cambiaremos su valor
     $error = "";
     if(isset($_GET["error"])){
         $error = $_GET["error"];
@@ -38,6 +43,7 @@
                     <div class="carta-body">
                         <form id="form" action="../../backend/admin/editarCategoria.php" method="POST">
                             <div class="campos">
+                                <!--Mostramos los valores de la categoría seleccionado para editar-->
                                 <div class="campo">
                                     <label for="nombre">Nombre de la Categoría </label>
                                     <input class="nombreCategoria" id="nombre" value="<?php echo $opcion['nombre'];?>" type="text" name="nombre">
@@ -48,6 +54,7 @@
                                     <input type="button" id="crearValor"  class="botonCrearValor" value="Crear" onclick="crearInputs()">
                                     <div id="inputs">
                                         <?php  
+                                            //Creamos los inputs de los valores ya existentes
                                             foreach($valores as $key => $value){?>
                                         <div class="divValores"> 
                                             <input value="<?php echo $value['nombre']?>" name="valor[]" type="text">
@@ -72,7 +79,7 @@
                     </div>
                 </div>
             </div>
-                                                </div>
+        </div>
         <?php require_once('../footer/footer.php') ?>   
     </body>
 </html>

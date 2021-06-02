@@ -1,5 +1,8 @@
 <?php
+    //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
 	require '../../backend/bd/conectarBD.php';
+
+    //Iniciamos la variable rol en invitado y en caso de que exista cambiaremos su valor
     $rol = "invitado";
 	if(session_start()&&isset($_SESSION["rol"])){
         $rol = $_SESSION['rol'];

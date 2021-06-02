@@ -1,22 +1,27 @@
 <?php require_once('../header/header.php') ?>
 <?php require_once('../nav/nav.php') ?>
 <?php 
+    //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../../backend/bd/DAOarticulo.php';
-
-    $conexion = conectarBD(true);
+    
+    //Iniciamos la variable idUsuario vacia y en caso de que exista cambiaremos su valor
     $idUsuario = "";
     if(isset($_SESSION["id"])){
         $idUsuario = $_SESSION["id"];
     }
 
+    //Iniciamos la variable rol como invitado y en caso de que exista cambiaremos su valor
     $rol = "invitado";
     if(isset($_SESSION["rol"])){
         $rol = $_SESSION["rol"];
     }
     
+    //Guardamos en una variable la idArticulo que recibimos desde Panel articulo
     $tipo = $_GET["tipo"];
     $idArticulo = $_GET["id"];
 
+    //Realizamos la conexión a la base de datos y guardamos en variables la consulta de la base de datos
+    $conexion = conectarBD(true);
     $infoArticulo = mostrarArticuloId($conexion,$idArticulo);
     $fila = mysqli_fetch_assoc ($infoArticulo);
 ?>
@@ -43,6 +48,7 @@
                 </ul>
                 <div class="contInfo">
                     <div class="infoArticulo">
+                        <!--Mostramos la información del articulo seleccionado-->
                         <div class="contImgMostrarArticulo">
                             <img class="imgMostrarArticulo" src="../<?php echo $fila['foto']?>" alt="imagenArticulo">
                         </div>
@@ -63,6 +69,7 @@
                         </div>
                     </div>
                     <div class="experiencia">
+                        <!--En caso de que no seamos un invitado, podremos darle a like y comentar-->
                         <?php if($rol!="invitado"){ ?>
                         <div class="likes">
                             <label for="meGusta" class="verde"><i class="fas fa-thumbs-up "></i></label><span class="nLikes"> &nbsp; &nbsp;</span>

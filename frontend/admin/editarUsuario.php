@@ -1,10 +1,14 @@
 <?php require_once('../header/header.php') ?>
 <?php require_once('../nav/nav.php') ?>
 <?php 
+    //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../../backend/bd/DAOusuario.php';
 
-    $conexion = conectarBD(true);
+    //Guardamos en una variable la idArticulo que recibimos desde Panel articulo
     $idUsuario = $_GET["idUsuario"];
+
+    //Realizamos la conexión a la base de datos y guardamos en variables la consulta de la base de datos
+    $conexion = conectarBD(true);
     $infoUsuario = mysqli_fetch_assoc(consultaUsuarioId($conexion,$idUsuario));
 
 ?>
@@ -33,6 +37,7 @@
                             <h4>Editar Perfil</h4>
                             <hr>
                             <div class="campos">
+                                <!--Mostramos los valores del usuario-->
                                 <div class="campo">
                                     <label for="nombre">Nombre</label>
                                     <input id="nombre" value="<?php echo $infoUsuario["nombre"];?>" type="text" name="nombre" >
