@@ -17,6 +17,8 @@
     $tipo = $_GET["tipo"];
     $idArticulo = $_GET["id"];
 
+    $infoArticulo = mostrarArticuloId($conexion,$idArticulo);
+    $fila = mysqli_fetch_assoc ($infoArticulo);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,31 +28,58 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../index/css/index.css">
         <link rel="stylesheet" href="css/likes.css">
+        <link rel="stylesheet" href="css/mostrarArticulo.css">
         <link rel="stylesheet" href="../migasPan/css/migasPan.css">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="index">
-        <div class="contenedor">
-            <ul id="migasPan">
-                <li><a href="../index/index.php"> Inicio </a></li>
-                <li><a href="../categorias/categorias.php"> Categorías </a></li>
-                <li><a href="articulo.php?tipo=<?php echo $tipo; ?>"> Artículos </a></li>
-                <li><a href=""> Nombre Articulo </a></li> <!-- CAMBIAR POR NOMBRE DEL ARTICULO ACTUAL -->
-            </ul>
-            <div>
-                <?php if($rol!="invitado"){ ?>
-                <div class="likes">
-                    <label for="meGusta" class="verde"><i class="fas fa-thumbs-up "></i></label><span class="nLikes"> &nbsp; &nbsp;</span>
-                    <input type="radio" class="like meGusta" name="like" id="meGusta" data-idArticulo="<?php echo $idArticulo;?>" data-valor="1">
-                    <label for="noMeGusta" class="rojo"><i class="fas fa-thumbs-down"></i></label><span class="nDislikes"> &nbsp; &nbsp;</span>
-                    <input type="radio" class="like noMeGusta" name="like" id="noMeGusta" data-idArticulo="<?php echo $idArticulo;?>" data-valor="-1">
-                    <label for="borrarLike" class="borrarLike"><i class="fas fa-ban"></i></label>
-                    <input class="like borrarLike" name="borrarLike" id="borrarLike" data-idArticulo="<?php echo $idArticulo;?>" data-valor="0">
+        <div class="cuerpo">
+            <div class="contenedorMostrarArticulo">
+                <ul id="migasPan">
+                    <li><a href="../index/index.php"> Inicio </a></li>
+                    <li><a href="../categorias/categorias.php"> Categorías </a></li>
+                    <li><a href="articulo.php?tipo=<?php echo $tipo; ?>"> Artículos </a></li>
+                    <li><a href=""> <?php echo $fila['nArticulo']?> </a></li>
+                </ul>
+                <div class="contInfo">
+                    <div class="infoArticulo">
+                        <div class="contImgMostrarArticulo">
+                            <img class="imgMostrarArticulo" src="../<?php echo $fila['foto']?>" alt="imagenArticulo">
+                        </div>
+                        <div class="nArticuloInfo">
+                            <?php echo $fila['nArticulo']?>
+                        </div>
+                        <div class="precioInfo">
+                            <?php echo $fila['precio']?>€
+                        </div>
+                        <div class="stockInfo">
+                            <?php echo $fila['stock']?>
+                        </div>
+                        <?php if($rol != "invitado"){ ?>
+                            <button class="botonComprar" <?php if($fila['stock'] == 0){ echo "onclick='stockVacio()'"; } ?> class="enviar" id="insertarCarrito" name="insertarCarrito" data-tipo = "<?php echo $tipo?>"data-id="<?php echo $fila['id']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar</button>
+                        <?php } ?>
+                        <div class="descripcionInfo">
+                            <?php echo $fila['detalles']?>
+                        </div>
+                    </div>
+                    <div class="experiencia">
+                        <?php if($rol!="invitado"){ ?>
+                        <div class="likes">
+                            <label for="meGusta" class="verde"><i class="fas fa-thumbs-up "></i></label><span class="nLikes"> &nbsp; &nbsp;</span>
+                            <input type="radio" class="like meGusta" name="like" id="meGusta" data-idArticulo="<?php echo $idArticulo;?>" data-valor="1">
+                            <label for="noMeGusta" class="rojo"><i class="fas fa-thumbs-down"></i></label><span class="nDislikes"> &nbsp; &nbsp;</span>
+                            <input type="radio" class="like noMeGusta" name="like" id="noMeGusta" data-idArticulo="<?php echo $idArticulo;?>" data-valor="-1">
+                            <label for="borrarLike" class="borrarLike"><i class="fas fa-ban"></i></label>
+                            <input class="like borrarLike" name="borrarLike" id="borrarLike" data-idArticulo="<?php echo $idArticulo;?>" data-valor="0">
+                        </div>
+                        <?php } ?>
+                        <?php if($rol != "invitado"){?>
+                        <form id="comentarioForm">
+                            <textarea class="textAreaArticulo" name="comentario" id="comentario" minlength="0" maxlength="1000" cols="90" rows="3"></textarea><?php if($rol!="invitado"){ ?><button class="botonComentario" name="comentario" id="comentario" data-idArticulo = "<?php echo $idArticulo;?>" data-rol="<?php echo $_SESSION["rol"]; ?>" data-idUsuario="<?php echo $_SESSION["id"]; ?>">Comentar</button></form><div id="verComentario"></div><?php } ?>
+                            <button type="hidden" class="botonComentario esconder" name="comentario" id="comentario" data-idArticulo = "<?php echo $idArticulo;?>"></button><div id="verComentario2"></div> <br>
+                        <?php } ?>
+                    </div>
                 </div>
-                <?php } ?>
-                <form id="comentarioForm">
-                    <textarea name="comentario" id="comentario" minlength="0" maxlength="1000" cols="90" rows="3"></textarea><?php if($rol!="invitado"){ ?><button class="botonComentario" name="comentario" id="comentario" data-idArticulo = "<?php echo $idArticulo;?>" data-rol="<?php echo $_SESSION["rol"]; ?>" data-idUsuario="<?php echo $_SESSION["id"]; ?>">Comentar</button></form><div id="verComentario"></div><?php } ?>
-                    <?php if($rol=="invitado"){ ?><button type="hidden" class="botonComentario" name="comentario" id="comentario" data-idArticulo = "<?php echo $idArticulo;?>"></button><div id="verComentario2"></div><?php } ?> <br>
             </div>
         </div>
         <?php require_once('../footer/footer.php') ?>   
@@ -58,3 +87,4 @@
 </html>
 <script src="js/comentario.js" type="text/javascript"></script>
 <script src="js/likes.js" type="text/javascript"></script>
+<script src="js/articulo.js"></script>

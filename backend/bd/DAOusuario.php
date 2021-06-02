@@ -105,4 +105,11 @@
 		$resultadoConsulta = mysqli_query($conexion,$consulta);
 		return $resultadoConsulta;
 	}
+
+	
+	function recuperarContraCuenta($conexion,$correo){
+		$consulta = "SELECT * FROM usuario WHERE correo = '$correo'";
+		$resultadoConsulta = mysqli_query($conexion,$consulta);
+		return $resultadoConsulta;
+	}
 ?>

@@ -7,6 +7,17 @@ body{
     width: 100%;
 }
 
+#contenedorPrincipalUsuario{
+    overflow-x: auto;
+    width: 95vw;
+    padding: 1rem;
+}
+
+.contenedorPanelUsuario{
+    padding: 0.8rem 0 0 0.8rem;
+}
+
+
 .contenedorPanel{
     margin: 1rem 1rem;
 }
@@ -16,9 +27,8 @@ table {
     text-align: left;
     border-collapse: collapse;
     background-color: white;   
-    -webkit-box-shadow: 2px 30px 50px 7px rgba(105,162,240,255);
-    -moz-box-shadow: 2px 30px 50px 7px rgba(105,162,240,255);
-    box-shadow: 2px 30px 50px 7px rgba(105,162,240,255);
+    box-shadow: 0px 0px 3px 1px #6ca7f2;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 th,td{

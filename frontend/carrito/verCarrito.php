@@ -48,11 +48,11 @@
                         <tbody>
                             <?php while ($fila = mysqli_fetch_assoc($articulosCarrito)) { ?>
                             <tr>
-                                <th class="tablaImg"><img src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></th>
+                                <th class="tablaImg"><div class="contenedorImgCarrito"><img class="imgCarrito" src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></div></th>
                                 <th><?php echo $fila['nArticulo']?></th>
-                                <th><?php echo $fila['precio']?></th>
+                                <th><?php echo $fila['precio']?>€</th>
                                 <th><form action="../../backend/carrito/actualizarCantidadCesta.php" method="POST"><input name="cantidad" type="number" min="1" max ="<?php echo $fila['stock'];?>"value="<?php echo $fila['cantidad']?>"><input name="idArticulo" type="hidden" value="<?php echo $fila["idArticulo"] ?>"><button>Actualizar</button></form></th>
-                                <th><?php echo $fila['precio']*$fila['cantidad']; $total += $fila['precio']*$fila['cantidad'];?></th>
+                                <th><?php echo $fila['precio']*$fila['cantidad']; $total += $fila['precio']*$fila['cantidad'];?>€</th>
                                 <th><a href="../../backend/carrito/borrarArticuloCarrito.php?idArticulo=<?php echo $fila['idArticulo']?>"><i class="fas fa-times-circle"></i></a></th>
                             </tr>
                             <?php } ?>
@@ -68,7 +68,7 @@
                             </td>
                             <td>
                                 <div>
-                                    <p id="total"><?php echo $total; ?></p>
+                                    <p id="total"><?php echo $total; ?>€</p>
                                 </div>
                             </td>
                             <td>

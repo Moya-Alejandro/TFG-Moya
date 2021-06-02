@@ -10,9 +10,15 @@
 
 .contenedorImagen{
     display: block;
-    margin: auto;
 }
 
 .contenedorCalendario{
     padding: 1.5rem 2rem;
+}
+
+.imagenesCalendario{
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 83vw;
+    margin: auto;
 }

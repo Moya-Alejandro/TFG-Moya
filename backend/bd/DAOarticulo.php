@@ -183,7 +183,7 @@
     }
 
     function sumaVerLikes($conexion,$idArticulo){
-        $consulta = "SELECT sum(gusta) FROM megustas WHERE (gusta = 1) AND (idArticulo = '$idArticulo')";
+        $consulta = "SELECT count(gusta) FROM megustas WHERE (gusta = 1) AND (idArticulo = '$idArticulo')";
 		$resultadoConsulta = mysqli_query($conexion,$consulta);  
 		return $resultadoConsulta;
     }

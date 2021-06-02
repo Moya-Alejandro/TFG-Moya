@@ -66,7 +66,7 @@ formulario.addEventListener('submit', (e) => {
     }
 });
 
-
+//Cuadro de swal que nos pedirá un correo para recuperar la contraseña
 function mostrarRecuperarContra(){
 
 	swal("Recuperar Contraseña", {

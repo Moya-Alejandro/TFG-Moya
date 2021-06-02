@@ -22,9 +22,10 @@
     $conexion = conectarBD(true);
 
     //En caso de que no se suba una foto nos mostrará un error
-    if(empty($_FILES["imagen"]["name"] )){
+    if(empty($_FILES["imagen"]["name"])){
         $error = "Suba una foto";
         header("Location: ../../frontend/admin/crearArticulo.php?error=$error");
+        return;
     }
 
     //Guardamos en variables, los atributos de la imagen
@@ -46,18 +47,21 @@
     if(!in_array($img_ext,$permitido)){
         $error = "La extensión del archivo debe ser PNG o JPG";
         header("Location: ../../frontend/admin/crearArticulo.php?error=$error");
+        return;
     }
 
     //En caso de que ocurrá algún error nos lo mostrará
     if($img_error != 0){
         $error = $img_error;
         header("Location: ../../frontend/admin/crearArticulo.php?error=$error");
+        return;
     }
 
     //En caso de que no se pueda guardar la foto por algún motivo, nos mostrará un error
     if(!move_uploaded_file($img_tmp,"../../frontend/".$img_destino)){
         $error = "No se ha podido guardar la foto";
         header("Location: ../../frontend/admin/crearArticulo.php?error=$error");
+        return;
     }
 
     //Hacemos un try catch, en el caso de que se ejecute la función ocurrirá la consulta que hay en el try y nos redirigirá, en el caso contrario, nos mostrará un error

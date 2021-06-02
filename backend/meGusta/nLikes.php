@@ -13,5 +13,5 @@
     $valoracion = mysqli_fetch_assoc(sumaVerLikes($conexion,$idArticulo));
     
     //Hacemos un echo para que se muestre por JavaScript sin necesidad de recargar
-    echo $valoracion['sum(gusta)'];
+    echo $valoracion['count(gusta)'];
 ?>

@@ -50,16 +50,15 @@
     $mail -> Subject = $asunto;
     $mail -> Body = $mensaje;
 
+    $verCuenta = recuperarContraCuenta($conexion,$correo);
+
     //En caso de que se envie el correo nos mostrará un mensaje de que se ha enviado, no hacemos una consulta diciendo si el correo o la cuenta existe ya que podríamos tener problemas de seguridad al dar información de si el correo pertenece a una cuenta o no
-    if ($mail->send()) {
-        $enviado = "La contraseña se ha actualizado, si su correo electrónico coincide con el de una cuenta existente, te enviaremos un correo con la contraseña actualizada. Recuerde cambiarla en el perfil";
-        header("Location: ../../frontend/login/login.php?enviado=$enviado");
-    } 
-    //En caso de que no funcione nos mostrará un mensaje de error
-    else {
-        $error = "Ha habido un problema al enviar el correo";
-        header("Location: ../../frontend/login/login.php?error=$error");
+    $enviado = "Si su correo electrónico coincide con el de una cuenta existente, te enviaremos un correo con la contraseña actualizada. Recuerde cambiarla en el perfil";
+    header("Location: ../../frontend/login/login.php?enviado=$enviado");
+    if(mysqli_num_rows($verCuenta)!=0){
+        $mail->send();
     }
+
 
 ?>
 
