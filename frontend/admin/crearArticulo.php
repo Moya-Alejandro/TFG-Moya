@@ -1,8 +1,12 @@
 <?php
+    //Llamaremos al header y al nav, más abajo también al footer ya que son archivos que contienen código php que llenan la página
     require_once('../header/header.php');
     require_once('../nav/nav.php');
+
+    //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../../backend/bd/DAOcategoria.php';
     
+    //Iniciamos la variable error vacia y en caso de que exista cambiaremos su valor
     $error = "";
     if(isset($_GET["error"])){
         $error = $_GET["error"];
@@ -16,9 +20,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="crearArticulo.css">
-        <link rel="stylesheet" href="../index/index.css">
-        <link rel="stylesheet" href="../migasPan/migasPan.css">
+        <link rel="stylesheet" href="css/crearArticulo.css">
+        <link rel="stylesheet" href="../index/css/index.css">
+        <link rel="stylesheet" href="../migasPan/css/migasPan.css">
     </head>
     <body class="index">
         <div class="cuerpo">
@@ -103,4 +107,4 @@
         <?php require_once('../footer/footer.php') ?>   
     </body>
 </html>
-<script src="crearArticulo.js"></script>
+<script src="js/crearArticulo.js"></script>

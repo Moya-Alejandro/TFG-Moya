@@ -16,7 +16,9 @@ paypal.Buttons({
     },
 
     style: {
-        layout: 'horizontal'
+        layout: 'horizontal',
+        color: 'blue',
+        tagline: false
     },
 
     onApprove: function(data, actions) {

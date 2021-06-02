@@ -21,16 +21,16 @@
 }
 
 #migasPan li:nth-child(even) a {
-    background-color: #2980b9;
+    background-color: #1e5b85;
 }
 
 #migasPan li:nth-child(even) a:before {
-    border-color: #2980b9;
+    border-color: #1e5b85;
     border-left-color: transparent;
 }
 
 #migasPan li:nth-child(even) a:after {
-    border-left-color: #2980b9;
+    border-left-color: #1e5b85;
 }
 
 #migasPan li:first-child a {

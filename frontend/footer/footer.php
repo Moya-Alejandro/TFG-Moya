@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../footer/footer.css">
+        <link rel="stylesheet" href="../footer/css/footer.css">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     </head>
     <body>
@@ -41,4 +41,4 @@
 </html>
 <script src="https://kit.fontawesome.com/143eda576b.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
-<script src="../footer/footer.js" type="text/javascript"></script>
+<script src="../footer/js/footer.js" type="text/javascript"></script>

@@ -43,15 +43,13 @@
             $consulta = "DELETE FROM categoria WHERE (`idArticulo` = '$id')";
 		    $resultadoConsulta = mysqli_query($conexion,$consulta);
             if(!$resultadoConsulta){
-                //throw new Exception("Nombre duplicado");
-                throw new Exception(mysqli_error($conexion)); //x
+                throw new Exception(mysqli_error($conexion)); 
             }
 
             $consulta = "DELETE FROM articulo WHERE (`id` = '$id')";
 		    $resultadoConsulta = mysqli_query($conexion,$consulta);
             if(!$resultadoConsulta){
-                //throw new Exception("Nombre duplicado");
-                throw new Exception(mysqli_error($conexion)); //x
+                throw new Exception(mysqli_error($conexion)); 
             }
 
             mysqli_commit($conexion);
@@ -82,15 +80,13 @@
             $consulta = "DELETE FROM categoria WHERE (`idArticulo` = '$idArticulo')";
 		    $resultadoConsulta = mysqli_query($conexion,$consulta);
             if(!$resultadoConsulta){
-                //throw new Exception("Nombre duplicado");
-                throw new Exception(mysqli_error($conexion)); //x
+                throw new Exception(mysqli_error($conexion)); 
             }
 
             $consulta = "UPDATE articulo SET `nArticulo` = '$nArticulo', `precio` = '$precio', `stock` = '$stock', `foto` = '$foto', `detalles` = '$detalles', `tipo` = '$tipo' WHERE (`id` = '$idArticulo')";
 		    $resultadoConsulta = mysqli_query($conexion,$consulta);
             if(!$resultadoConsulta){
-                //throw new Exception("Nombre duplicado");
-                throw new Exception(mysqli_error($conexion)); //x
+                throw new Exception(mysqli_error($conexion)); 
             }
   
             foreach($selectValor as $key => $value){
@@ -99,7 +95,7 @@
                     mysqli_stmt_bind_param($stmt,'ii', $value, $idArticulo);
                     $ejecutar = mysqli_stmt_execute($stmt);
                     if(!$ejecutar){
-                        throw new Exception(mysqli_error($conexion)); //x
+                        throw new Exception(mysqli_error($conexion)); 
                     }
                 }
             }

@@ -24,9 +24,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../index/index.css">
-        <link rel="stylesheet" href="likes.css">
-        <link rel="stylesheet" href="../migasPan/migasPan.css">
+        <link rel="stylesheet" href="../index/css/index.css">
+        <link rel="stylesheet" href="css/likes.css">
+        <link rel="stylesheet" href="../migasPan/css/migasPan.css">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="index">
@@ -56,5 +56,5 @@
         <?php require_once('../footer/footer.php') ?>   
     </body>
 </html>
-<script src="articulo.js" type="text/javascript"></script>
-<script src="likes.js" type="text/javascript"></script>
+<script src="js/comentario.js" type="text/javascript"></script>
+<script src="js/likes.js" type="text/javascript"></script>

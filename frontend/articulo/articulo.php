@@ -31,8 +31,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../index/index.css">
-        <link rel="stylesheet" href="../migasPan/migasPan.css">
+        <link rel="stylesheet" href="../index/css/index.css">
+        <link rel="stylesheet" href="../migasPan/css/migasPan.css">
     </head>
     <body class="index">
         <div class="contenedor">
@@ -72,7 +72,7 @@
                         <?php echo $fila['stock']?>
                         <?php if($rol == ""){ ?>
                         <?php } else{?>
-                            <button class="enviar" id="insertarCarrito" name="insertarCarrito" data-tipo = "<?php echo $tipo?>"data-id="<?php echo $fila['id']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar</button>
+                            <button <?php if($fila['stock'] == 0){ echo "onclick='stockVacio()'"; } ?> class="enviar" id="insertarCarrito" name="insertarCarrito" data-tipo = "<?php echo $tipo?>"data-id="<?php echo $fila['id']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar</button>
                         <?php } ?>
                     </div> 
                     <?php } ?>
@@ -82,3 +82,5 @@
         <?php require_once('../footer/footer.php') ?>  
     </body>
 </html>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="js/articulo.js"></script>

@@ -1,7 +1,9 @@
+//Función que al darle a la imagen nos abrirá una ventana para elegir la imagen que queremos seleccionar
 function activador(e){
     document.querySelector('#imagen').click();
 }
 
+//Función que nos mostrará la imagen que tiene el archivo
 function mostrarImagen(e){
     if(e.files[0]){
         var reader = new FileReader();

@@ -5,11 +5,12 @@
     if(isset($_GET["error"])){
         $error = $_GET["error"];
     }
-
+    
     $enviado = "";
     if(isset($_GET["enviado"])){
         $enviado = $_GET["enviado"];
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,9 +18,11 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="login.css">
-        <link rel="stylesheet" href="../index/index.css">
-        <link rel="stylesheet" href="../migasPan/migasPan.css">
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="../index/css/index.css">
+        <link rel="stylesheet" href="../migasPan/css/migasPan.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     </head>
     <body class="index">
         <div class="cuerpo">
@@ -32,9 +35,8 @@
                     <div class="carta">
                         <form id="form" action="../../backend/usuario/iniciarsesion.php" method="POST">
                             <h4>Iniciar Sesión</h4>
-                            <hr>
+                            <hr class="lineaInicioSesion">
                             <div class="campos">
-                                <?php echo $enviado; ?>
                                 <div class="campo">
                                     <label for="usuario">Usuario </label>
                                     <input id="usuario" type="text" name="usuario" required >
@@ -51,25 +53,25 @@
                                 <a href="../registrar/registrar.php">Registrarse</a>
                             </div>
                             <div class="error">
-                                <p style="color:red;"><strong><?php echo $error?></strong></p>
+                                <?php
+                                    if(isset($_GET['error']) && $_GET['error'] == "$error"){ 
+                                    echo "<script>swal('Melilla Shooting', '$error', 'error');</script>";
+                                    }
+                                ?>
+                                <?php
+                                    if(isset($_GET['enviado']) && $_GET['enviado'] == "$enviado"){ 
+                                    echo "<script>swal('Melilla Shooting', '$enviado', 'success');</script>";
+                                    }
+                                ?>
                                 <p id="errorForm">Rellene bien los campos.</p>
                             </div>
                         </form>
-                        <label for="recuperarPass">¿Contraseña Olvidada?</label><input type="checkbox" id="recuperarPass" class="botonOlvidado"/>
-                        <form class="recuperarForm" action="../../backend/usuario/recuperar.php" method="POST">
-                            <div class="recuperarDiv">
-                                <h4>Recuperar Contraseña</h4>
-                                <label for="recuperarPass"><i class="fas fa-times"></i></label>
-                                <span>Introduzca su correo</span>
-                                <input name="correo" placeholder="ejemplo@gmail.com" type="text">
-                                <button class ="botonRecuperar">Recuperar</button>
-                            </div>
-                        </form>
+                        <label for="recuperarPass" onclick="mostrarRecuperarContra()">¿Contraseña Olvidada?</label><input type="checkbox" id="recuperarPass" class="botonOlvidado"/>
                     </div>
                 </div>
             </div>  
         </div>
         <?php require_once('../footer/footer.php') ?>   
-        <script src="login.js"></script>
     </body>
 </html>
+<script src="js/login.js"></script>

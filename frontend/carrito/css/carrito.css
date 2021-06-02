@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+.carrito{
+    width: 100%;
+    height: 100%;
+}
+
+.cuerpo{
+    min-height: 90vh;
+}
+
+.tablaImg{
+    display: none;
+}
+
+.contenedorCarrito{
+    padding: 1.5rem 2rem;
+}
+
+.table {
+    width: 100%;
+    min-width: 20%;
+    text-align: left;
+    border-collapse: collapse;
+    background-color: white;   
+    -webkit-box-shadow: 2px 30px 50px 7px rgba(105,162,240,255);
+    -moz-box-shadow: 2px 30px 50px 7px rgba(105,162,240,255);
+    box-shadow: 2px 30px 50px 7px rgba(105,162,240,255);
+    overflow-x:scroll;
+
+}
+
+th,td{
+    padding: 20px;
+    text-align: center;
+}
+
+thead{
+    background-color: #4a79b6;
+    color: white;
+    border-bottom: solid 5px #243bb7;
+}

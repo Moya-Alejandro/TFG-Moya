@@ -6,8 +6,7 @@
             $consulta = "INSERT INTO opcion (`nombre`) VALUES ('$nombre')";
 		    $resultadoConsulta = mysqli_query($conexion,$consulta);
             if(!$resultadoConsulta){
-                //throw new Exception("Nombre duplicado");
-                throw new Exception(mysqli_error($conexion)); //x
+                throw new Exception(mysqli_error($conexion)); 
             }
             $ultimaId = mysqli_insert_id($conexion);
 
@@ -16,7 +15,7 @@
                 mysqli_stmt_bind_param($stmt,'si', $value, $ultimaId);
                 $ejecutar = mysqli_stmt_execute($stmt);
                 if(!$ejecutar){
-                    throw new Exception(mysqli_error($conexion)); //x
+                    throw new Exception(mysqli_error($conexion)); 
                 }
             }
             
@@ -26,7 +25,7 @@
                     mysqli_stmt_bind_param($stmt,'si', $value, $ultimaId);
                     $ejecutar = mysqli_stmt_execute($stmt);
                     if(!$ejecutar){
-                        throw new Exception(mysqli_error($conexion)); //x
+                        throw new Exception(mysqli_error($conexion)); 
                     }
                 }
             }
@@ -57,7 +56,7 @@
         $consulta = "DELETE FROM opcion WHERE (`id` = '$id')";
         $resultadoConsulta = mysqli_query($conexion,$consulta);
         if(!$resultadoConsulta){
-            throw new Exception(mysqli_error($conexion)); //x
+            throw new Exception(mysqli_error($conexion)); 
         }
         return $resultadoConsulta;
     }
@@ -67,7 +66,7 @@
         $consulta = "DELETE FROM valor WHERE (`id` = '$id')";
         $resultadoConsulta = mysqli_query($conexion,$consulta);
         if(!$resultadoConsulta){
-            throw new Exception(mysqli_error($conexion)); //x
+            throw new Exception(mysqli_error($conexion)); 
         }
         return $resultadoConsulta;
     }
@@ -92,8 +91,8 @@
             $consulta = "UPDATE opcion SET `nombre` = '$nombre' WHERE (`id` = '$idOpcion')";
 		    $resultadoConsulta = mysqli_query($conexion,$consulta);
             if(!$resultadoConsulta){
-                //throw new Exception("Nombre duplicado");
-                throw new Exception(mysqli_error($conexion)); //x
+                
+                throw new Exception(mysqli_error($conexion)); 
             }
 
             foreach($valores as $key => $value){
@@ -101,7 +100,7 @@
                 mysqli_stmt_bind_param($stmt,'sii', $value, $idOpcion,$idValores[$key]);
                 $ejecutar = mysqli_stmt_execute($stmt);
                 if(!$ejecutar){
-                    throw new Exception(mysqli_error($conexion)); //x
+                    throw new Exception(mysqli_error($conexion)); 
                 }
             }
 
@@ -111,7 +110,7 @@
                     mysqli_stmt_bind_param($stmt,'si', $value, $idOpcion);
                     $ejecutar = mysqli_stmt_execute($stmt);
                     if(!$ejecutar){
-                        throw new Exception(mysqli_error($conexion)); //x
+                        throw new Exception(mysqli_error($conexion)); 
                     }
                 }
             }
@@ -138,8 +137,8 @@
             $consulta = "INSERT INTO articulo ( `nArticulo`, `precio`, `stock`, `foto`, `detalles`,`tipo`) VALUES ('$nArticulo', '$precio', '$stock', '$foto', '$detalles', '$tipo')";
 		    $resultadoConsulta = mysqli_query($conexion,$consulta);
             if(!$resultadoConsulta){
-                //throw new Exception("Nombre duplicado");
-                throw new Exception(mysqli_error($conexion)); //x
+                
+                throw new Exception(mysqli_error($conexion)); 
             }
             $ultimaId = mysqli_insert_id($conexion);
 
@@ -149,7 +148,7 @@
                     mysqli_stmt_bind_param($stmt,'ii', $value, $ultimaId);
                     $ejecutar = mysqli_stmt_execute($stmt);
                     if(!$ejecutar){
-                        throw new Exception(mysqli_error($conexion)); //x
+                        throw new Exception(mysqli_error($conexion)); 
                     }
                 }
             }

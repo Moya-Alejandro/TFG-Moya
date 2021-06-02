@@ -1,4 +1,5 @@
 
+//Función que al darle creará campos input
 function crearInputs(){
     var div = document.createElement('div');
     var id = Date.now();
@@ -8,6 +9,7 @@ function crearInputs(){
     document.getElementById('inputs').appendChild(div);
 }
 
+//Función que al darle nos borrará campos input
 function borrarInputs(id){
     document.getElementById(id).remove();
 }

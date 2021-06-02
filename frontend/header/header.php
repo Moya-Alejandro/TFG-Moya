@@ -13,7 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Melilla Shooting</title>
-        <link rel="stylesheet" href="../header/header.css">
+        <link rel="stylesheet" href="../header/css/header.css">
     </head>
     <body>
         <header class="header">

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 .cuerpo{
     min-height: 90vh;
 }
@@ -14,13 +16,10 @@
     display: none;
 }
 
-.botonOlvidado:checked ~ .recuperarForm{
-    display: flex;
-}
-
 h4{
     text-align: center;
     font-size: 30px;
+    font-family: 'Oswald', sans-serif;
 }
 
 .campos{
@@ -33,6 +32,15 @@ h4{
     grid-gap: 0.5rem;
 }
 
+.lineaInicioSesion{
+    border: 0 none #6ca7f2;
+    border-top: 1px solid #6ca7f2;
+    height: 1px;
+    margin: 0.5rem 1rem;
+    display: block;
+    clear: both;
+}
+
 .inputForm{
     outline: none;
     width: 100%;
@@ -40,8 +48,10 @@ h4{
 }
 
 .carta{
-    border: solid 1px black;
     padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 1px #6ca7f2;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 .carta-body{

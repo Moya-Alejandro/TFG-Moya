@@ -21,9 +21,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../index/index.css">
-        <link rel="stylesheet" href="crearCategoria.css">
-        <link rel="stylesheet" href="../migasPan/migasPan.css">
+        <link rel="stylesheet" href="../index/css/index.css">
+        <link rel="stylesheet" href="css/crearCategoria.css">
+        <link rel="stylesheet" href="../migasPan/css/migasPan.css">
     </head>
     <body class="index">
         <div class="cuerpo">
@@ -76,4 +76,4 @@
         <?php require_once('../footer/footer.php') ?>   
     </body>
 </html>
-<script src="crearCategoria.js"></script>
+<script src="js/crearCategoria.js"></script>

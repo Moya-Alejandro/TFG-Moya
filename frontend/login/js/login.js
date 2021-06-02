@@ -65,3 +65,25 @@ formulario.addEventListener('submit', (e) => {
         setTimeout( () => {errorForm.style.visibility = "hidden";}, 2000);
     }
 });
+
+
+function mostrarRecuperarContra(){
+
+	swal("Recuperar Contraseña", {
+		content: {
+			element: "input",
+			attributes: {
+			  placeholder: "ejemplo@gmail.com",
+			  type: "email",
+			},
+		},
+
+		button: {
+			text: "Recuperar",
+			closeModal: false,
+		},
+	  })
+	  .then((value) => {
+			window.location='../../backend/usuario/recuperar.php?correo='+value;
+	  });
+}

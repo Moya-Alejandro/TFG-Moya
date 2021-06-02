@@ -1,9 +1,12 @@
 <?php
-	// //Enlazamos el archivo donde tenemos las funciones
+	//Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../bd/conectarBD.php';
     require '../bd/DAOusuario.php';
 	require '../bd/DAOcarrito.php';
+
+	//Iniciamos una sesión para poder coger parametros a través de las variables locales
 	session_start();
+	//Recogemos las variables que se le pasa desde el frontend y la guardamos en una variable
 	$rol = $_SESSION["rol"];
 	
 	if(!empty($_POST['g-recaptcha-response']) || $rol == "admin"){

@@ -21,10 +21,12 @@
 		crearSesion($fila);
 		header("Location: ../../frontend/index/index.php");
 	}
+	//En caso de que el número de filas sea distinto a 0, significará que la contraseña es incorrecta
 	elseif(mysqli_num_rows($consultaUsuario) != 0){
 		$error = "La contraseña es incorrecta";
 		header("Location: ../../frontend/login/login.php?error=$error");
 	}
+	//En este caso la cuenta no existiría y nos lo mostraría por un error
 	else{
 		$error = "La cuenta no existe";
 		header("Location: ../../frontend/login/login.php?error=$error");

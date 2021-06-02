@@ -1,0 +1,18 @@
+.contenedorImagen{
+    width: 90rem;
+    height: 90rem;
+}
+
+.imagenCalendario{
+    width: 100%;
+    height: 100%;
+}
+
+.contenedorImagen{
+    display: block;
+    margin: auto;
+}
+
+.contenedorCalendario{
+    padding: 1.5rem 2rem;
+}
