@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/perfil.css">
         <link rel="stylesheet" href="../index/css/index.css">
         <link rel="stylesheet" href="../migasPan/css/migasPan.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="index">
         <div class="cuerpo">
@@ -19,7 +20,7 @@
                 </ul>
                 <div class="carta-body">
                     <div class="carta">
-                        <form id="form" action="../../backend/usuario/editarPerfil.php" method="POST">
+                        <form id="formRegistrar" action="../../backend/usuario/editarPerfil.php" method="POST">
                             <h4>Perfil</h4>
                             <hr>
                             <!--Mostramos los valores del usuario por variables locales de $_SESSION-->
@@ -65,11 +66,13 @@
                                     <p id="errorPassword2">La contraseña no coincide</p>
                                 </div>
                             </div>
-                            <div class="botonEditar">
-                                <button class="botonForm">Editar Perfil</button>
-                            </div>
-                            <div class="error">
-                                <p id="errorForm">Rellene bien los campos.</p>
+                            <div class="botonesPerfil">
+                                <div class="botonEditar">
+                                    <button class="botonForm">Editar Perfil</button>
+                                </div>
+                                <div class="botonBorrarPefill">
+                                    <p onclick="confirmarBorrar(<?php echo $_SESSION['id']; ?>)" class="botonForm">Borrar Usuario</p>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -78,5 +81,6 @@
         </div>
         <?php require_once('../footer/footer.php') ?>    
         <script src="../registrar/js/registrar.js"></script>
+        <script src="js/perfil.js"></script>
     </body>
 </html>

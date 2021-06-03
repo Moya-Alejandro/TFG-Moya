@@ -1,5 +1,5 @@
-//Función que utilizaremos con sweet alert para mostrar una confirmación de elimiar el comentario
-function confirmarBorrar(idComentario){
+//Función que utilizaremos con sweet alert para mostrar una confirmación de elimiar la categoría
+function confirmarBorrar(idCategoria){
     swal("¿Quieres eliminar la categoria?", {
         buttons: {
             cancel: "Cancelar",
@@ -11,21 +11,9 @@ function confirmarBorrar(idComentario){
         })
         .then((value) => {
         switch (value) {
-
             case "borrar":
-            $.post('../../backend/comentario/borrarComentario.php', {'idComentario':idComentario}, function(response){
-                verComentario(); 
-            });
+                window.location= '../../backend/admin/borrarCategoria.php?idCategoria='+idCategoria;
             break;
         }
     });
 }
-
-//Llamamos a la función para borrar el comentario si se ha confirmado la eliminación
-$(document).on('click','.borrarComentario', function(){
-
-    let idComentario = $(this).attr('data-idComentario');
-    
-    confirmarBorrar(idComentario);
-
-})

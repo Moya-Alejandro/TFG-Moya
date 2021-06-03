@@ -1,6 +1,6 @@
-//Función que utilizaremos con sweet alert para mostrar una confirmación de elimiar el comentario
-function confirmarBorrar(idComentario){
-    swal("¿Quieres eliminar el comentario?", {
+//Función que utilizaremos con sweet alert para mostrar una confirmación de elimiar el usuario
+function confirmarBorrar(idUsuario){
+    swal("¿Quieres eliminar el usuario?", {
         buttons: {
             cancel: "Cancelar",
             catch: {
@@ -11,21 +11,29 @@ function confirmarBorrar(idComentario){
         })
         .then((value) => {
         switch (value) {
-
             case "borrar":
-            $.post('../../backend/comentario/borrarComentario.php', {'idComentario':idComentario}, function(response){
-                verComentario(); 
-            });
+                window.location= "../../backend/usuario/borrarUsuario.php?id="+idUsuario;
             break;
         }
     });
 }
 
-//Llamamos a la función para borrar el comentario si se ha confirmado la eliminación
-$(document).on('click','.borrarComentario', function(){
-
-    let idComentario = $(this).attr('data-idComentario');
-    
-    confirmarBorrar(idComentario);
-
-})
+//Función que utilizaremos con sweet alert para mostrar una confirmación de dar admin al usuario
+function confirmarAdmin(idUsuario){
+    swal("¿Quieres darle administrador al usuario?", {
+        buttons: {
+            cancel: "Cancelar",
+            catch: {
+            text: "Confirmar",
+            value: "admin",
+            },
+        },
+        })
+        .then((value) => {
+        switch (value) {
+            case "admin":
+                window.location= "../../backend/admin/darAdmin.php?idUsuario="+idUsuario;
+            break;
+        }
+    });
+}

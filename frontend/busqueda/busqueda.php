@@ -37,38 +37,38 @@
                     <li><a href="../index/index.php"> Inicio </a></li>
                     <li><a href=""> Busqueda </a></li>
                 </ul>
-                <div>
-                    <div>
-                        <?php
-                            //En caso de que no exista ningún articulo buscado, nos saldrá una alerta y nos mandará al inicio
-                            $articulos = busquedaArticulo($conexion,$busqueda);
-                            $filas = mysqli_num_rows ( $articulos);
-                            if($filas == 0){
-                                echo "<script>
-                                        swal('No se ha encontrado ningún articulo con ese nombre',{
-                                            button: 'Volver a Inicio',
-                                            timer: 4000
-                                        })
-                                        .then((value) => {
-                                            window.location= '../index/index.php';
-                                        });
-                                    </script>";
-                            } ?>
-                            <!--En el caso de que si exista, nos mostrará los articulos-->
-                            <?php while($fila = mysqli_fetch_assoc($articulos)){ ?>
-                            <div id="contenedorArticulo">
-                                <a href="mostrarArticulo.php?id=<?php echo $fila['id']?>"><img src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></a>
+                <div class="articulosDerecha">
+                    <?php
+                        //En caso de que no exista ningún articulo buscado, nos saldrá una alerta y nos mandará al inicio
+                        $articulos = busquedaArticulo($conexion,$busqueda);
+                        $filas = mysqli_num_rows ( $articulos);
+                        if($filas == 0){
+                            echo "<script>
+                                    swal('No se ha encontrado ningún articulo con ese nombre',{
+                                        button: 'Volver a Inicio',
+                                        timer: 4000
+                                    })
+                                    .then((value) => {
+                                        window.location= '../index/index.php';
+                                    });
+                                </script>";
+                        } ?>
+                        <!--En el caso de que si exista, nos mostrará los articulos-->
+                        <?php while($fila = mysqli_fetch_assoc($articulos)){ ?>
+                        <div id="articulos">
+                            <div class="contenedorImagen">
+                                <a href="mostrarArticulo.php?id=<?php echo $fila['id']?>"><img class="imgCarta" src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></a>
+                            </div>
+                            <div class="contenedorNombreArticulo">
                                 <?php echo $fila['nArticulo']?>
-                                <?php echo $fila['precio']?>
-                                <?php echo $fila['stock']?>
-                                <?php if($rol == ""){ ?>
-                                <?php } else{?>
-                                    <button class="enviar" id="insertarCarrito" name="insertarCarrito" data-id="<?php echo $fila['id']?>" data-precio="<?php echo $fila['precio']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar</button>
-                                <?php } ?>
-                            </div> 
-                        <?php } ?>
-                    </div>   
-                </div>
+                            </div>
+                            <?php if($rol == ""){ ?>
+                            <?php } else{?>
+                                <button class="enviar" id="insertarCarrito" name="insertarCarrito" data-id="<?php echo $fila['id']?>" data-precio="<?php echo $fila['precio']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar</button>
+                            <?php } ?>
+                        </div> 
+                    <?php } ?>
+                </div>   
             </div>
         </div>
         <?php require_once('../footer/footer.php') ?>  

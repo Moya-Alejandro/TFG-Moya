@@ -33,7 +33,7 @@
                 </ul>
                 <div class="carta-body">
                     <div class="carta">
-                        <form id="form" action="../../backend/usuario/iniciarsesion.php" method="POST">
+                        <form id="formLogin" action="../../backend/usuario/iniciarsesion.php" method="POST">
                             <h4>Iniciar Sesión</h4>
                             <hr class="lineaInicioSesion">
                             <div class="campos">
@@ -44,12 +44,12 @@
                                 </div>
                                 <div class="campo">
                                     <label for="password">Contraseña</label>
-                                    <input id="password" type="text" name="password" required>
+                                    <input id="password" type="password" name="password" required>
                                     <p id="errorPassword">Algo ha salido mal</p>
                                 </div>
                             </div>
                             <div class="botonIniciarsesion">
-                                <button class="botonForm">Iniciar Sesión</button>
+                                <button type="submit" class="botonFormLogin" id="botonFormLogin">Iniciar Sesión</button>
                                 <a href="../registrar/registrar.php">Registrarse</a>
                             </div>
                             <div class="error">
@@ -63,11 +63,10 @@
                                     echo "<script>swal('Melilla Shooting', '$enviado', 'success');</script>";
                                     }
                                 ?>
-                                <p id="errorForm">Rellene bien los campos.</p>
                             </div>
                         </form>
                         <!--Mostramos una alerta para poder introducir el correo-->
-                        <label for="recuperarPass" onclick="mostrarRecuperarContra()">¿Contraseña Olvidada?</label><input type="checkbox" id="recuperarPass" class="botonOlvidado"/>
+                        <label class="olvidarContraseña" for="recuperarPass" onclick="mostrarRecuperarContra()">¿Contraseña Olvidada?</label><input type="checkbox" id="recuperarPass" class="botonOlvidado"/>
                     </div>
                 </div>
             </div>  

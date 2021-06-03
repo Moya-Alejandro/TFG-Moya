@@ -29,7 +29,7 @@
         header("Location: ../../frontend/panel/panelUsuario.php");
     }
     catch(Exception $e){
-        $error = $e->getMessage();
+        $error = "Este usuario ya existe";
         header("Location: ../../frontend/admin/editarUsuario.php?idUsuario=$idUsuario&error=$error");
     }
 

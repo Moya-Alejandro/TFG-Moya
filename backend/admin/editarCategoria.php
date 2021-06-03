@@ -31,7 +31,7 @@
         header("Location: ../../frontend/panel/panelCategoria.php");
     }
     catch(Exception $e){
-        $error = $e->getMessage();
+        $error = "Esta categoría ya existe";
         header("Location: ../../frontend/admin/editarCategoria.php?idCategoria=$idOpcion&error=$error");
     }
 

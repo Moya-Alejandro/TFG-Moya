@@ -8,17 +8,21 @@
     
     //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../bd/conectarBD.php';
-	require '../bd/DAOarticulo.php';
+    require '../bd/DAOusuario.php';
 
     //Recogemos las variables que se le pasa desde el frontend y la guardamos en una variable
-    $idArticulo = $_GET["idArticulo"];
+    $id = $_GET['id'];
 
     //Guardamos en una variable la función que nos conecta a la base de datos, en este caso verdadera, ya que es en AWS(RDS)
     $conexion = conectarBD(true);
 
-    //Guardamos en una variable el array de la consulta que convertiremos de objeto a array con la función fetch assoc
-    $valoracion = mysqli_fetch_assoc(sumaVerLikes($conexion,$idArticulo));
+    //Llamamos a la función para que realize la consulta y acto siguiente nos redirija
+    eliminarIdUsuario($conexion,$id);
     
-    //Hacemos un echo para que se muestre por JavaScript sin necesidad de recargar
-    echo $valoracion['count(gusta)'];
+    session_start();
+    session_destroy();
+
+    header("Location: ../../frontend/index/index.php");
+
+
 ?>

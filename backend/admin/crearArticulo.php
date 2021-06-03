@@ -60,17 +60,18 @@
     //En caso de que no se pueda guardar la foto por algún motivo, nos mostrará un error
     if(!move_uploaded_file($img_tmp,"../../frontend/".$img_destino)){
         $error = "No se ha podido guardar la foto";
+        echo "../../frontend/".$img_destino;
         header("Location: ../../frontend/admin/crearArticulo.php?error=$error");
         return;
     }
 
-    //Hacemos un try catch, en el caso de que se ejecute la función ocurrirá la consulta que hay en el try y nos redirigirá, en el caso contrario, nos mostrará un error
+    // Hacemos un try catch, en el caso de que se ejecute la función ocurrirá la consulta que hay en el try y nos redirigirá, en el caso contrario, nos mostrará un error
     try{
         $subirArticulo = crearCategoriaArt($conexion,$selectValor,$nombre,$precio,$stock,$img_destino,$detalles,$tipo);
         header("Location: ../../frontend/panel/panelArticulo.php");
     }
     catch(Exception $e){
-        $error = $e->getMessage();
+        $error = "Este artículo ya existe";
         header("Location: ../../frontend/admin/crearArticulo.php?error=$error");
     }
     

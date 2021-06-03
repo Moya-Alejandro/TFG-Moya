@@ -1,5 +1,11 @@
 <?php
 
+    //En caso de que el enlace sea escrito por la barra de búsqueda nos devolverá al index
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header("Location: ../../frontend/index/index.php");
+        exit;
+    }
+    
     //Llamamos a los archivos que contienen funciones de la base de datos para poder utilizar sus funciones
     require '../../backend/bd/conectarBD.php';
     require '../../backend/bd/DAOusuario.php';
@@ -11,12 +17,13 @@
     session_start();
 
     //Recogemos las variables que se le pasa desde el frontend y la guardamos en una variable
-    $idUsuario = $_SESSION["id"];
+    $idUsuario = $_GET["idUsuario"];
     $rolUsuario = $_SESSION["rol"];
     $idArticulo = $_GET["idArticulo"];
     
     //Guardamos en una variable la consulta
     $result =  verComentario($conexion,$idArticulo);
+    $usuario = mysqli_fetch_array(verNomberComentario($conexion,$idUsuario));
 
     //Creamos un array
     $json= array();
@@ -32,7 +39,8 @@
             'idUsuarioComentario' => $ver['idUsuario'],
             'id' => $ver['idUsuario'],
             'iconoBorrar' => $icono,
-            'iconoEditar' =>$iconoEditar
+            'iconoEditar' =>$iconoEditar,
+            'nombreUsuario' =>$usuario['nUsuario']
         );
     }
 

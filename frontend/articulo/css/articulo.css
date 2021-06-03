@@ -1,0 +1,177 @@
+/*Tamaño minimo al div que contendrá los contenidos*/
+.cuerpo{
+    min-height: 90vh;
+}
+
+/*Estilos para el boton filtrar, negrita, color de fondo, borde, color borde, tamaño de letra y padding*/
+.botonFiltrar{
+    text-decoration: none;
+    padding: 0.2rem;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+}
+
+/*Estilos para el botonParaFiltro que estará en disposición grid y un padding de 1rem*/
+.botonParaFiltro{
+    display: grid;
+    padding: 1rem;
+}
+
+/*En caso de que el nombre sea muy largo se pondrán ... al final*/
+.valueNombre{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*Cambio de color a los botones cuando pasa el raton por encima*/
+.botonFiltrar:hover , .enviar:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+}
+
+/*Padding para el contenedorArticulo*/
+.contenedorArticulo{
+    padding: 1rem 1rem;
+}
+
+/*Anchura, padding, disposición inline-grid y centramos el contenedorNombre*/
+.contenedorNombre{
+    width: 12rem;
+    display: inline-grid;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+/*Anchura, altura, disposición en flex y centramos el contenedorImagen*/
+.contenedorImagen{
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Disposición la página en grid y la separamos en 2 columnas, con un padding de 1 rem*/
+.dividirPagina{
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    padding: 1rem;
+}
+
+/*Los artículos se disposicionará en flex wrap*/
+.articulosDerecha{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*Contenedor de la carta que tendrá una disposición flex en columnas, con un fondo azul, centrada, con un margen y padding*/
+#contenedorArticuloProducto{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 3px 1px #6ca7f2;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    padding:1rem;
+    justify-content: center;
+    margin: 0.5rem;
+    align-items: center;
+}
+
+/*Padding para .infoFiltro*/
+.infoFiltro{
+    padding: 1rem;
+}
+
+/*Padding, disposición flex y espacio entre los contenidos que tenga la id Filtro*/
+#filtro{
+    padding: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Anchura y altura para la imagen de la carta*/
+.imgCarta{
+    width: 100%;
+    height: 100%;
+}
+
+/*Estilos para el boton .enviar*/
+.enviar{
+    text-decoration: none;
+    padding: 0.2rem;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+}
+
+/*Estilos para el div comprar, que se centrará, disposición en flex y tendrá un padding*/
+.botonComprar{
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+/*El contenedor filtros, tendrá un borde, una sombra azul y su altura se rellenará según el contenido*/
+.filtrosIzquierda{
+    border: 0.1px solid #253ab7;
+    box-shadow: 0px 0px 3px 1px #253ab7;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    height: fit-content;
+}
+
+/*Padding, centramos y color blanco para la clase FiltroPor*/
+.filtroPor{
+    padding: 0.3rem;
+    text-align: center;
+    color: white;
+}
+
+/*Color de fondo en azul para la clase .titulo*/
+.titulo{
+    background-color: #253ab7;
+}
+
+/*Media Querys que según el tamaño se irán cambiando clases e ids para que sea responsive*/
+@media only screen and (max-width: 505px) {
+    .dividirPagina{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .contenedorImagen{
+        height: 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .articulosDerecha{
+        flex-wrap: wrap;
+        display: contents;
+    }
+
+    #contenedorArticuloProducto {
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 3px 1px #6ca7f2;
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        padding: 1rem;
+        justify-content: center;
+        margin: 0.5rem;
+        align-items: center;
+    }
+
+    .filtrosIzquierda {
+        border: 0.1px solid #253ab7;
+        box-shadow: 0px 0px 3px 1px #253ab7;
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        height: fit-content;
+        margin-bottom: 1rem;
+    }
+}

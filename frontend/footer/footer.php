@@ -13,7 +13,7 @@
                 <div class="cuerpo-contenedor">
                     <div class="columna1">
                         <h1>Información de la compañía</h1>
-                        <p>Esta compañia se dedica a la venta de software integrado con un conjunto de cosas que no se lo que estoy escribiendo, este texto es solo para llenara información en el cuadro de informacion de la compañia
+                        <p>Esta compañia se dedica a la venta de productos deportivos relacionados al tiro olímpico, ya sean pistolas, carabinas, munición o accesorios. Todo los articulos están destinados para principiantes que disparen con aire comprimido. Nos situamos en Melilla, la mejor tienda de Tiro Olímpico local.
                         </p>
                     </div>
                     <div class="columna2">

@@ -28,8 +28,7 @@
         <link rel="stylesheet" href="../index/css/index.css">
         <link rel="stylesheet" href="css/carrito.css">
         <link rel="stylesheet" href="../migasPan/css/migasPan.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="index">
         <div class="cuerpo">
@@ -57,9 +56,9 @@
                                 <th class="tablaImg"><div class="contenedorImgCarrito"><img class="imgCarrito" src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></div></th>
                                 <th><?php echo $fila['nArticulo']?></th>
                                 <th><?php echo $fila['precio']?>€</th>
-                                <th><form action="../../backend/carrito/actualizarCantidadCesta.php" method="POST"><input name="cantidad" type="number" min="1" max ="<?php echo $fila['stock'];?>"value="<?php echo $fila['cantidad']?>"><input name="idArticulo" type="hidden" value="<?php echo $fila["idArticulo"] ?>"><button>Actualizar</button></form></th>
+                                <th><form action="../../backend/carrito/actualizarCantidadCesta.php" method="POST"><input name="cantidad" type="number" min="1" max ="<?php echo $fila['stock'];?>"value="<?php echo $fila['cantidad']?>"><input name="idArticulo" type="hidden" value="<?php echo $fila["idArticulo"] ?>"><button class="botonActualizarCantidad">Actualizar</button></form></th>
                                 <th><?php echo $fila['precio']*$fila['cantidad']; $total += $fila['precio']*$fila['cantidad'];?>€</th>
-                                <th><a href="../../backend/carrito/borrarArticuloCarrito.php?idArticulo=<?php echo $fila['idArticulo']?>"><i class="fas fa-times-circle"></i></a></th>
+                                <th><i onclick="confirmarBorrar(<?php echo $fila['idArticulo']?>)" class="fas fa-times-circle" id="iconoBorrar"></i></th>
                             </tr>
                             <?php } ?>
                         </tbody>
@@ -67,7 +66,7 @@
                             <!--Botón paypal-->
                             <td colspan="2">
                                 <div class="comprar">
-                                    <div id="paypal-button-container" data-total = <?php echo $total; ?>></div>
+                                    <div id="paypal-button-container" class="botonPaypalFondo" data-total = <?php echo $total; ?>></div>
                                 </div>
                             </td>
                             <!--Mostraremos el total de la suma de los precio-->
@@ -79,10 +78,10 @@
                                     <p id="total"><?php echo $total; ?>€</p>
                                 </div>
                             </td>
-                            <td>
+                            <td colspan="2">
                             <!--Botón para poder vaciar el carrito-->
                                 <div class="vaciar-carrito">
-                                <p id="vaciar-carrito"><a href="../../backend/carrito/vaciarCarrito.php?idUsuario=<?php echo $idUsuario?>">Vaciar<i class="material-icons">remove_shopping_cart</i></a></p>
+                                    <div id="vaciar-carrito"><button class="botonVaciarCarrito" onclick="confirmarBorrarCarrito(<?php echo $idUsuario?>)">Vaciar Carrito</button></div>
                                 </div>
                             </td>
                         </tr>
@@ -95,3 +94,4 @@
 </html>
 <script src="https://www.paypal.com/sdk/js?client-id=test&currency=EUR"></script>
 <script src="js/paypal.js"></script>
+<script src="js/verCarrito.js"></script>

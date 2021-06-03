@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
+/*Estos estilos han sido comentados en otro css al ser muy parecidos*/
+/*Tamaño minimo*/
 .cuerpo{
     min-height: 90vh;
 }
@@ -32,6 +34,7 @@ h4{
     grid-gap: 0.5rem;
 }
 
+/*Linea azul que separa el titulo del contenido*/
 .lineaInicioSesion{
     border: 0 none #6ca7f2;
     border-top: 1px solid #6ca7f2;
@@ -47,6 +50,7 @@ h4{
     height: 1.5rem;
 }
 
+/*Estilos de la carta con sombra y borde*/
 .carta{
     padding: 1rem;
     border-radius: 5px;
@@ -59,4 +63,31 @@ h4{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/*Estilos de los errores*/
+#errorUsuario,#errorPassword{
+    color: red;
+    font-weight: bold;
+}
+
+.botonFormLogin{
+    text-decoration: none;
+    padding: 0.2rem;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+
+}
+
+.botonFormLogin:hover{
+    color: black;
+    background-color: #ffffff;
+}
+
+.botonIniciarsesion{
+    margin:1rem;
 }

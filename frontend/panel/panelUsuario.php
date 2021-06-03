@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="css/panel.css">
         <link rel="stylesheet" href="../index/css/index.css">
         <link rel="stylesheet" href="../migasPan/css/migasPan.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="index">
         <div class="cuerpo">
@@ -58,9 +59,9 @@
                                 <td><?php echo $fila['telefono']?></td>
                                 <td><?php echo $fila['correo']?></td>
                                 <td><?php echo $fila['dni']?></td>
-                                <td class="botonIconoEditar"><a href="../admin/editarUsuario.php?idUsuario=<?php echo $fila['id']?>">Editar <i class="fas fa-user-edit"></i></a></td>
-                                <td class="botonIconoAdmin"><a href="../../backend/admin/darAdmin.php?idUsuario=<?php echo $fila['id']?>">Admin <i class="fas fa-user-shield"></i></a></td>
-                                <td class="botonIconoBorrar"><a href="../../backend/usuario/borrarUsuario.php?id=<?php echo $fila['id']?>">Borrar <i class="fas fa-user-times"></i></a></td>
+                                <td class="botonIconoEditar"><a href="../admin/editarUsuario.php?idUsuario=<?php echo $fila['id']?>">Editar <i  class="fas fa-user-edit"></i></a></td>
+                                <td class="botonIconoAdmin" onclick="confirmarAdmin(<?php echo $fila['id']?>)"><p> Admin <i class="fas fa-user-shield"></i></p></td>
+                                <td class="botonIconoBorrar" onclick="confirmarBorrar(<?php echo $fila['id']?>)"><p>Borrar <i  class="fas fa-user-times"></i></p></td>
                             </tr>
                             <?php
                                 }
@@ -74,3 +75,4 @@
     </body>
 </html>
 <script src="https://kit.fontawesome.com/143eda576b.js" crossorigin="anonymous"></script>
+<script src="js/panelUsuario.js"></script>

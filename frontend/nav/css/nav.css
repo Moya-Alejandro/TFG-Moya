@@ -1,13 +1,17 @@
+/*Los elementos no comentados se han comentado en otros css al ser iguales*/
+
+/*Nav estará pegado arriba y tendrá un z index por lo que estará delante de los elementos, le pondremos un color una sombr, y una altura*/
 .nav{
     position: -webkit-sticky;
     position: sticky;
     top: 10vh;
-    z-index: 9;
+    z-index: 101;
     background-color: #253ab7;
     box-shadow: 0 0 1em 0 rgb(21 47 226 / 77%);
     height: fit-content;
 }
 
+/*Los elementos dentro del nav estará dentro, estarán en una disposición grid, tendrán un tamaño de letra una anchura, un padding, una separación entre ellos y estarán en columnas*/
 .navBar{
     display: grid;
     z-index: -1;
@@ -19,6 +23,7 @@
     padding: 0.5rem;
 }
 
+/*Quitamos la decoración a los elemento a y li dentro de navBar*/
 .navBar a, .navBar > li {
     text-decoration: none;
     list-style: none;

@@ -29,7 +29,7 @@
     if($filaCarrito==0){
         $cantidadCesta = 0;
     }
-    //En caso contrario -------------
+    //En caso contrario la cantidad de la cestá se igualará a la actual
     else{
         $carritoActual = mysqli_fetch_assoc(stockCarrito($conexion, $idUsuario, $idArticulo));
         $cantidadCesta = $carritoActual["cantidad"];

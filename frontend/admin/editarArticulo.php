@@ -19,6 +19,17 @@
         $error = $_GET["error"];
     }
 
+    //En caso de que el enlace sea escrito por la barra de búsqueda nos devolverá al index
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header("Location: ../../frontend/index/index.php");
+        exit;
+    }
+    
+    //En caso de que el rol del usuario no sea admin, te redirijirá a inicio
+    if($_SESSION["rol"] != "admin"){
+        header('Location: ../index/index.php');
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +41,7 @@
         <link rel="stylesheet" href="css/crearArticulo.css">
         <link rel="stylesheet" href="../index/css/index.css">
         <link rel="stylesheet" href="../migasPan/css/migasPan.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="index">
         <div class="cuerpo">
@@ -53,20 +65,20 @@
                                 <div class="campos">
                                     <div class="campo">
                                         <label for="nArticulo">Nombre del Artículo</label>
-                                        <input class="inputForm" id="nArticulo" value="<?php echo $articulo["nArticulo"] ?>" type="text" name="nArticulo" >
+                                        <input class="inputForm" id="nArticulo" value="<?php echo $articulo["nArticulo"] ?>" type="text" name="nArticulo" required >
                                         <input type ="hidden" name="idArticulo" value="<?php echo $articulo['id']?>">
                                     </div>
                                     <div class="campo">
                                         <label for="precio">Precio </label>
-                                        <input class="inputForm" id="precio" min="1" value="<?php echo $articulo["precio"] ?>"  step=".01" type="number" name="precio" >
+                                        <input class="inputForm" id="precio" min="1" value="<?php echo $articulo["precio"] ?>"  step=".01" type="number" name="precio" required>
                                     </div>
                                     <div class="campo">
                                         <label for="stock">Stock </label>
-                                        <input class="inputForm" id="stock" min="1" value="<?php echo $articulo["stock"] ?>" type="number" name="stock" >
+                                        <input class="inputForm" id="stock" min="1" value="<?php echo $articulo["stock"] ?>" type="number" name="stock" required >
                                     </div>
                                     <div class="campo" >
                                         <label for="detalles">Descripción </label>
-                                        <textarea name="detalles" maxlength="300"><?php echo $articulo['detalles'];?></textarea><br><br>
+                                        <textarea name="detalles" maxlength="300" required><?php echo $articulo['detalles'];?></textarea><br><br>
                                     </div>
                                     <div class="campo campoTipo">
                                         <div class="tipo">
@@ -114,9 +126,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <p><strong><?php echo $error?></strong></p>
-                                <button type="submit">Editar</button>
+                            <div class="botonCrearDiv">
+                                <?php 
+                                    if(isset($_GET['error']) && $_GET['error'] == "$error"){ 
+                                        echo "<script>swal('Melilla Shooting', '$error', 'error');</script>";
+                                    }
+                                ?>
+                                <button class="botonCrear" type="submit"><div class="crearArticulo">Editar</div></button>
                             </div>
                         </div>
                         </form>

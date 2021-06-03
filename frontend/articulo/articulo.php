@@ -39,53 +39,65 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../index/css/index.css">
+        <link rel="stylesheet" href="css/articulo.css">
         <link rel="stylesheet" href="../migasPan/css/migasPan.css">
     </head>
     <body class="index">
-        <div class="contenedor">
-            <ul id="migasPan">
-                <li><a href="../index/index.php"> Inicio </a></li>
-                <li><a href="../categorias/categorias.php"> Categorías </a></li>
-                <li><a href=""> Artículos </a></li>
-            </ul>
-            <div>
-                <div>
-                    <form action="articulo.php?tipo=<?php echo $tipo?>" method="post">
-                        <?php 
-                            //Mostraremos los campos que hay en los filtros
-                            $result = filtroOpciones($conexion,$tipo);
-                            while($filtroOpciones = mysqli_fetch_assoc($result)){
-                        ?>
-                        <div id="contenedorFiltro">
-                            <b><?php echo $filtroOpciones['nombre'];?></b>
+        <div class="cuerpo">
+            <div class="contenedorArticulo">
+                <ul id="migasPan">
+                    <li><a href="../index/index.php"> Inicio </a></li>
+                    <li><a href="../categorias/categorias.php"> Categorías </a></li>
+                    <li><a href=""> Artículos </a></li>
+                </ul>
+                <div class="dividirPagina">
+                    <div class="filtrosIzquierda">
+                        <form action="articulo.php?tipo=<?php echo $tipo?>" method="post">
+                            <div class="titulo">
+                                <h2 class="filtroPor">Filtrar Por</h2>
+                            </div>
                             <?php 
-                            $resultValor = filtroValores($conexion,$filtroOpciones['id'],$tipo);
-                            while($filtroValores = mysqli_fetch_assoc($resultValor)){
+                                //Mostraremos los campos que hay en los filtros
+                                $result = filtroOpciones($conexion,$tipo);
+                                while($filtroOpciones = mysqli_fetch_assoc($result)){
                             ?>
-                            <div id="filtro">
-                                <input name="filtroSeleccionado[]" value="<?php echo $filtroValores['id']; ?>" type="checkbox"><label><?php echo $filtroValores['nombre'];?></label> 
-                            </div> 
+                            <div id="contenedorFiltro">
+                                <div class="infoFiltro">
+                                    <b>Filtrar por <?php echo $filtroOpciones['nombre'];?>:</b>
+                                    <?php 
+                                    $resultValor = filtroValores($conexion,$filtroOpciones['id'],$tipo);
+                                    while($filtroValores = mysqli_fetch_assoc($resultValor)){
+                                    ?>
+                                    <div id="filtro">
+                                        <div class="campoFiltro"><?php echo $filtroValores['nombre'];?></div><div class="inputCampoFiltro"><input name="filtroSeleccionado[]" value="<?php echo $filtroValores['id']; ?>" type="checkbox"></div>
+                                    </div> 
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <?php }?>
+                            <div class="botonParaFiltro">
+                                <button class="botonFiltrar" type="submit">Filtrar</button>
+                            </div>
+                        </form>
+                    </div>      
+                    <div class="articulosDerecha">
+                        <?php //Mostraremos los articulos
+                        while($fila = mysqli_fetch_assoc($articulos)){ ?>
+                        <div id="contenedorArticuloProducto">
+                            <div class="contenedorImagen">
+                                <a class="imgCarta" href="mostrarArticulo.php?id=<?php echo $fila['id']?>&tipo=<?php echo $tipo; ?>"><img class="imgCarta" src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></a>
+                            </div>
+                            <div class="contenedorNombre">
+                                <p class="valueNombre"><?php echo $fila['nArticulo']?></p>
+                            </div>
+                            <?php if($rol == ""){ ?>
+                            <?php } else{?>
+                                <div class="botonComprar"><button <?php if($fila['stock'] == 0){ echo "onclick='stockVacio()'"; } ?> class="enviar" id="insertarCarrito" name="insertarCarrito" data-tipo = "<?php echo $tipo?>"data-id="<?php echo $fila['id']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar</button></div>
                             <?php } ?>
-                        </div>
-                        <?php }?>
-                        <button type="submit">Filtrar</button>
-                    </form>
-                </div>      
-                <div>
-                    <?php //Mostraremos los articulos
-                     while($fila = mysqli_fetch_assoc($articulos)){ ?>
-                    <div id="contenedorArticulo">
-                        <a href="mostrarArticulo.php?id=<?php echo $fila['id']?>&tipo=<?php echo $tipo; ?>"><img src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></a>
-                        <?php echo $fila['nArticulo']?>
-                        <?php echo $fila['precio']?>
-                        <?php echo $fila['stock']?>
-                        <?php if($rol == ""){ ?>
-                        <?php } else{?>
-                            <button <?php if($fila['stock'] == 0){ echo "onclick='stockVacio()'"; } ?> class="enviar" id="insertarCarrito" name="insertarCarrito" data-tipo = "<?php echo $tipo?>"data-id="<?php echo $fila['id']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar</button>
+                        </div> 
                         <?php } ?>
-                    </div> 
-                    <?php } ?>
-                </div>   
+                    </div>   
+                </div>
             </div>
         </div>
         <?php require_once('../footer/footer.php') ?>  

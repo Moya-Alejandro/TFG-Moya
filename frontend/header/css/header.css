@@ -1,32 +1,38 @@
+/*Importación de una fuente de texto*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
 
+/*Estilos para la clase header*/
 .header{
     display: flex;
     position: -webkit-sticky;
     position: sticky;
     background-color: white;
-    z-index: 10;
+    z-index: 102;
     top:0;
 }
 
+/*Disposición en flex y altura y anchura*/
 .campoBusqueda {
     display:flex;
     height: 50%;
     width: 100%;
 }
   
+/*El texto y el botón se dispondrá en bock y la fuente será Montserrat*/
 .campoBusqueda>input[type=text],
 .campoBusqueda>button {
     display:block;
     font:1.2em 'Montserrat Alternates';
 }
   
+/*Dentro del input tendremos un padding y un borde*/
 .campoBusqueda>input[type=text] {
   flex:1;
   padding:0.2em;
   border:0.2em solid rgb(36, 58, 182);
 }
   
+/*El campo de busqueda tendrá un botton con un padding un color un fondo y sin borde*/
 .campoBusqueda>button {
   padding:0.6em 0.8em;
   background-color:rgb(36, 58, 182);
@@ -34,11 +40,12 @@
   border:none;
 }
 
-  
+/*Cambiaremos su fondo de color cuando pasemos por encima de .campoBusqueda con el ratón*/  
 .campoBusqueda>button:hover {
   background-color:#002b68;
 }
 
+/*Clases para header*/
 .header{
   display: flex;
   justify-content: space-between;
@@ -48,28 +55,33 @@
   height: 100%;
 }
 
+/*Altura y anchura del logo*/
 .logo{
   height: 100%;
   width: 100%;
 }
 
+/*Tamaño de la imagen*/
 .contenedor-imagen {
   width: 180px;
   height: 70%;
 }
 
+/*Disposición de la lista y altura*/
 .lista{
   display: grid;
   grid-auto-flow: column;
   height: 100%;
 }
 
+/*La clase label tendrá disposición flex y una anchura y altura*/
 .label{
   display: flex;
   width: 30px;
   height: 30px;
 }
 
+/*.elemento tendrá una altura una anchura y una disposición centrada con su contenido centrado*/
 .elemento{
   width: 63px;
   height: 100%;
@@ -78,16 +90,19 @@
   align-items: center;
 }
 
+/*Las imagenes dentro de elemento tendrá una anchura y altura completa*/
 .elemento > img{
   height: 100%;
   width: 100%;
 } 
 
+/*Los elementos dentro de la clase header usuario no tendrán ningún estilo*/
 .header-usuario a, .header-usuario > li{
   text-decoration: none;
   list-style: none;
 }
 
+/*Estilos para header usuario*/
 .header-usuario{
   display: none;
   background: white;
@@ -99,14 +114,17 @@
   grid-gap: 20px;
 }
 
+/*No mostrarémos la id user*/
 #user{
   display: none;
 }
 
+/*No mostraremos la clase campoBusqueda*/
 .campoBusqueda{
   display: none;
 }
 
+/*Estilos para el número que sale al lado del carrito*/
 .numeroCarrito{
   height: 20px;
   padding: 1%;
@@ -118,10 +136,12 @@
   font-size:17px
 }
 
+/*Estilos para el href del enlace que tiene el número*/
 .hrefnumeroCarrito{
   text-decoration: none;  
 }
 
+/*Media Querys que según el tamaño se irán cambiando clases e ids para que sea responsive*/
 @media only screen and (max-width: 768px) {
   #user:checked ~ .header-usuario{
     display: grid ;

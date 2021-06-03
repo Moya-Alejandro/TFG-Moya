@@ -1,4 +1,10 @@
 <?php 
+    //En caso de que el enlace sea escrito por la barra de búsqueda nos devolverá al index
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header("Location: ../../frontend/index/index.php");
+        exit;
+    }
+    
     //Para recuperar la contraseña por email, utilizaremos una biblioteca que se llama PHPMailer, hemos descargado sus archivos y los utilizaremos
     use PHPMailer\PHPMailer\PHPMailer;
     require_once "PHPMailer/PHPMailer.php";

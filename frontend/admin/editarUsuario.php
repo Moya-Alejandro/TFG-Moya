@@ -11,6 +11,17 @@
     $conexion = conectarBD(true);
     $infoUsuario = mysqli_fetch_assoc(consultaUsuarioId($conexion,$idUsuario));
 
+    //En caso de que el rol del usuario no sea admin, te redirijirá a inicio
+    if($_SESSION["rol"] != "admin"){
+        header('Location: ../index/index.php');
+    }
+
+    //En caso de que el enlace sea escrito por la barra de búsqueda nos devolverá al index
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header("Location: ../../frontend/index/index.php");
+        exit;
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +33,7 @@
         <link rel="stylesheet" href="../perfil/css/perfil.css">
         <link rel="stylesheet" href="../index/css/index.css">
         <link rel="stylesheet" href="../migasPan/css/migasPan.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="index">
         <div class="cuerpo">
@@ -33,7 +45,7 @@
                 </ul>
                 <div class="carta-body">
                     <div class="carta">
-                        <form id="form" action="../../backend/admin/editarUsuario.php?idUsuario=<?php echo $idUsuario; ?>" method="POST">
+                        <form id="formRegistrar" action="../../backend/admin/editarUsuario.php?idUsuario=<?php echo $idUsuario; ?>" method="POST">
                             <h4>Editar Perfil</h4>
                             <hr>
                             <div class="campos">
@@ -70,21 +82,22 @@
                                 </div>
                                 <div class="campo">
                                     <label for="password">Contraseña</label>
-                                    <input id="password" value="<?php echo $infoUsuario["password"];?>" type="text" name="password" >
+                                    <input id="password" value="<?php echo $infoUsuario["password"];?>" type="password" name="password" >
                                     <p id="errorPassword">Algo ha salido mal</p>
                                 </div>
                                 <div class="campo">
                                     <label for="password2">Repita la contraseña</label>
-                                    <input id="password2" value="<?php echo $infoUsuario["password"];?>" type="text" name="password2" >
+                                    <input id="password2" value="<?php echo $infoUsuario["password"];?>" type="password" name="password2" >
                                     <p id="errorPassword2">La contraseña no coincide</p>
                                 </div>
                             </div>
-                            <div class="botonEditar">
+                            <div class="botonEditarAdmin">
                                 <button class="botonForm">Editar Perfil</button>
                             </div>
-                            <div class="error">
-                                <p id="errorForm">Rellene bien los campos.</p>
-                            </div>
+                            <?php
+                                if(isset($_GET['error']) && $_GET['error'] == "Este usuario ya existe"){ 
+                                echo "<script>swal('Melilla Shooting', 'Este usuario ya existe', 'warning');</script>";
+                            }?>
                         </form>
                     </div>
                 </div> 

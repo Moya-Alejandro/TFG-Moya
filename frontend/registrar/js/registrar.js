@@ -1,6 +1,6 @@
 //Guardamos en una variable todos los elementos que nos pasamos por el html
-const formulario = document.getElementById('form');
-const inputs = document.querySelectorAll('#form input');
+const formulario = document.getElementById('formRegistrar');
+const inputs = document.querySelectorAll('#formRegistrar input');
 const errorUsuario = document.getElementById('errorUsuario');
 const errorPassword = document.getElementById('errorPassword');
 const errorPassword2 = document.getElementById('errorPassword2');
@@ -138,11 +138,12 @@ inputs.forEach((input) => {
 //Tendremos que validar el formulario para poder enviarlo en caso de que los campos sean verdaderos, en caso de que alguno sea falso saldrá un error
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
-	if(campos.usuario && campos.nombre && campos.apellidos && campos.telefono && campos.correo && campos.cp && campos.dni && campos.password2){
+	if(campos.usuario && campos.nombre && campos.apellidos && campos.telefono && campos.correo && campos.dni && campos.password2 && campos.password){
 		formulario.submit();
     } 
     else {
-        errorForm.style.visibility = "visible";
-        setTimeout(() => {errorForm.style.visibility = "hidden";}, 2000);
+		swal("Rellene bien el formulario", {
+			timer: 3000,
+		});
     }
 });

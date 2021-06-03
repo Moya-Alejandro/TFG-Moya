@@ -1,3 +1,4 @@
+/*El contenedor padre tendrá una disposición flex ocupará todo el ancho y alto y su contenido se centrará*/
 .contenedorPrincipal{
     display: flex;
     height: 100%;
@@ -5,12 +6,13 @@
     justify-content: center;
 }
 
+/*Padding para contenedorCategorias y ancho*/
 .contenedorCategorias{
     padding: 1.5rem 1rem;
     width: 95vw;
 }
 
-
+/*contenedorCategoria con un ancho, una disposición flex en columna y un margen */
 .contenedorCategoria{
     width: 23rem;
     display: flex;
@@ -18,32 +20,39 @@
     margin: 1rem;
 }
 
+/*Anchura para las imagenes dentro de la clase contenedorCategoria*/
 .contenedorCategoria img{
     width: 21rem;
 }
 
+/*Sombra para el contenedor*/
 .efectoContenedor{
     box-shadow: 0px 0px 3px 1px #6ca7f2;
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
+/*Cuando pasemos el ratón por encima la sombra cambiará y se hará mas grande*/
 .efectoContenedor:hover{
     box-shadow: 0px 0px 3px 1px#253ab7;
 	transform: scale(1.02);
 }
 
+/*La altura mínima de la página sera de 90vh*/
 .cuerpo{
     min-height: 90vh;
 }
 
+/*Cuando pasemos el ratón por encima de contenedorCategoria h5 cambiará de color*/
 .contenedorCategoria:hover h5{
     color: #253ab7;
 }
 
+/*La clase aTipo no tendrá decoración de texto*/
 .aTipo{
     text-decoration: none;
 }
 
+/*Cambiaremos el color de h5 su padding, el tamaño del texto y centramos su texto*/
 h5{
     color: #6ca7f2;
     padding: 1rem 1rem 0 1rem;
@@ -51,7 +60,7 @@ h5{
     text-align: center;
 }
 
-
+/*Media Querys que según el tamaño se irán cambiando clases e ids para que sea responsive*/
 @media screen and (max-width: 840px){
     .contenedorPrincipal{
         display: flex;

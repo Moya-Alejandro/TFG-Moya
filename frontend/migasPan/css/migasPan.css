@@ -1,3 +1,5 @@
+/*Los estilos no comentados es porque ya han sido comentados en otros css al ser muy parecidos o son muy simples*/
+
 #migasPan {
     list-style: none;
     display: inline-block;
@@ -6,7 +8,7 @@
 #migasPan li {
     float: left;
 }
-
+/*Estilos para el elemento a dentro del li, tendrá un color, una disposición en block, un color de fondo, sin decoración de texto...*/
 #migasPan li a {
     color: #FFF;
     display: block;
@@ -20,6 +22,7 @@
     margin-right: 23px;
 }
 
+/*Para los elementos imparés el color de fondo será distinto*/
 #migasPan li:nth-child(even) a {
     background-color: #1e5b85;
 }
@@ -33,6 +36,7 @@
     border-left-color: #1e5b85;
 }
 
+/*Borde para el elemento a del primero elemento después de li*/
 #migasPan li:first-child a {
     padding-left: 15px;
     -webkit-border-radius: 4px 0 0 4px;
@@ -46,6 +50,7 @@
     border: none;
 }
 
+/*Borde para el último elemento a dentro de los elemento li*/
 #migasPan li:last-child a {
 padding-right: 15px;
 -webkit-border-radius: 0 4px 4px 0;
@@ -54,9 +59,12 @@ padding-right: 15px;
 -o-border-radius: 0 4px 4px 0;
 border-radius: 0 4px 4px 0;
 }
+
 #migasPan li:last-child a:after {
     border: none;
 }
+
+/*Posición para a:before y a:after, tamaño de borde, anchura y altura, color de borde*/
 #migasPan li a:before, #migasPan li a:after {
     content: "";
     position: absolute;
@@ -66,32 +74,40 @@ border-radius: 0 4px 4px 0;
     width: 0;
     height: 0;
 }
+
 #migasPan li a:before {
     left: -20px;
     border-left-color: transparent;
 }
+/*De aquí hacia abajo los estilos cambian solo el color del fondo y de los bordes de la migas de pan */
 #migasPan li a:after {
     left: 100%;
     border-color: transparent;
     border-left-color: #3498db;
 }
+
 #migasPan li a:hover {
     background-color: #0c3a58;
 }
+
 #migasPan li a:hover:before {
     border-color: #0c3a58;
     border-left-color: transparent;
 }
+
 #migasPan li a:hover:after {
     border-left-color: #0c3a58;
 }
+
 #migasPan li a:active {
     background-color: #052135;
 }
+
 #migasPan li a:active:before {
     border-color: #052135;
     border-left-color: transparent;
 }
+
 #migasPan li a:active:after {
     border-left-color: #052135;
 }

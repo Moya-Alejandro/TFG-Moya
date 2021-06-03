@@ -1,3 +1,4 @@
+/*Clases para el label e input de los likes, cambiaemos su tamaño y esconderemos el input*/
 .likes label{
     cursor: pointer;
     font-size: 1.5rem;

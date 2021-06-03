@@ -11,6 +11,17 @@
         $error = $_GET["error"];
     }
 
+    //En caso de que el rol del usuario no sea admin, te redirijirá a inicio
+    if($_SESSION["rol"] != "admin"){
+        header('Location: ../index/index.php');
+    }
+
+    //En caso de que el enlace sea escrito por la barra de búsqueda nos devolverá al index
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header("Location: ../../frontend/index/index.php");
+        exit;
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +33,7 @@
         <link rel="stylesheet" href="css/crearArticulo.css">
         <link rel="stylesheet" href="../index/css/index.css">
         <link rel="stylesheet" href="../migasPan/css/migasPan.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="index">
         <div class="cuerpo">
@@ -97,9 +109,13 @@
                                 </div>
                             </div>
                             </div>
-                            <div>
-                                <p><strong><?php echo $error?></strong></p>
-                                <button type="submit">Crear</button>
+                            <div class="botonCrearDiv">
+                                <?php 
+                                    if(isset($_GET['error']) && $_GET['error'] == "$error"){ 
+                                        echo "<script>swal('Melilla Shooting', '$error', 'error');</script>";
+                                    }
+                                ?>
+                                <button class="botonCrear" type="submit"><div class="crearArticulo">Crear</div></button>
                             </div>
                         </form>
                     </div>

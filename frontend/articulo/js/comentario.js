@@ -36,14 +36,18 @@ $(document).ready(function(){
                 comentarios.forEach(comentarios => {
                     //Crearemos los comentarios que existan y en caso de que el id del usuario concuerde saldrán los botones de editar y borrar
                     fila += `
-                    <span>${comentarios.comentario}</span><br>`  
+                    <div class="comentariosJs">
+                    <div class="nombreUsuario">${comentarios.nombreUsuario}</div>
+                    <div class="contComentario">
+                    <div class="comentarioUsuario">${comentarios.comentario}</div>`  
                     
                     if($('.botonComentario').attr('data-idUsuario')==comentarios.idUsuarioComentario || $('.botonComentario').attr('data-rol') == "admin"){
-                        fila += `${comentarios.iconoBorrar} <br>`
+                        fila += `<div class="botonesJs"> ${comentarios.iconoBorrar} `
                     }  
                     if($('.botonComentario').attr('data-idUsuario')==comentarios.idUsuarioComentario || $('.botonComentario').attr('data-rol') == "admin"){
-                        fila += `${comentarios.iconoEditar} <br>`
-                    }  
+                        fila += `${comentarios.iconoEditar} </div> `
+                    }
+                    fila+=`</div></div>`  
                 });
                 //Mostraremos los comentarios en el div con id verComentario
                 $('#verComentario').html(fila);

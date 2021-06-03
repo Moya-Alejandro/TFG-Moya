@@ -22,8 +22,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../perfil/css/perfil.css">
+        <link rel="stylesheet" href="css/registrar.css">
         <link rel="stylesheet" href="../index/css/index.css">
         <link rel="stylesheet" href="../migasPan/css/migasPan.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="index">
         <div class="cuerpo">
@@ -34,7 +36,7 @@
                 </ul>
                 <div class="carta-body">
                     <div class="carta">
-                        <form id="form" action="../../backend/usuario/registrar.php" method="POST">
+                        <form id="formRegistrar" action="../../backend/usuario/registrar.php" method="POST">
                             <h4>Crear Cuenta</h4>
                             <hr>
                             <div class="campos">
@@ -70,27 +72,31 @@
                                 </div>
                                 <div class="campo">
                                     <label for="password">Contraseña</label>
-                                    <input id="password" type="text" name="password" >
+                                    <input id="password" type="password" name="password" >
                                     <p id="errorPassword">Algo ha salido mal</p>
                                 </div>
                                 <div class="campo">
                                     <label for="password2">Repita la contraseña</label>
-                                    <input id="password2" type="text" name="password2" >
+                                    <input id="password2" type="password" name="password2" >
                                     <p id="errorPassword2">La contraseña no coincide</p>
                                 </div>
                             </div>
                             <div class="botonRegistrar">
                                 <?php if($rol != "admin"){?>
-                                <div class="g-recaptcha" data-sitekey="6LcnV-UaAAAAACfyjVinzl95qNZ5eDPPysN61WnI"></div><br/>
+                                <div class="g-recaptcha captcha" data-sitekey="6LcnV-UaAAAAACfyjVinzl95qNZ5eDPPysN61WnI"></div><br/>
                                 <span class="errorCaptcha"><?php echo $error; ?></span>
                                 <?php } ?>
-                                <button class="botonForm" id="botonRegistrar">Registrar Usuario</button>
-                                <?php if($rol != "admin"){?>
-                                <a href="../login/login.php">¿Ya tienes una cuenta?</a>
-                                <?php } ?>
-                            </div>
-                            <div class="error">
-                                <p id="errorForm">Rellene bien los campos.</p>
+                                <?php
+                                    if(isset($_GET['errorSwal']) && $_GET['errorSwal'] == "El usuario ya existe"){ 
+                                    echo "<script>swal('Melilla Shooting', 'Este usuario ya existe', 'warning');</script>";
+
+                                }?>
+                                <div class="abajoRegistrar">
+                                    <button type="submit" class="botonFormRegistrar" id="botonRegistrar">Registrar Usuario</button>
+                                    <?php if($rol != "admin"){?>
+                                    <a class="irALogin" href="../login/login.php">¿Ya tienes una cuenta?</a>
+                                    <?php } ?>
+                                </div>
                             </div>
                         </form>
                     </div>

@@ -1,14 +1,12 @@
 
 //Guardamos en una variable todos los elementos que nos pasamos por el html
-const formulario = document.getElementById('form');
-const inputs = document.querySelectorAll('#form input');
+const formulario = document.getElementById('formLogin');
+const inputs = document.querySelectorAll('#formLogin input');
 
 
 //JQuery pone los estilos de los mensajes de error oculto
 $("#errorUsuario").css("visibility", "hidden");
 $("#errorPassword").css("visibility", "hidden");
-$("#errorForm").css("visibility", "hidden");
-
 
 //En otra variable guardaremos las expresiones regulares, en este caso la del usuario y la contraseña
 const expresiones = {
@@ -61,8 +59,9 @@ formulario.addEventListener('submit', (e) => {
 		formulario.submit();
     } 
     else {
-        errorForm.style.visibility = "visible";
-        setTimeout( () => {errorForm.style.visibility = "hidden";}, 2000);
+		swal("Rellene bien el formulario", {
+			timer: 3000,
+		});
     }
 });
 

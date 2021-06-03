@@ -25,5 +25,4 @@
         $error = "Un artículo depende de esta categoría. Elimine el artículo primero.";
         header("Location: ../../frontend/panel/panelCategoria.php?error=$error");
     }
-
 ?>

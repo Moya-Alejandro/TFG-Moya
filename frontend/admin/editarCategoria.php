@@ -19,6 +19,17 @@
         $error = $_GET["error"];
     }
 
+    //En caso de que el rol del usuario no sea admin, te redirijirá a inicio
+    if($_SESSION["rol"] != "admin"){
+        header('Location: ../index/index.php');
+    }
+    
+    //En caso de que el enlace sea escrito por la barra de búsqueda nos devolverá al index
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header("Location: ../../frontend/index/index.php");
+        exit;
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,6 +40,7 @@
         <link rel="stylesheet" href="../index/css/index.css">
         <link rel="stylesheet" href="css/crearCategoria.css">
         <link rel="stylesheet" href="../migasPan/css/migasPan.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="index">
         <div class="cuerpo">
@@ -46,7 +58,7 @@
                                 <!--Mostramos los valores de la categoría seleccionado para editar-->
                                 <div class="campo">
                                     <label for="nombre">Nombre de la Categoría </label>
-                                    <input class="nombreCategoria" id="nombre" value="<?php echo $opcion['nombre'];?>" type="text" name="nombre">
+                                    <input class="nombreCategoria" id="nombre" value="<?php echo $opcion['nombre'];?>" type="text" name="nombre" required>
                                     <input type ="hidden" name="idOpcion" value="<?php echo $opcion['id']?>">
                                 </div>
                                 <div class="contenedorInputs">
@@ -57,7 +69,7 @@
                                             //Creamos los inputs de los valores ya existentes
                                             foreach($valores as $key => $value){?>
                                         <div class="divValores"> 
-                                            <input value="<?php echo $value['nombre']?>" name="valor[]" type="text">
+                                            <input value="<?php echo $value['nombre']?>" name="valor[]" type="text" required>
                                             <input type ="hidden" value="<?php echo $value['id']?>" name="idValor[]">
                                                 <?php if($key == 0){ ?>
                                                     <form>
@@ -72,9 +84,13 @@
                                             <?php } ?>
                                     </div>
                                 </div>
-                                <button>Crear</button>
+                                <button class="botonCrear"><div class="botonCrearDiv">Crear</div></button>
                             </div>
-                            <p style="color:red;"><strong><?php echo $error?></strong></p>
+                            <?php 
+                                if(isset($_GET['error']) && $_GET['error'] == "$error"){ 
+                                    echo "<script>swal('Melilla Shooting', '$error', 'error');</script>";
+                                }
+                            ?>
                         </form>
                     </div>
                 </div>

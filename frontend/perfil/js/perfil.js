@@ -1,6 +1,6 @@
-//Función que utilizaremos con sweet alert para mostrar una confirmación de elimiar el artículo
-function confirmarBorrar(idArticulo){
-    swal("¿Quieres eliminar el artículo?", {
+//Función que utilizaremos con sweet alert para mostrar una confirmación de elimiar el usuario
+function confirmarBorrar(idUsuario){
+    swal("¿Quieres eliminar tu usuario?", {
         buttons: {
             cancel: "Cancelar",
             catch: {
@@ -12,7 +12,7 @@ function confirmarBorrar(idArticulo){
         .then((value) => {
         switch (value) {
             case "borrar":
-                window.location= "../../backend/admin/borrarArticulo.php?idArticulo="+idArticulo;
+                window.location= "../../backend/usuario/borrarPerfil.php?id="+idUsuario;
             break;
         }
     });

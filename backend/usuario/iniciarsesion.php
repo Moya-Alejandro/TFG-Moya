@@ -1,4 +1,10 @@
 <?php
+    //En caso de que el enlace sea escrito por la barra de búsqueda nos devolverá al index
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header("Location: ../../frontend/index/index.php");
+        exit;
+    }
+	
 	//Enlazamos el archivo donde tenemos las funciones
     require '../bd/conectarBD.php';
     require '../bd/DAOusuario.php';

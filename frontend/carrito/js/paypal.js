@@ -1,7 +1,8 @@
 
+/*Recogemos el total para pasarselo al pago final*/
 let total =  $('#paypal-button-container').attr('data-total');
 
-//Renderiza el boton de paypal 
+//Estilos y funcionalidad del boton de paypal
 paypal.Buttons({
 
     createOrder: function(data, actions) {

@@ -4,24 +4,29 @@
     box-sizing: border-box;
 }
   
+/*Padding para el carrito*/
 .carrito{
     padding: 2rem;
 }
 
+/*El contenedor que tiene todos los contenidos tendrá una altura minima 90vh*/
 .cuerpo{
     min-height: 90vh;
 }
 
+/*Escondemos la imagen de la tabla*/
 .tablaImg{
     display: none;
 }
 
+/*Para que sea responsive le ponemos una barra slider y un padding*/
 .contenedorCarrito{
     overflow-x: auto;
     width: 95vw;
     padding: 1.5rem 2rem;
 }
 
+/*Estilos para la tabla, tamaño, tamaño minimo, la alineación del texto, los bordes, el color de fondo, sombra*/
 .table {
     width: 100%;
     min-width: 20%;
@@ -33,18 +38,68 @@
 
 }
 
+/*El color del icono*/
+#iconoBorrar{
+    color: #4b79b7;
+}
 
+/*Estilos para el div La disposición será en block */
+.botonVaciarCarrito{
+    text-decoration: none;
+    padding: 0.2rem;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+}
+
+/*Cuando pasemos el ratón por encima cambiaremos el color y el color de fondo*/
+.botonVaciarCarrito:hover, .botonActualizarCantidad:hover{
+    color: black;
+    background-color: #ffffff;
+}
+
+/*El elemento a dentro de botonVaciarCarrito será blanco sin decoración */
+.botonVaciarCarrito a{
+    text-decoration: none;
+    color: white;
+}
+
+/*Cuando pasemos el ratón por encima el elemento a de la clase botonVaciarCarrito se pondrá negro*/
+.botonVaciarCarrito:hover a{
+    color: black;
+}
+
+/*Estilos para el boton actualizar cantidad*/
+.botonActualizarCantidad{
+    text-decoration: none;
+    padding: 0.2rem;
+    font-weight: 600;
+    font-size: 13px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+    margin: 1rem;
+}
+
+/*Estilos para th y td*/
 th,td{
     padding: 20px;
     text-align: center;
 }
 
+/*Estilos para thead*/
 thead{
     background-color: #4a79b6;
     color: white;
     border-bottom: solid 5px #243bb7;
 }
 
+
+/*Media Querys que según el tamaño se irán cambiando clases e ids para que sea responsive*/
 @media screen and (max-width: 1720px) and (min-width: 1000px){
     .tablaImg{
        display: flex;

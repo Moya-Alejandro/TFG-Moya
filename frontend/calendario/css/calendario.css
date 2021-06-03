@@ -1,21 +1,22 @@
+/*El contenedor de la imagen será de 90rem y la disposición será en block*/
 .contenedorImagen{
     width: 90rem;
     height: 90rem;
+    display: block;
 }
 
+/*La imagen ocupará todo su tamaño*/
 .imagenCalendario{
     width: 100%;
     height: 100%;
 }
 
-.contenedorImagen{
-    display: block;
-}
-
+/*El contenedor padré tendrá un padding*/
 .contenedorCalendario{
     padding: 1.5rem 2rem;
 }
 
+/*Para que sea responsive pondremos un overflow que es una barra slider*/
 .imagenesCalendario{
     overflow-x: auto;
     overflow-y: auto;

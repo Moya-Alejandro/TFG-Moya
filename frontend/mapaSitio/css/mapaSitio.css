@@ -1,3 +1,6 @@
+/*Los estilos no comentados es porque han sido comentados en otro css o son muy simples*/
+
+/*Tamaño del contenedor mapaSition con una separación entre contenidos, mostraremos sus contenidos con flex wrap y lo centraremos*/
 .mapaSitio{
     grid-gap: 2rem;
     display: flex;
@@ -13,12 +16,14 @@ h1{
     padding: 1.5rem 2rem;
 }
 
+/*Tamaño de la imagen y margen automático*/
 .contImg{
     width: 150px;
     height: 150px;
     margin:auto;
 }
 
+/*La imagen ocupará todo el contenedor*/
 img{
     height: 100%;
     width: 100%;
@@ -32,9 +37,10 @@ img{
     min-height: 90vh;
 }
 
+/*Color de los elementos a dentro de ul y li, y la duración de su transformación*/
 .listaMapa ul a,.listaMapa li a{
     text-decoration: none;
-    color: black;
+    color: rgb(113, 126, 241);
     transition-duration: 0.3s;  
     
 }
@@ -43,10 +49,12 @@ img{
     list-style: none;
 }
 
+/*Se hará mas grande el texto al pasar el tatón por encima*/
 .listaMapa li:hover{
     transform: scale(1.02);
 }
 
+/*Media Querys que según el tamaño se irán cambiando clases e ids para que sea responsive*/
 @media only screen and (min-width: 720px) {
     .listaMapa{
         display: flex;

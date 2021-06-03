@@ -47,28 +47,22 @@
                     <li><a href=""> <?php echo $fila['nArticulo']?> </a></li>
                 </ul>
                 <div class="contInfo">
-                    <div class="infoArticulo">
-                        <!--Mostramos la información del articulo seleccionado-->
+                    <!--Mostramos la información del articulo seleccionado-->
+                    <div class="contImg">
                         <div class="contImgMostrarArticulo">
                             <img class="imgMostrarArticulo" src="../<?php echo $fila['foto']?>" alt="imagenArticulo">
                         </div>
+                    </div>
+                    <div class="contInformacionArt">
                         <div class="nArticuloInfo">
                             <?php echo $fila['nArticulo']?>
                         </div>
                         <div class="precioInfo">
-                            <?php echo $fila['precio']?>€
-                        </div>
-                        <div class="stockInfo">
-                            <?php echo $fila['stock']?>
+                            <?php echo $fila['precio']?>€<span class="stockDisponible"><?php if($fila['stock'] == 0){ echo "No disponible"; } else{ echo "Disponibles: ".$fila['stock']; }?> </span>
                         </div>
                         <?php if($rol != "invitado"){ ?>
-                            <button class="botonComprar" <?php if($fila['stock'] == 0){ echo "onclick='stockVacio()'"; } ?> class="enviar" id="insertarCarrito" name="insertarCarrito" data-tipo = "<?php echo $tipo?>"data-id="<?php echo $fila['id']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar</button>
+                            <div class="botonComprar"><button <?php if($fila['stock'] == 0){ echo "onclick='stockVacio()'"; } ?> class="enviar" id="insertarCarrito" name="insertarCarrito" data-tipo = "<?php echo $tipo?>"data-id="<?php echo $fila['id']?>" data-stock ="<?php echo $fila['stock']?>" data-cantidad="1" data-name="<?php echo $fila['nArticulo']?>">Comprar</button></div>
                         <?php } ?>
-                        <div class="descripcionInfo">
-                            <?php echo $fila['detalles']?>
-                        </div>
-                    </div>
-                    <div class="experiencia">
                         <!--En caso de que no seamos un invitado, podremos darle a like y comentar-->
                         <?php if($rol!="invitado"){ ?>
                         <div class="likes">
@@ -80,13 +74,19 @@
                             <input class="like borrarLike" name="borrarLike" id="borrarLike" data-idArticulo="<?php echo $idArticulo;?>" data-valor="0">
                         </div>
                         <?php } ?>
-                        <?php if($rol != "invitado"){?>
-                        <form id="comentarioForm">
-                            <textarea class="textAreaArticulo" name="comentario" id="comentario" minlength="0" maxlength="1000" cols="90" rows="3"></textarea><?php if($rol!="invitado"){ ?><button class="botonComentario" name="comentario" id="comentario" data-idArticulo = "<?php echo $idArticulo;?>" data-rol="<?php echo $_SESSION["rol"]; ?>" data-idUsuario="<?php echo $_SESSION["id"]; ?>">Comentar</button></form><div id="verComentario"></div><?php } ?>
-                            <button type="hidden" class="botonComentario esconder" name="comentario" id="comentario" data-idArticulo = "<?php echo $idArticulo;?>"></button><div id="verComentario2"></div> <br>
-                        <?php } ?>
+                        <div class="descripcionInfo">
+                            <?php echo $fila['detalles']?>
+                        </div>
+                        
                     </div>
                 </div>
+                    <div class="comentarios">
+                    <?php if($rol != "invitado"){?>
+                        <form id="comentarioForm">
+                            <textarea class="textAreaArticulo" name="comentario" id="comentario" minlength="0" maxlength="1000" cols="90" rows="3"></textarea><?php if($rol!="invitado"){ ?><button class="botonComentario" name="comentario" id="comentario" data-idArticulo = "<?php echo $idArticulo;?>" data-rol="<?php echo $_SESSION["rol"]; ?>" data-idUsuario="<?php echo $_SESSION["id"]; ?>">Comentar</button></form><div id="verComentario"></div><?php } ?>
+                            <button type="hidden" class="botonComentario esconder" name="comentario" id="comentario" data-idArticulo = "<?php echo $idArticulo;?>"></button><?php if($rol=="invitado"){ ?><div id="verComentario2"></div><?php } ?> <br>
+                        <?php } ?>
+                    </div>  
             </div>
         </div>
         <?php require_once('../footer/footer.php') ?>   

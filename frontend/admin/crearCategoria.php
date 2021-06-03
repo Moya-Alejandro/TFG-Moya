@@ -6,6 +6,17 @@
     if(isset($_GET["error"])){
         $error = $_GET["error"];
     }
+
+    //En caso de que el enlace sea escrito por la barra de búsqueda nos devolverá al index
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header("Location: ../../frontend/index/index.php");
+        exit;
+    }
+
+    //En caso de que el rol del usuario no sea admin, te redirijirá a inicio
+    if($_SESSION["rol"] != "admin"){
+        header('Location: ../index/index.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,6 +27,7 @@
         <link rel="stylesheet" href="css/crearCategoria.css">
         <link rel="stylesheet" href="../index/css/index.css">
         <link rel="stylesheet" href="../migasPan/css/migasPan.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="index">
         <div class="cuerpo">
@@ -32,7 +44,7 @@
                             <div class="campos">
                                 <div class="campo">
                                     <label for="nombre">Nombre de la Categoría</label><br>
-                                    <input id="nombre" placeholder="Nombre de la Categoría" type="text" name="nombre">
+                                    <input id="nombre" placeholder="Nombre de la Categoría" type="text" name="nombre" required>
                                 </div>
                                 <div class="contenedorInputs">
                                     <p class="valores">Valores<label for="crearValor"> <i class="fas fa-plus-square"></i></label></p>
@@ -40,13 +52,17 @@
                                     <input id="crearValor" class="botonCrearValor" type="button" value="Crear" onclick="crearInputs()">
                                     <div id="inputs">
                                         <div class="divValores" id="1">
-                                            <input name="valor[]" type="text">
+                                            <input name="valor[]" type="text" required>
                                         </div>
                                     </div>
                                 </div>
-                                <button>Crear</button>
+                                <button class="botonCrear"><div class="botonCrearDiv">Crear</div></button>
                             </div>
-                            <p style="color:red;"><strong><?php echo $error?></strong></p>
+                            <?php 
+                                if(isset($_GET['error']) && $_GET['error'] == "$error"){ 
+                                    echo "<script>swal('Melilla Shooting', '$error', 'error');</script>";
+                                }
+                            ?>
                         </form>
                     </div>
                 </div>

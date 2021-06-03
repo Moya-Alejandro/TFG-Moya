@@ -26,35 +26,55 @@
         <link rel="stylesheet" href="css/panel.css">
         <link rel="stylesheet" href="../index/css/index.css">
         <link rel="stylesheet" href="../migasPan/css/migasPan.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="index">
         <div class="cuerpo">
-            <div class="contenedor">
+            <div class="contenedorPanelCategoria">
                 <ul id="migasPan">
                     <li><a href="../index/index.php"> Inicio </a></li>
                     <li><a href=""> Panel de Categorías </a></li>
                 </ul>
-                <div id="contenedorPrincipal">
-                    <a href="../admin/crearCategoria.php"><i class="fas fa-plus"></i></a>
+                <div id="categoriasCartas">
                     <?php
                         //Conectamos a la base de datos y mostramos por un while los valores de las categorías
                         $conexion = conectarBd(true);
                         $result = mostrarCategorias($conexion);
                         while ($fila = mysqli_fetch_assoc($result)) {
                     ?>
-                    <div id="contenedor">
-                        <?php echo $fila['nombre']?>
-                        <a href="../admin/editarCategoria.php?idCategoria=<?php echo $fila['id']?>"><i class="fas fa-edit"></i></a>
-                        <a href="../../backend/admin/borrarCategoria.php?idCategoria=<?php echo $fila['id']?>"><i class="fas fa-trash-alt"></i></a>
+                    <div id="categoriasCarta">
+                        <div class="nombreCategoria">
+                            <b><?php echo $fila['nombre']?></b>
+                        </div>
+                        <div class="botonesCategoria">
+                            <a href="../admin/editarCategoria.php?idCategoria=<?php echo $fila['id']?>">
+                                <div class="botonEditarCategoria">
+                                    <button class="botonBlanco">Editar</button>&nbsp<i class="fas fa-edit"></i>
+                                </div>
+                            </a>
+                            <div onclick="confirmarBorrar(<?php echo $fila['id']?>)" class="botonBorrarCategoria">
+                                <button class="botonBlanco">Borrar</button>&nbsp<i class="fas fa-trash-alt"></i>
+                            </div>
+                        </div>
                     </div>
                     <?php
                         }
                     ?>
                 </div>
-                <p style="color:red;"><strong><?php echo $error?></strong></p>
+                <?php 
+                    if(isset($_GET['error']) && $_GET['error'] == "$error"){ 
+                        echo "<script>swal('Melilla Shooting', '$error', 'error');</script>";
+                    }
+                ?>
+                <a class="hrefBotonCrear" href="../admin/crearCategoria.php">
+                    <div class="botonCrear" >
+                        <button class="botonBlanco">Crear Categoría</button>&nbsp<i class="fas fa-plus"></i>
+                    </div>
+                </a>
             </div>
         </div>
         <?php require_once('../footer/footer.php') ?>   
     </body>
 </html>
 <script src="https://kit.fontawesome.com/143eda576b.js" crossorigin="anonymous"></script>
+<script src="js/panelCategoria.js"></script>

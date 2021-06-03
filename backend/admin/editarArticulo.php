@@ -78,7 +78,7 @@
         header("Location: ../../frontend/panel/panelArticulo.php");
     }
     catch(Exception $e){
-        $error = $e->getMessage();
+        $error = "Este artículo ya existe";
         header("Location: ../../frontend/admin/editarCategoria.php?idCategoria=$idArticulo&error=$error");
     }
 

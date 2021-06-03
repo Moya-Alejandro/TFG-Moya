@@ -22,7 +22,7 @@
         header("Location: ../../frontend/panel/panelUsuario.php");
     }
     catch(Exception $e){
-        $error = $e->getMessage();
+        $error = "Hubo un fallo al hacer al usuario admin";
         header("Location: ../../frontend/panel/panelUsuario.php?error=$error");
     }
 

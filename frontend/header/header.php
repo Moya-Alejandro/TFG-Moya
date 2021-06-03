@@ -49,7 +49,7 @@
                             <li><a href="../panel/panelArticulo.php">Artículos</a></li>
                             <li><a href="../panel/panelCategoria.php">Categorías</a></li>
                             <li><a href="../panel/panelUsuario.php">Usuarios</a></li>
-                            <li><a href="../../backend/usuario/cerrarSesion.php">Desconectarse</a></li>
+                            <li><a href="../../backend/usuario/cerrarsesion.php">Desconectarse</a></li>
                         <?php
                         }
                         elseif($rol=="invitado"){

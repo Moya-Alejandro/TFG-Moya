@@ -1,28 +1,36 @@
+/* Boton invisible para subir la imagen */
 .subirImagen{
     display: none;
 }
 
+/* Tamaño de las imagenes */
 img{
     width: 200px;
     height: 200px;
 }
 
+/* Tamaño del div que contiene el cuerpo de los contenidos */
 .cuerpo{
     min-height: 90vh;
 }
 
+/* Ancho del textarea */
 textarea{
     width: 100%;
 }
+
+/* Separación del body y del contenedorCrearArticulo, para que haya un cierto margen */
 .contenedorCrearArticulo{
-    padding: 1.5rem 0.37rem;
+    padding: 1.5rem 2rem;
 }
 
+/*Mostramos la imagen por disposición flex y la centramos*/
 .contenedorImg{
     display: flex;
     justify-content: center;
 }
 
+/* Separación exterior de la carta body, que es el cuerpo que tiene las cartas y centramos las cartas y las disponemos en flex */
 .carta-body{
     padding: 2.5rem;
     display: flex;
@@ -30,6 +38,7 @@ textarea{
     align-items: center;
 }
 
+/*Disposición en flex y centramos los contenidos del div tipo, la ponemos en negrita y le ponemos un margen*/
 .tipo{
     display: flex;
     justify-content: center;
@@ -38,6 +47,7 @@ textarea{
     font-weight: 600;
 }
 
+/*Disposición en negrita y centramos los contenidos del div categorias, la ponemos en negrit y un margen por abajo*/
 .categoria{
     display: flex;
     justify-content: center;
@@ -45,40 +55,88 @@ textarea{
     font-weight: 600;
 }
 
+/*Centramos el texto y cambiamos su tamaño*/
 h4{
     text-align: center;
     font-size: 30px;
 }
 
+/*Borde azul para la carta y un espacio entre ellas*/
 .carta{
-    border: solid 1px black;
     padding: 1rem;
+    box-shadow: 0px 0px 3px 1px #6ca7f2;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
+/*Cambiamos el tamaño del input*/
 .inputForm{
     outline: none;
     width: 100%;
     height: 1.5rem;
 }
 
+/*Cambiamos el tamaño del titulo h2, lo centramos y ponemos un margen por abajo*/
 h2{
     text-align: center;
     font-size: 30px;
     margin-bottom: 1rem;
 }
 
+/*Disposición de los campos grid, con una separación entre ello y una separación entre el contenedor campos y el exterior*/
 .campos{
     padding: 1rem 0.5rem;
     display: grid;
     grid-gap: 1rem;
 }
 
+/*Disposición en grid, y separamos los contenidos en 2 columnas y una fila*/
 .campoTipo{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
 }
 
+/*Estilos para el boton .crearArticulo*/
+.crearArticulo{
+    text-decoration: none;
+    padding: 0.2rem;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+}
+
+/*Disposición en flex y centramos el texto del boton*/
+.botonCrearDiv{
+    display: flex;
+    justify-content: center;
+}
+
+/*Cambiamos el texto y el fondo cuando pasamos el ratón por encima*/
+.crearArticulo:hover{
+    color: black;
+    background-color: #ffffff;
+}
+
+/*Estilos para el .botonCrear*/
+.botonCrear{
+    background: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    background-color: transparent;
+    text-decoration: none;
+    color: white;
+    width: 6rem;
+}
+
+
+/*Cuando la anchura sea 650 px minimo cambiamos algunos atributos para que sea responsive*/
 @media only screen and (min-width: 650px) {
     .imgCampos{
         display: grid;
@@ -110,7 +168,7 @@ h2{
 
 }
 
-
+/*Cuando la anchura sea 950 px minimo cambiamos algunos atributos para que sea responsive*/
 @media only screen and (min-width: 950px) {
 
     img{
@@ -119,3 +177,15 @@ h2{
     }
 
 }
+
+/*Cuando la anchura sea 540 px maximo cambiamos algunos atributos para que sea responsive*/
+@media only screen and (max-width: 540px) {
+
+    .categoriaSelect{
+        display: grid;
+        grid-gap: 0.2rem;
+        justify-content: center;
+    }
+
+}
+

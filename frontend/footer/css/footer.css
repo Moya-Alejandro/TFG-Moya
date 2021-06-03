@@ -1,4 +1,5 @@
 
+/*Footer tendrá un ancho completo de 100%, un color de fondo, la letra será blanca y la altura se modificará según su contenido*/
 footer{
     width: 100%;
     background-color: #00309d;
@@ -6,72 +7,86 @@ footer{
     height: fit-content;
 }
 
+/*El contenedor Footer tendrá una anchura del 100% y su máximo sera de 1200px con un margen automático*/
 .contenedorFooter{
     width: 100%;
     max-width: 1200px;
     margin: auto;
 }
 
+/*El contenedor que tendrá todo el contenido tendrá una disposición en flex, un padding y una separación entre ellos*/
 .cuerpo-contenedor{
     display: flex;
     justify-content: space-between;
     padding:40px;
 }
 
+/*Las columnas tendrán un ancho máximo de 400px*/
 .columna1, .columna2, .columna3{
     max-width: 400px;
 }
 
+/*Los titulos de las columnas tendrán un tamaño de texto de 22px*/
 .columna1 h1, .columna2 h1, .columna3 h1{
     font-size: 22px;
 }
 
+/*El elemento p dentro de la columna tendrá un tamaño de letra un color y un margen superior*/
 .columna1 p{
     font-size: 14px;
     color: #C7C7C7;
     margin-top: 20px;
 }
 
+/*La clase fila dentro de columna 2 tendrá un margen superior y una disposición en flex*/
 .columna2 .fila{
     margin-top: 20px;
     display: flex;
 }
 
+/*Fila 2 tendrá un margen superior y una disposición en flex*/
 .fila2{
     margin-top: 20px;
     display: flex;
 }
 
+/*Los elementos a dentro de la clase fila, no tendrán decoración y su color será blanco*/
 .fila a{
     text-decoration: none;
     color: white;
 }
 
+/*Cuando el ratón pase por encima de la clase fila se cambiará el color del elemenot a*/
 .fila a:hover{
     color: rgb(161, 156, 156);
 }
 
+/*Tamaño de las imagenes dentro de la clase fila*/
 .fila img{ 
     width: 36px;
     height: 36px;
 }
 
+/*Tamaño de las imagenes dentro de la clase fila2*/
 .fila2 img{
     width: 36px;
     height: 36px;
 }
 
+/*Margen y color para el elemento label dentro de la clase fila*/
 .fila label{
     margin-top: 10px;
     margin-left: 20px;
     color: #C7C7C7;
 }
 
+/*Margen superior e izquierdo para el elemnto label dentro de la clase fila2*/
 .fila2 label{
     margin-top: 10px;
     margin-left: 20px;
 }
 
+/*La clase cuerpo footer, tendrá un ancho máximo de 100%, un color de fondo, un padding y una disposición en flex con separación entre los contenidos*/
 .cuerpo-footer{
     width: 100%;
     background: #609cf0;
@@ -80,10 +95,12 @@ footer{
     padding: 20px;
 }
 
+/*Color de las clases copyright y terminos*/
 .copyright, .terminos{
     color: white;
 }
 
+/*Media Querys que según el tamaño se irán cambiando clases e ids para que sea responsive*/
 @media screen and (max-width: 1100px){
 
     .cuerpo-contenedor{
