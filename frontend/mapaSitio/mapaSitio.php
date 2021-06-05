@@ -5,7 +5,7 @@
     $rol = "";
     if(isset($_SESSION["rol"])){
         $rol = $_SESSION["rol"];
-    }
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -55,7 +55,7 @@
                                         <?php } else{ ?>
                                         <li class="liHijo"><a href="../perfil/perfil.php">Perfil</a></li>
                                         <li class="liHijo"><a href="../carrito/verCarrito.php">Carrito</a></li>
-                                        <li class="liHijo"><a href="../../backend/usuario/cerrarSesion.php">Desconectarse</a></li>
+                                        <li class="liHijo"><a href="../../backend/usuario/cerrarsesion.php">Desconectarse</a></li>
                                         <?php } ?>
                                     </ul>
                                 </ul>

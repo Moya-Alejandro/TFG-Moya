@@ -7,7 +7,7 @@
 	if(session_start()&&isset($_SESSION["rol"])){
         $rol = $_SESSION['rol'];
     }
-	
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,7 +40,7 @@
                         if($rol=="usuario"){
                         ?>
                             <li><a href="../perfil/perfil.php">Perfil</a></li>  
-                            <li><a href="../../backend/usuario/cerrarSesion.php">Desconectarse</a></li>
+                            <li><a href="../../backend/usuario/cerrarsesion.php">Desconectarse</a></li>
                         <?php
                         }
                         elseif($rol=="admin"){
