@@ -54,22 +54,22 @@
                                     </a>
                                 </div>
                                 <div class="carousel-item">
-                                    <a href="../articulo/mostrarArticulo.php?id=<?php echo $masVotados[0]["idArticulo"]?>&tipo=<?php echo $masVotados[1]["tipo"]?>">
+                                    <a href="../articulo/mostrarArticulo.php?id=<?php echo $masVotados[1]["idArticulo"]?>&tipo=<?php echo $masVotados[1]["tipo"]?>">
                                         <img src="../<?php echo $masVotados[1]["foto"]?>" width="100%" class="d-block w-100 imagenes" alt="...">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
-                                    <a href="../articulo/mostrarArticulo.php?id=<?php echo $masVotados[0]["idArticulo"]?>&tipo=<?php echo $masVotados[2]["tipo"]?>">
+                                    <a href="../articulo/mostrarArticulo.php?id=<?php echo $masVotados[2]["idArticulo"]?>&tipo=<?php echo $masVotados[2]["tipo"]?>">
                                         <img src="../<?php echo $masVotados[2]["foto"]?>" width="100%" class="d-block w-100 imagenes" alt="...">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
-                                    <a href="../articulo/mostrarArticulo.php?id=<?php echo $masVotados[0]["idArticulo"]?>&tipo=<?php echo $masVotados[3]["tipo"]?>">
+                                    <a href="../articulo/mostrarArticulo.php?id=<?php echo $masVotados[3]["idArticulo"]?>&tipo=<?php echo $masVotados[3]["tipo"]?>">
                                         <img src="../<?php echo $masVotados[3]["foto"]?>" width="100%" class="d-block w-100 imagenes" alt="...">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
-                                    <a href="../articulo/mostrarArticulo.php?id=<?php echo $masVotados[0]["idArticulo"]?>&tipo=<?php echo $masVotados[4]["tipo"]?>">
+                                    <a href="../articulo/mostrarArticulo.php?id=<?php echo $masVotados[4]["idArticulo"]?>&tipo=<?php echo $masVotados[4]["tipo"]?>">
                                         <img src="../<?php echo $masVotados[4]["foto"]?>" width="100%" class="d-block w-100 imagenes" alt="...">
                                     </a>
                                 </div>
