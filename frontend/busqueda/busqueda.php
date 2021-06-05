@@ -57,7 +57,7 @@
                         <?php while($fila = mysqli_fetch_assoc($articulos)){ ?>
                         <div id="articulos">
                             <div class="contenedorImagen">
-                                <a href="mostrarArticulo.php?id=<?php echo $fila['id']?>"><img class="imgCarta" src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></a>
+                                <a href="../articulo/mostrarArticulo.php?id=<?php echo $fila['id']?>"><img class="imgCarta" src="../<?php echo $fila['foto']?>" alt="imagenArticulo"></a>
                             </div>
                             <div class="contenedorNombreArticulo">
                                 <?php echo $fila['nArticulo']?>
